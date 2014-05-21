@@ -281,4 +281,8 @@ public class CheckListInformationFacade {
         }
         return true;
     }
+
+    public void setProjectPath(String path) {
+        createCheckListInformationReader().setProjectPath(path);
+    }
 }

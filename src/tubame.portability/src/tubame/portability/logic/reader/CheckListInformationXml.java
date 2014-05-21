@@ -39,6 +39,7 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.logic.CreateCheckListInfomationFile;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 
@@ -58,6 +59,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      * Document object
      */
     private Document doc;
+
+    private String projectPath;
 
     /**
      * Adapter for speed improvement
@@ -244,6 +247,11 @@ public class CheckListInformationXml implements CheckListInformationReader {
         xpath = factory.newXPath();
     }
 
+    @Override
+    public void setProjectPath(String path) {
+        this.projectPath = path;
+    }
+
     /**
      * Get the checklist information file path.<br/>
      * 
@@ -252,7 +260,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      *             Self Plugin directory failure
      */
     protected String createTargetFilePath() throws IOException {
-        String path = PluginUtil.getPluginDir()
+//        String path = PluginUtil.getPluginDir()
+        String path = ((this.projectPath == null) ? ProjectUtil.getCurrentProjectPath() : this.projectPath)
                 + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
         LOGGER.debug(MessageUtil.INF_CHECKLIST_INFORMATION_PATH + path);
         return path;

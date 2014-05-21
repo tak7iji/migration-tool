@@ -40,6 +40,7 @@ import tubame.portability.logic.JbmWriteFacade;
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.editor.MigrationEditorOperation;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -71,7 +72,8 @@ public class SaveCsvAction extends AbstractJbmEditorCommandButton {
         TreeViewer treeViewer = editor.getTreeViewer();
         List<JbmEditorMigrationRow> list = createEditorViewData(treeViewer);
         try {
-            String temporaryCsvFilePath = PluginUtil.getPluginDir()
+//            String temporaryCsvFilePath = PluginUtil.getPluginDir()
+            String temporaryCsvFilePath = ProjectUtil.getCurrentProjectPath()
                     + ApplicationPropertyUtil.OUTPUT_TEMPORARY_CSV;
             outputTemporaryCsv(list, temporaryCsvFilePath);
 
@@ -108,9 +110,9 @@ public class SaveCsvAction extends AbstractJbmEditorCommandButton {
         } catch (JbmException e) {
             PluginUtil.viewErrorDialog(ResourceUtil.OUTPUT_CSV,
                     MessageUtil.ERR_OUTPUT_CSV, e);
-        } catch (IOException e) {
-            PluginUtil.viewErrorDialog(ResourceUtil.OUTPUT_CSV,
-                    MessageUtil.ERR_OUTPUT_CSV, e);
+//        } catch (IOException e) {
+//            PluginUtil.viewErrorDialog(ResourceUtil.OUTPUT_CSV,
+//                    MessageUtil.ERR_OUTPUT_CSV, e);
         }
     }
 

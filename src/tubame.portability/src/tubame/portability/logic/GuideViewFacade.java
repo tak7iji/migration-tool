@@ -30,6 +30,7 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.plugin.view.HtmlGuideView;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -92,10 +93,13 @@ public class GuideViewFacade {
      */
     public static void view(String guideNo) throws IOException {
         // Guide chapter numbers get chosen
-        String url = GuideViewFacade.createUrlPath(PluginUtil.getPluginDir()
-                + GuideViewFacade.GUIDE_FILE_PATH, guideNo);
-        if (new File(PluginUtil.getPluginDir()
-                + GuideViewFacade.GUIDE_FILE_PATH).exists()) {
+//        String url = GuideViewFacade.createUrlPath(PluginUtil.getPluginDir()
+//                + GuideViewFacade.GUIDE_FILE_PATH, guideNo);
+//        if (new File(PluginUtil.getPluginDir()
+//                + GuideViewFacade.GUIDE_FILE_PATH).exists()) {
+        String guideFile = ProjectUtil.getCurrentProjectPath() + GuideViewFacade.GUIDE_FILE_PATH;
+        String url = GuideViewFacade.createUrlPath(guideFile, guideNo);
+        if (new File(guideFile).exists()) {
             try {
                 IWorkbenchPage workBenchPage = PluginUtil.getActivePage();
                 HtmlGuideView viewPart = (HtmlGuideView) workBenchPage

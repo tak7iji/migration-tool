@@ -161,6 +161,7 @@ public interface CheckListInformationReader {
      */
     public void clearAdapter();
     
-	public void setInitila() throws ParserConfigurationException, SAXException,
-			IOException;
+    public void setInitila() throws ParserConfigurationException, SAXException, IOException;
+
+    public void setProjectPath(String path);
 }

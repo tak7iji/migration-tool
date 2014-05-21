@@ -35,6 +35,7 @@ import tubame.portability.model.CheckListInformation;
 import tubame.portability.model.JbmEditorEnum;
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.view.CheckListInformationView;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.resource.MessageUtil;
 
 /**
@@ -112,8 +113,10 @@ public class SelectionChangedListener implements ISelectionChangedListener {
      *            No
      */
     private void printInformationView(String no) {
-		CheckListInformationFactory.getCheckListInformationFacade()
-				.initCheckListInformationReader();
+        CheckListInformationFactory.getCheckListInformationFacade()
+                .setProjectPath(ProjectUtil.getCurrentProjectPath());
+        CheckListInformationFactory.getCheckListInformationFacade()
+                .initCheckListInformationReader();
         CheckListInformation message = new CheckListInformation();
         CheckListInformationFacade facade = CheckListInformationFactory
                 .getCheckListInformationFacade();

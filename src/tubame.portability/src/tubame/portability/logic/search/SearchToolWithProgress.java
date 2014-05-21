@@ -53,6 +53,11 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
      *            Search result output destination file path
      */
     public SearchToolWithProgress(String target, String keywordFilePath,
+            String outFilePath, String projectPath) {
+        super(target, keywordFilePath, outFilePath, projectPath);
+    }
+
+    public SearchToolWithProgress(String target, String keywordFilePath,
             String outFilePath) {
         super(target, keywordFilePath, outFilePath);
 

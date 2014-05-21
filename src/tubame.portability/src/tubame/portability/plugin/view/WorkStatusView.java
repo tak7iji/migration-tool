@@ -152,8 +152,8 @@ public class WorkStatusView extends ViewPart {
 
         WorkStatusView instance = WorkStatusView.getInstance();
         if (instance != null) {
-			CheckListInformationFactory.getCheckListInformationFacade()
-					.initCheckListInformationReader();
+            CheckListInformationFactory.getCheckListInformationFacade()
+                    .initCheckListInformationReader();
             if (list == null) {
                 List<JbmEditorMigrationRow> rowList = WorkStatusView.getList();
                 instance.workText.setText(instance.createStateString(

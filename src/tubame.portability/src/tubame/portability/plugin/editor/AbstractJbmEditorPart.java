@@ -173,7 +173,7 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
     public void init(IEditorSite site, IEditorInput input)
             throws PartInitException {
 
-        preInit();
+        preInit(site, input);
         super.setSite(site);
         super.setInput(input);
 
@@ -203,7 +203,7 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
      * The process before the init method.<br/>
      * 
      */
-    public void preInit() {
+    public void preInit(IEditorSite site, IEditorInput input) {
         // no oparation
     }
 

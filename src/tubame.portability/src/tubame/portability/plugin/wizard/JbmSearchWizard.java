@@ -36,6 +36,7 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
 import tubame.portability.logic.search.SearchToolWithProgress;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
@@ -162,7 +163,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
                     PythonUtil
                             .getSearchKeywordFilePath(ApplicationPropertyUtil.SEARCH_KEYWORD_FILE),
                     PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                            .getOutJbmFileText()));
+                            .getOutJbmFileText()), ProjectUtil.getCurrentProjectPath());
             ProgressMonitorDialog dialog = new ProgressMonitorDialog(
                     PluginUtil.getActiveWorkbenchShell());
             dialog.run(true, true, progress);

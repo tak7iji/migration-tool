@@ -38,6 +38,7 @@ import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
 import tubame.portability.exception.JbmException;
 import tubame.portability.util.CsvUtil;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -87,7 +88,8 @@ public class CreateKeywordSearchFile {
         searchInfoMap = convert.getSearchInfoMap();
 
         try {
-            String csvOutPath = PluginUtil.getPluginDir()
+//            String csvOutPath = PluginUtil.getPluginDir()
+            String csvOutPath = ProjectUtil.getCurrentProjectPath()
                     + ApplicationPropertyUtil.SEARCH_KEYWORD_FILE;
             bw = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(csvOutPath), CsvUtil.CHAR_SET));

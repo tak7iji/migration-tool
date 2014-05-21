@@ -50,6 +50,7 @@ import org.w3c.dom.Text;
 import tubame.portability.exception.JbmException;
 import tubame.portability.model.CheckListInformation;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -265,7 +266,8 @@ public class CreateCheckListInfomationFile {
         DOMSource source = new DOMSource(document);
         String xmlOutPath = "";
         try {
-            xmlOutPath = PluginUtil.getPluginDir()
+//            xmlOutPath = PluginUtil.getPluginDir()
+            xmlOutPath = ProjectUtil.getCurrentProjectPath()
                     + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
 
             StreamResult result = new StreamResult(xmlOutPath);
@@ -277,10 +279,10 @@ public class CreateCheckListInfomationFile {
                     ApplicationPropertyUtil.CHARSET_XML);
             transformer.transform(source, result);
 
-        } catch (IOException e) {
-            // Plug-in directory acquisition failure
-            throw new JbmException(
-                    MessageUtil.ERR_PLUGINUTIL_PLUGIN_DIRECTORY_GET, e);
+//        } catch (IOException e) {
+//            // Plug-in directory acquisition failure
+//            throw new JbmException(
+//                    MessageUtil.ERR_PLUGINUTIL_PLUGIN_DIRECTORY_GET, e);
         } catch (TransformerConfigurationException e) {
             // Transformer generation failure
             throw new JbmException(MessageUtil.ERR_CONVERT_KNOWHOW_XML, e);

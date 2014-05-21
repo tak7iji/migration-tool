@@ -83,6 +83,8 @@ public abstract class AbstractSearchToolWithProgress implements
      */
     private final String outputFilePath;
 
+    private final String projectPath;
+
     /**
      * The decision whether the output file
      */
@@ -101,10 +103,19 @@ public abstract class AbstractSearchToolWithProgress implements
      * 
      */
     public AbstractSearchToolWithProgress(String target,
+            String keywordFilePath, String outFilePath, String projectPath) {
+        inputDirectory = target;
+        inputKeywordFilePath = keywordFilePath;
+        outputFilePath = outFilePath;
+        this.projectPath = projectPath;
+    }
+
+    public AbstractSearchToolWithProgress(String target,
             String keywordFilePath, String outFilePath) {
         inputDirectory = target;
         inputKeywordFilePath = keywordFilePath;
         outputFilePath = outFilePath;
+        this.projectPath = null;
     }
 
     /**
@@ -262,8 +273,8 @@ public abstract class AbstractSearchToolWithProgress implements
             IOException, InterruptedException {
         List<String> lineList = new ArrayList<String>();
         String line = null;
-		CheckListInformationFactory.getCheckListInformationFacade()
-				.initCheckListInformationReader();
+        CheckListInformationFactory.getCheckListInformationFacade()
+                .initCheckListInformationReader();
         // Read one line search results
         while ((line = reader.readLine()) != null) {
             if (monitor.isCanceled()) {
@@ -279,7 +290,7 @@ public abstract class AbstractSearchToolWithProgress implements
                 StringBuffer addColums = createAddColums(line);
                 lineList.add(line + addColums.toString());
             } else {
-            	String message = ResourceUtil.SEARCH_PROGRESS + line;
+                String message = ResourceUtil.SEARCH_PROGRESS + line;
                 monitor.beginTask(message, IProgressMonitor.UNKNOWN);
             }
         }
@@ -294,6 +305,9 @@ public abstract class AbstractSearchToolWithProgress implements
      * @return Add string
      */
     protected StringBuffer createAddColums(String line) {
+        CheckListInformationFactory
+                .getCheckListInformationFacade().setProjectPath(this.projectPath);
+
         String factor = CheckListInformationFactory
                 .getCheckListInformationFacade().getFactorDescription(
                         CsvUtil.getSpecificColumn(line, 0)); // Porting factor
@@ -409,10 +423,10 @@ public abstract class AbstractSearchToolWithProgress implements
             String errorLine;
             StringBuilder pyErrTrace = new StringBuilder();
             while ((errorLine = reader.readLine()) != null) {
-            	pyErrTrace.append(errorLine+"\n");
+                pyErrTrace.append(errorLine+"\n");
             }
             throw new JbmException(new RuntimeException(MessageUtil.ERR_SEARCH_FAILED), LOGGER, ERROR_LEVEL.ERROR,
-            		pyErrTrace.toString());
+                    pyErrTrace.toString());
         }
     }
 
