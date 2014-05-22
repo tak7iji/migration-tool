@@ -75,7 +75,7 @@ public class CreateKeywordSearchFile {
      * @throws JbmException
      *             Portable study tool exception
      */
-    public static void xmlToCsv(PortabilityKnowhowConverter convert)
+    public static void xmlToCsv(PortabilityKnowhowConverter convert, String projectPath)
             throws JbmException {
         List<String> csvData = null;
         BufferedWriter bw = null;
@@ -89,7 +89,7 @@ public class CreateKeywordSearchFile {
 
         try {
 //            String csvOutPath = PluginUtil.getPluginDir()
-            String csvOutPath = ProjectUtil.getCurrentProjectPath()
+            String csvOutPath = projectPath
                     + ApplicationPropertyUtil.SEARCH_KEYWORD_FILE;
             bw = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(csvOutPath), CsvUtil.CHAR_SET));

@@ -25,11 +25,14 @@ public class ProjectUtil {
             .getLogger(ProjectUtil.class);
 
     public static String getCurrentProjectPath() {
-        IProject proj;
+        IProject proj = null;
         proj = PluginUtil.getSelectedProject();
         if (proj == null) {
             IResource resource = getActiveResouce();
             proj = resource.getProject();
+        } 
+        if (proj != null) {
+        	LOGGER.info("Project: "+proj);
         }
         return proj.getLocation().toString() + File.separator;
     }
@@ -47,7 +50,7 @@ public class ProjectUtil {
         LOGGER.debug("EditorPart: "+ieditorpart);
         if (ieditorpart == null) {
             ISelection iselection = iworkbenchwindow.getSelectionService().getSelection();
-            LOGGER.debug("ISelection: "+iselection);
+            LOGGER.info("ISelection: "+iselection);
             return null;
         }
         return extractResource(ieditorpart);

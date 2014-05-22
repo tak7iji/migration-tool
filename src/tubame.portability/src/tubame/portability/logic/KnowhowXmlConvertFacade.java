@@ -56,7 +56,7 @@ public class KnowhowXmlConvertFacade {
      * @throws JbmException
      *             Portable study tool exception
      */
-    public void convertSearchFiles(String filePath) throws JbmException {
+    public void convertSearchFiles(String filePath, String projectPath) throws JbmException {
         // xml reading
         PortabilityKnowhow knowhow;
         try {
@@ -68,11 +68,11 @@ public class KnowhowXmlConvertFacade {
 
             LOGGER.info(MessageUtil.LOG_CREATE_SEARCH_KEYWORD_CSV);
             // Search file generation
-            CreateKeywordSearchFile.xmlToCsv(convert);
+            CreateKeywordSearchFile.xmlToCsv(convert, projectPath);
 
             // CheckListInfomation.xml file generation
             LOGGER.info(MessageUtil.LOG_CREATE_CHECKLISTINFO_XML);
-            CreateCheckListInfomationFile.xmlToXml(convert);
+            CreateCheckListInfomationFile.xmlToXml(convert, projectPath);
         } catch (JbmException e) {
             throw e;
         } catch (tubame.knowhow.biz.exception.JbmException e) {

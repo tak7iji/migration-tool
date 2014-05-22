@@ -149,7 +149,7 @@ public class CreateCheckListInfomationFile {
      * @throws JbmException
      *             Portable study tool exception
      */
-    public static void xmlToXml(PortabilityKnowhowConverter convert)
+    public static void xmlToXml(PortabilityKnowhowConverter convert, String projectPath)
             throws JbmException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = null;
@@ -267,7 +267,7 @@ public class CreateCheckListInfomationFile {
         String xmlOutPath = "";
         try {
 //            xmlOutPath = PluginUtil.getPluginDir()
-            xmlOutPath = ProjectUtil.getCurrentProjectPath()
+            xmlOutPath = projectPath
                     + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
 
             StreamResult result = new StreamResult(xmlOutPath);

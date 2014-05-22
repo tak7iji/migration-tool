@@ -18,6 +18,7 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -36,7 +37,6 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
 import tubame.portability.logic.search.SearchToolWithProgress;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
@@ -59,6 +59,8 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
      * Screen the Wizard uses
      */
     private final JbmSearchSelectionPage jbmSearchSelectionPage;
+    
+    private String projectPath;
 
     /**
      * Get the search screen.<br/>
@@ -116,6 +118,8 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
     public JbmSearchWizard(IWorkbenchWindow window, IResource resource) {
         super();
         jbmSearchSelectionPage = new JbmSearchSelectionPage(resource);
+        projectPath = resource.getProject().getLocation().toOSString() + File.separator;
+        LOGGER.info("Selected Project: "+projectPath);
         super.setWindowTitle(ResourceUtil.DIALOG_SEARCH);
     }
 
@@ -154,16 +158,15 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
             KnowhowXmlConvertFactory.getKnowhowXmlConvertFacade()
                     .convertSearchFiles(
                             PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                                    .getKnowhowXmlFilePath()));
+                                    .getKnowhowXmlFilePath()), projectPath);
 
             // Search process
             SearchToolWithProgress progress = new SearchToolWithProgress(
                     PluginUtil.getFileFullPath(jbmSearchSelectionPage
                             .getTargetText()),
-                    PythonUtil
-                            .getSearchKeywordFilePath(ApplicationPropertyUtil.SEARCH_KEYWORD_FILE),
+                    this.projectPath + ApplicationPropertyUtil.SEARCH_KEYWORD_FILE,
                     PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                            .getOutJbmFileText()), ProjectUtil.getCurrentProjectPath());
+                            .getOutJbmFileText()), projectPath);
             ProgressMonitorDialog dialog = new ProgressMonitorDialog(
                     PluginUtil.getActiveWorkbenchShell());
             dialog.run(true, true, progress);
@@ -187,11 +190,11 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
                         MessageUtil.INF_SEARCH_NON);
                 return false;
             }
-        } catch (IOException e) {
-            LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
-            PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse(), e);
-            return false;
+//        } catch (IOException e) {
+//            LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
+//                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
+//            PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse(), e);
+//            return false;
         } catch (InterruptedException e) {
             // Cancellation
             LOGGER.debug(MessageUtil.INF_CANCEL);

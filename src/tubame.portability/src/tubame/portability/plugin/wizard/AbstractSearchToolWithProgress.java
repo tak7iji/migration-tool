@@ -32,6 +32,7 @@ import tubame.common.util.CmnFileUtil;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.ui.IFileEditorInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -191,10 +192,11 @@ public abstract class AbstractSearchToolWithProgress implements
             inputStream = process.getInputStream();
             reader = new BufferedReader(new InputStreamReader(inputStream,
                     PythonUtil.PYTHON_CHARACTOR_CODE));
+            LOGGER.info("Target project: "+this.projectPath);
             // Get a string of paths in the workspace, and unified "\" the file
             // delimiter
             List<String> lineList = readList(monitor, reader,
-                    getWorkspacePath());
+                    getWorkspacePath(), projectPath);
             process.waitFor();
             process.destroy();
             // Writes the results
@@ -269,10 +271,11 @@ public abstract class AbstractSearchToolWithProgress implements
      *             User click Cancel at
      */
     protected List<String> readList(IProgressMonitor monitor,
-            BufferedReader reader, String root) throws JbmException,
+            BufferedReader reader, String root, String projectPath) throws JbmException,
             IOException, InterruptedException {
         List<String> lineList = new ArrayList<String>();
         String line = null;
+        CheckListInformationFactory.getCheckListInformationFacade().setProjectPath(projectPath);
         CheckListInformationFactory.getCheckListInformationFacade()
                 .initCheckListInformationReader();
         // Read one line search results
