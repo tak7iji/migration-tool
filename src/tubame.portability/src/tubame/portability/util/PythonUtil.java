@@ -92,8 +92,7 @@ public class PythonUtil {
      */
     public static String getSearchKeywordFilePath(String keywordFile)
             throws IOException {
-//        String filePath = PluginUtil.getResolvedPluginDir() + keywordFile;
-        String filePath = ProjectUtil.getCurrentProjectPath() + keywordFile;
+        String filePath = PluginUtil.getResolvedPluginDir() + keywordFile;
         LOGGER.info(filePath);
         return filePath;
     }

@@ -69,6 +69,8 @@ public class JbmConvertWizard extends Wizard implements INewWizard {
      */
     private final JbmConvertSelectionPage jbmConvertSelectionPage;
 
+	private String projectPath;
+
     /**
      * Get the title of the screen.<br/>
      * 
@@ -116,6 +118,7 @@ public class JbmConvertWizard extends Wizard implements INewWizard {
     public JbmConvertWizard(IWorkbenchWindow window, IResource resource) {
         super();
         jbmConvertSelectionPage = new JbmConvertSelectionPage(resource);
+        projectPath = resource.getProject().getLocation().toOSString() + File.separator;
         super.setWindowTitle(getDialogTitle());
     }
 
@@ -165,8 +168,7 @@ public class JbmConvertWizard extends Wizard implements INewWizard {
             // Search process
             ConvertSearchToolWithProgress progress = new ConvertSearchToolWithProgress(
                     target,
-                    PythonUtil
-                            .getSearchKeywordFilePath(ApplicationPropertyUtil.SEARCH_CONVERT_KEYWORD_FILE),
+                    this.projectPath + ApplicationPropertyUtil.SEARCH_CONVERT_KEYWORD_FILE,
                     jbmFilePath);
             ProgressMonitorDialog dialog = new ProgressMonitorDialog(
                     PluginUtil.getActiveWorkbenchShell());
