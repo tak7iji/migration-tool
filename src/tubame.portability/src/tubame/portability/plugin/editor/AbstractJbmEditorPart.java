@@ -18,6 +18,7 @@
  */
 package tubame.portability.plugin.editor;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -141,7 +142,17 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
      */
     private MousePointGetTreeViewer treeViewer = null;
 
-    /**
+	private String projectPath;
+
+    public String getProjectPath() {
+		return projectPath;
+	}
+
+	public void setProjectPath(String projectPath) {
+		this.projectPath = projectPath;
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override
@@ -173,13 +184,14 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
     public void init(IEditorSite site, IEditorInput input)
             throws PartInitException {
 
-        preInit(site, input);
+        preInit();
         super.setSite(site);
         super.setInput(input);
 
         // Get File information selected
         IFileEditorInput fileInput = (IFileEditorInput) super.getEditorInput();
         super.setPartName(fileInput.getFile().getName());
+        this.projectPath= fileInput.getFile().getProject().getLocation().toString() + File.separator;
 
         // Get the absolute path of the file
         String fileLocation = fileInput.getFile().getLocation().toString();
@@ -203,7 +215,7 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
      * The process before the init method.<br/>
      * 
      */
-    public void preInit(IEditorSite site, IEditorInput input) {
+    public void preInit() {
         // no oparation
     }
 

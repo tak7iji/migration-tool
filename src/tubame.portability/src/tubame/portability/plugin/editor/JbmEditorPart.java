@@ -227,11 +227,11 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
      * {@inheritDoc}
      */
     @Override
-    public void preInit(IEditorSite site, IEditorInput input) {
+    public void preInit() {
         try {
             // For check list view update information,
             // initialize the checklist file information acquisition class
-            CheckListInformationFactory.getCheckListInformationFacade().setProjectPath(((IFileEditorInput)input).getFile().getProject().getLocation().toString() + File.separator);
+            CheckListInformationFactory.getCheckListInformationFacade().setProjectPath(getProjectPath());
             CheckListInformationFactory.getCheckListInformationFacade()
                     .initCheckListInformationReader();
 

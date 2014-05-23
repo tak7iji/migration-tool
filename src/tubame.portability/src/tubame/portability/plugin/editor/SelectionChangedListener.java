@@ -70,7 +70,7 @@ public class SelectionChangedListener implements ISelectionChangedListener {
      */
     public SelectionChangedListener(MigrationEditorOperation menuOperation) {
         editor = menuOperation;
-
+        LOGGER.info("Project path: "+editor.getProjectPath());
     }
 
     /**

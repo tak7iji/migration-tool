@@ -74,4 +74,7 @@ public interface MigrationEditorOperation {
      * @return Delete line for class
      */
     public MigrationRowDelete getRowDeleteExecutor();
+    
+    public String getProjectPath();
+    public void setProjectPath(String projectPath);
 }
