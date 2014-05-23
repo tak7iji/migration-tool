@@ -40,7 +40,6 @@ import tubame.portability.logic.JbmWriteFacade;
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.editor.MigrationEditorOperation;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -73,7 +72,9 @@ public class SaveCsvAction extends AbstractJbmEditorCommandButton {
         List<JbmEditorMigrationRow> list = createEditorViewData(treeViewer);
         try {
 //            String temporaryCsvFilePath = PluginUtil.getPluginDir()
-            String temporaryCsvFilePath = ProjectUtil.getCurrentProjectPath()
+        	LOGGER.info("Project path: "+editor.getProjectPath());
+//            String temporaryCsvFilePath = ProjectUtil.getCurrentProjectPath()
+            String temporaryCsvFilePath = editor.getProjectPath()
                     + ApplicationPropertyUtil.OUTPUT_TEMPORARY_CSV;
             outputTemporaryCsv(list, temporaryCsvFilePath);
 

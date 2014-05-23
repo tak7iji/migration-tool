@@ -35,7 +35,6 @@ import tubame.portability.model.CheckListInformation;
 import tubame.portability.model.JbmEditorEnum;
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.view.CheckListInformationView;
-import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.resource.MessageUtil;
 
 /**
@@ -46,98 +45,101 @@ import tubame.portability.util.resource.MessageUtil;
  */
 public class SelectionChangedListener implements ISelectionChangedListener {
 
-    /**
-     * Logger
-     */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(SelectionChangedListener.class);
+	/**
+	 * Logger
+	 */
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(SelectionChangedListener.class);
 
-    /**
-     * Object you currently have selected
-     */
-    private Object selectionObject;
+	/**
+	 * Object you currently have selected
+	 */
+	private Object selectionObject;
 
-    /**
-     * Editor
-     */
-    private final MigrationEditorOperation editor;
+	/**
+	 * Editor
+	 */
+	private final MigrationEditorOperation editor;
 
-    /**
-     * Constructor.<br/>
-     * 
-     * @param menuOperation
-     *            Editor
-     */
-    public SelectionChangedListener(MigrationEditorOperation menuOperation) {
-        editor = menuOperation;
-        LOGGER.info("Project path: "+editor.getProjectPath());
-    }
+	/**
+	 * Constructor.<br/>
+	 * 
+	 * @param menuOperation
+	 *            Editor
+	 */
+	public SelectionChangedListener(MigrationEditorOperation menuOperation) {
+		editor = menuOperation;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void selectionChanged(SelectionChangedEvent event) {
-        selectionObject = ((StructuredSelection) event.getSelection())
-                .getFirstElement();
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void selectionChanged(SelectionChangedEvent event) {
+		selectionObject = ((StructuredSelection) event.getSelection())
+				.getFirstElement();
 
-        // Get the Cell that was clicked from mouse click coordinate
-        Point point = editor.getMouseClickPoint();
-        ViewerCell cell = ((org.eclipse.jface.viewers.TreeViewer) event
-                .getSource()).getCell(point);
-        if (cell == null) {
-            // That the cell can not I get a row that has been deleted
-            return;
-        }
+		// Get the Cell that was clicked from mouse click coordinate
+		Point point = editor.getMouseClickPoint();
+		ViewerCell cell = ((org.eclipse.jface.viewers.TreeViewer) event
+				.getSource()).getCell(point);
+		if (cell == null) {
+			// That the cell can not I get a row that has been deleted
+			return;
+		}
 
-        if (selectionObject instanceof JbmEditorMigrationRow) {
-            // View checklist information view
-            JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectionObject;
-            printInformationView(row.getNo());
-            // If the guide chapter number is clicked, it displays a guide
-            if (JbmEditorEnum.CHAPTER_NO.getCode() == cell.getColumnIndex()) {
-                try {
-                    GuideViewFacade.view(row.getChapterNo());
-                } catch (IOException e) {
-                    LOGGER.error(MessageUtil.LOG_ERR_GUIDE_HTML_DISPLAY_FAIL, e);
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-    }
+		if (selectionObject instanceof JbmEditorMigrationRow) {
+			// View checklist information view
+			JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectionObject;
+			printInformationView(row.getNo());
+			// If the guide chapter number is clicked, it displays a guide
+			if (JbmEditorEnum.CHAPTER_NO.getCode() == cell.getColumnIndex()) {
+				try {
+					LOGGER.info("Project path: " + editor.getProjectPath());
+					GuideViewFacade.view(row.getChapterNo(),
+							editor.getProjectPath());
+				} catch (IOException e) {
+					LOGGER.error(MessageUtil.LOG_ERR_GUIDE_HTML_DISPLAY_FAIL, e);
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
 
-    /**
-     * Set the value to the checklist information view.<br/>
-     * 
-     * @param no
-     *            No
-     */
-    private void printInformationView(String no) {
-        CheckListInformationFactory.getCheckListInformationFacade()
-                .setProjectPath(ProjectUtil.getCurrentProjectPath());
-        CheckListInformationFactory.getCheckListInformationFacade()
-                .initCheckListInformationReader();
-        CheckListInformation message = new CheckListInformation();
-        CheckListInformationFacade facade = CheckListInformationFactory
-                .getCheckListInformationFacade();
-        message.setBigText(facade.getBigDescription(no));
-        message.setMiddleText(facade.getMiddleDescription(no));
-        message.setCheckEyeText(facade.getCheckEyeDescription(no));
-        message.setHearingText(facade.getHearingDescription(no));
-        message.setSearchText(facade.getSearchDescription(no));
-        message.setFactorText(facade.getFactorDescription(no));
-        message.setDegreeDetailText(facade.getDegreeDescription(no));
-        message.setAppropriateText(facade.getAppropriateDescription(no));
-        message.setInvestText(facade.getInvestigationDescription(no));
-        CheckListInformationView.out(message);
-    }
+	/**
+	 * Set the value to the checklist information view.<br/>
+	 * 
+	 * @param no
+	 *            No
+	 */
+	private void printInformationView(String no) {
+		// CheckListInformationFactory.getCheckListInformationFacade()
+		// .setProjectPath(ProjectUtil.getCurrentProjectPath());
+		CheckListInformationFactory.getCheckListInformationFacade()
+				.setProjectPath(editor.getProjectPath());
+		CheckListInformationFactory.getCheckListInformationFacade()
+				.initCheckListInformationReader();
+		CheckListInformation message = new CheckListInformation();
+		CheckListInformationFacade facade = CheckListInformationFactory
+				.getCheckListInformationFacade();
+		message.setBigText(facade.getBigDescription(no));
+		message.setMiddleText(facade.getMiddleDescription(no));
+		message.setCheckEyeText(facade.getCheckEyeDescription(no));
+		message.setHearingText(facade.getHearingDescription(no));
+		message.setSearchText(facade.getSearchDescription(no));
+		message.setFactorText(facade.getFactorDescription(no));
+		message.setDegreeDetailText(facade.getDegreeDescription(no));
+		message.setAppropriateText(facade.getAppropriateDescription(no));
+		message.setInvestText(facade.getInvestigationDescription(no));
+		CheckListInformationView.out(message);
+	}
 
-    /**
-     * Get selected in the (keyboard) mouse (# selectionChanged) object.<br/>
-     * 
-     * @return Selected object
-     */
-    public Object getSelectionItem() {
-        return selectionObject;
-    }
+	/**
+	 * Get selected in the (keyboard) mouse (# selectionChanged) object.<br/>
+	 * 
+	 * @return Selected object
+	 */
+	public Object getSelectionItem() {
+		return selectionObject;
+	}
 }

@@ -50,7 +50,6 @@ import org.w3c.dom.Text;
 import tubame.portability.exception.JbmException;
 import tubame.portability.model.CheckListInformation;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;

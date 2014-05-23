@@ -46,7 +46,6 @@ import tubame.portability.plugin.action.JbmRowDelete;
 import tubame.portability.plugin.action.MigrationRowDelete;
 import tubame.portability.plugin.view.WorkStatusView;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.MessageUtil;
 import tubame.portability.util.resource.ResourceUtil;
@@ -227,10 +226,11 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
      * {@inheritDoc}
      */
     @Override
-    public void preInit() {
+    public void preInit(IEditorInput input) {
         try {
             // For check list view update information,
             // initialize the checklist file information acquisition class
+        	setProjectPath(((IFileEditorInput)input).getFile().getProject().getLocation().toString()+File.separator);
             CheckListInformationFactory.getCheckListInformationFacade().setProjectPath(getProjectPath());
             CheckListInformationFactory.getCheckListInformationFacade()
                     .initCheckListInformationReader();

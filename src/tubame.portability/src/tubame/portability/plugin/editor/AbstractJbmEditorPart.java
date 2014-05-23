@@ -40,6 +40,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 
 import tubame.portability.exception.JbmException;
+import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.model.MigrationEditorRow;
 import tubame.portability.plugin.view.JbmEditorCellModifier;
 import tubame.portability.plugin.view.MousePointGetTreeViewer;
@@ -184,14 +185,13 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
     public void init(IEditorSite site, IEditorInput input)
             throws PartInitException {
 
-        preInit();
+        preInit(input);
         super.setSite(site);
         super.setInput(input);
 
         // Get File information selected
-        IFileEditorInput fileInput = (IFileEditorInput) super.getEditorInput();
+        IFileEditorInput fileInput = (IFileEditorInput) input;
         super.setPartName(fileInput.getFile().getName());
-        this.projectPath= fileInput.getFile().getProject().getLocation().toString() + File.separator;
 
         // Get the absolute path of the file
         String fileLocation = fileInput.getFile().getLocation().toString();
@@ -215,7 +215,7 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
      * The process before the init method.<br/>
      * 
      */
-    public void preInit() {
+    public void preInit(IEditorInput input) {
         // no oparation
     }
 

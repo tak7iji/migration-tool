@@ -20,6 +20,8 @@ package tubame.portability.logic.reader;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +41,6 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.logic.CreateCheckListInfomationFile;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.ProjectUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 
@@ -261,8 +262,9 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     protected String createTargetFilePath() throws IOException {
 //        String path = PluginUtil.getPluginDir()
-        String path = ((this.projectPath == null) ? ProjectUtil.getCurrentProjectPath() : this.projectPath)
-                + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
+//        String path = ((this.projectPath == null) ? ProjectUtil.getCurrentProjectPath() : this.projectPath)
+        String path = this.projectPath
+        		+ ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
         LOGGER.debug(MessageUtil.INF_CHECKLIST_INFORMATION_PATH + path);
         return path;
     }
