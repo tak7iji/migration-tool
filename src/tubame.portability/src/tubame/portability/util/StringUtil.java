@@ -126,6 +126,8 @@ public class StringUtil {
         }
         if (text instanceof Text) {
             return ((Text) text).getText();
+        } else if (text instanceof Combo) {
+        	return ((Combo) text).getText();
         }
         return StringUtil.EMPTY;
     }

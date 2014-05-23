@@ -24,9 +24,12 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
@@ -62,7 +65,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 	/**
 	 * Know-how XML file path
 	 */
-	private Text knowhowText;
+	private Combo knowhowText;
 
 	/**
 	 * Constructor.<br/>
@@ -368,7 +371,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 
 		// XML know-how selected text
 		GridData gridDataDirectory = new GridData(GridData.FILL_HORIZONTAL);
-		knowhowText = new Text(group, SWT.BORDER);
+		knowhowText = new Combo(group, SWT.READ_ONLY);
 		knowhowText.setLayoutData(gridDataDirectory);
 
 		// Set initial value to the project name that is selected in the
@@ -380,7 +383,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 					switch (resource.getType()) {
 					case IResource.FILE:
 						if("xml".equals(resource.getFileExtension())){
-							LOGGER.info(projectName+File.separator+resource.getProjectRelativePath().toOSString());
+							knowhowText.add(projectName+File.separator+resource.getProjectRelativePath().toOSString());
 						}
 						break;
 					default:
@@ -391,16 +394,25 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 			}, IResource.DEPTH_INFINITE, false);
 		} catch (CoreException e) {
 		}
-		knowhowText.setText(resource.getProject().getName()
-				+ FileUtil.FILE_SEPARATOR + getDefaultXml());
-		addModifiListener(knowhowText);
+		knowhowText.select(0);
+		knowhowText.addSelectionListener(new SelectionAdapter(){
+			public void widgetSelected(SelectionEvent e)
+			{
+				knowhowText.setText(knowhowText.getItem(knowhowText.getSelectionIndex()));
+                setPageComplete(textValidate());
+				LOGGER.info("Get selected item: "+getKnowhowXmlFilePath());
+			}
+		});
+//		knowhowText.setText(resource.getProject().getName()
+//				+ FileUtil.FILE_SEPARATOR + getDefaultXml());
+//		addModifiListener(knowhowText);
 
 		// Search target folder selection button
-		Button Button = new Button(group, SWT.NULL);
-		Button.setText(getReferenceButtonLabelString());
+//		Button Button = new Button(group, SWT.NULL);
+//		Button.setText(getReferenceButtonLabelString());
 		// Set the operation when the button is pressed
-		Button.addSelectionListener(new BrowseFileButtonSelectionListener(this,
-				knowhowText, getKnowhowExtension()));
+//		Button.addSelectionListener(new BrowseFileButtonSelectionListener(this,
+//				knowhowText, getKnowhowExtension()));
 	}
 
 	/**
