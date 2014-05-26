@@ -18,7 +18,14 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
@@ -383,13 +390,43 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 					switch (resource.getType()) {
 					case IResource.FILE:
 						if("xml".equals(resource.getFileExtension())){
-							knowhowText.add(projectName+File.separator+resource.getProjectRelativePath().toOSString());
+							String fileName = projectName+File.separator+resource.getProjectRelativePath().toOSString();
+							if(isValidPortabilityKnowhowXml(fileName)) knowhowText.add(fileName);
 						}
 						break;
 					default:
 						break;
 					}
 					return true;
+				}
+
+				private boolean isValidPortabilityKnowhowXml(String xmlFile) {
+					boolean result = false;
+			        XMLInputFactory factory = XMLInputFactory.newInstance();
+			        BufferedInputStream stream = null;
+			        XMLStreamReader reader = null;
+					try {
+						stream = new BufferedInputStream(new FileInputStream(PluginUtil.getWorkspaceRoot() + File.separator + xmlFile));
+				        reader = factory.createXMLStreamReader(stream);
+				 
+				        for (; reader.hasNext(); reader.next()) {
+				            int eventType = reader.getEventType();
+				 
+				            if (eventType == XMLStreamConstants.START_ELEMENT) {
+				            	if (reader.getLocalName().equals("PortabilityKnowhow")) {
+				            		result = true;
+				            	}
+				            	break;
+				            }
+				        }
+					} catch (Exception ex) {
+					} finally {
+				        try {
+							if (reader != null)reader.close();
+						} catch (XMLStreamException e) {
+						}
+					}
+					return result;
 				}
 			}, IResource.DEPTH_INFINITE, false);
 		} catch (CoreException e) {
