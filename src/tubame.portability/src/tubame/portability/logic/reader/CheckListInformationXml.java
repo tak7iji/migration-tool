@@ -48,196 +48,189 @@ import tubame.portability.util.resource.MessageUtil;
  */
 public class CheckListInformationXml implements CheckListInformationReader {
 
-    private Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();;
+	private Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();;
 
-    private String projectPath;
+	private String projectPath;
 
-    /**
-     * Adapter for speed improvement
-     */
-    private static Map<String, String> checkEyeDescriptionList = new HashMap<String, String>();
+	/**
+	 * Adapter for speed improvement
+	 */
+	private static Map<String, String> checkEyeDescriptionList = new HashMap<String, String>();
 
-    /**
-     * Adapter for speed improvement
-     */
-    private static Map<String, String> hearingDescriptionList = new HashMap<String, String>();
+	/**
+	 * Adapter for speed improvement
+	 */
+	private static Map<String, String> hearingDescriptionList = new HashMap<String, String>();
 
-    /**
-     * Logger
-     */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(CheckListInformationXml.class);
+	/**
+	 * Logger
+	 */
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(CheckListInformationXml.class);
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getBigDescription(String no) throws JbmException {
-        return getText(no, CreateCheckListInfomationFile.BIG);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getBigDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.BIG);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getMiddleDescription(String no) throws JbmException {
-        return getText(no, CreateCheckListInfomationFile.MIDDLE);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getMiddleDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.MIDDLE);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getCheckEyeDescription(String no) throws JbmException {
-        if (CheckListInformationXml.checkEyeDescriptionList.containsKey(no)) {
-            return CheckListInformationXml.checkEyeDescriptionList.get(no);
-        }
-        String result = getText(no,
-                CreateCheckListInfomationFile.VISUAL_CONFIRM);
-        CheckListInformationXml.checkEyeDescriptionList.put(no, result);
-        return result;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCheckEyeDescription(String no) throws JbmException {
+		if (CheckListInformationXml.checkEyeDescriptionList.containsKey(no)) {
+			return CheckListInformationXml.checkEyeDescriptionList.get(no);
+		}
+		String result = getText(no,
+				CreateCheckListInfomationFile.VISUAL_CONFIRM);
+		CheckListInformationXml.checkEyeDescriptionList.put(no, result);
+		return result;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getHearingDescription(String no) throws JbmException {
-        if (CheckListInformationXml.hearingDescriptionList.containsKey(no)) {
-            return CheckListInformationXml.hearingDescriptionList.get(no);
-        }
-        String result = getText(no,
-                CreateCheckListInfomationFile.HEARING_CONFIRM);
-        CheckListInformationXml.hearingDescriptionList.put(no, result);
-        return result;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHearingDescription(String no) throws JbmException {
+		if (CheckListInformationXml.hearingDescriptionList.containsKey(no)) {
+			return CheckListInformationXml.hearingDescriptionList.get(no);
+		}
+		String result = getText(no,
+				CreateCheckListInfomationFile.HEARING_CONFIRM);
+		CheckListInformationXml.hearingDescriptionList.put(no, result);
+		return result;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getSearchDescription(String no) throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.SEARCH_PROCESS);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getSearchDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.SEARCH_PROCESS);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getFactorDescription(String no) throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.PORTABILITY_FACTOR);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getFactorDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.PORTABILITY_FACTOR);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getDegreeDescription(String no) throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.DEGREE_DETAIL);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDegreeDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.DEGREE_DETAIL);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getAppropriateDescription(String no) throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.APPROPPRIATE);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getAppropriateDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.APPROPPRIATE);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getInvestigationDescription(String no) throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.INVESTIGATION);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getInvestigationDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.INVESTIGATION);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getLineNumberDescription(String no) throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.LINE_NUMBER);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getLineNumberDescription(String no) throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.LINE_NUMBER);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getLineNumberContentsDescription(String no)
-            throws JbmException {
-        return getText(no,
-                CreateCheckListInfomationFile.LINE_NUMBER_CONTENTS);
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getLineNumberContentsDescription(String no)
+			throws JbmException {
+		return getText(no, CreateCheckListInfomationFile.LINE_NUMBER_CONTENTS);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void clearAdapter() {
-        checkEyeDescriptionList.clear();
-        hearingDescriptionList.clear();
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void clearAdapter() {
+		checkEyeDescriptionList.clear();
+		hearingDescriptionList.clear();
+	}
 
-    /**
-     * If the document and xpath does not exist, <br/>
-     * after generating an instance, <br/>
-     * get the value of the location in the xpath.<br/>
-     * 
-     * @param location
-     *            Location
-     * @return Acquisition value at xpath
-     * @throws JbmException
-     *             Xpath acquisition failure
-     */
-    private String getText(String no, String mode) throws JbmException {
-        	if(map==null){
-        		throw new JbmException(MessageUtil.ERR_CONVERT_FILE_CLOSE);
-        	}
-        	Map<String, String> elm = map.get(no);
-            return elm.get(mode).trim();
-    }
+	/**
+	 * If the document and xpath does not exist, <br/>
+	 * after generating an instance, <br/>
+	 * get the value of the location in the xpath.<br/>
+	 * 
+	 * @param location
+	 *            Location
+	 * @return Acquisition value at xpath
+	 * @throws JbmException
+	 *             Xpath acquisition failure
+	 */
+	private String getText(String no, String mode) throws JbmException {
+		if (map == null) {
+			throw new JbmException("getText" + MessageUtil.ERR_CONVERT_FILE_CLOSE);
+		}
+		Map<String, String> elm = map.get(no);
+		return elm.get(mode).trim();
+	}
 
-    /**
-     * Instantiation of the document and XPATH.<br/>
-     */
-    public void setInitila() throws ParserConfigurationException,
-            SAXException, IOException {
-        File file = new File(createTargetFilePath());
-        if(!file.exists()){
-            LOGGER.warn(MessageUtil.ERR_CONVERT_FILE_CLOSE);
-        	return;
-        }
-        parseXML(createTargetFilePath());
-    }
+	/**
+	 * Instantiation of the document and XPATH.<br/>
+	 */
+	public void setInitila() throws ParserConfigurationException, SAXException,
+			IOException {
+		LOGGER.debug(createTargetFilePath());
+		File file = new File(createTargetFilePath());
+		if (!file.exists()) {
+			LOGGER.warn("setInitila" + MessageUtil.ERR_CONVERT_FILE_CLOSE);
+			return;
+		}
+		parseXML(createTargetFilePath());
+	}
 
-    @Override
-    public void setProjectPath(String path) {
-        this.projectPath = path;
-    }
+	@Override
+	public void setProjectPath(String path) {
+		this.projectPath = path;
+	}
 
-    /**
-     * Get the checklist information file path.<br/>
-     * 
-     * @return Check list information file path
-     * @throws IOException
-     *             Self Plugin directory failure
-     */
-    protected String createTargetFilePath() throws IOException {
-        String path = this.projectPath
-        		+ ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
-        LOGGER.debug(MessageUtil.INF_CHECKLIST_INFORMATION_PATH + path);
-        return path;
-    }
+	/**
+	 * Get the checklist information file path.<br/>
+	 * 
+	 * @return Check list information file path
+	 * @throws IOException
+	 *             Self Plugin directory failure
+	 */
+	protected String createTargetFilePath() throws IOException {
+		String path = this.projectPath
+				+ ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
+		LOGGER.debug(MessageUtil.INF_CHECKLIST_INFORMATION_PATH + path);
+		return path;
+	}
 
-	private void parseXML(String fileName)
-			throws FactoryConfigurationError {
+	private void parseXML(String fileName) throws FactoryConfigurationError {
 		XMLInputFactory factory = XMLInputFactory.newInstance();
 		BufferedInputStream stream = null;
 		XMLStreamReader reader = null;
@@ -251,8 +244,10 @@ public class CheckListInformationXml implements CheckListInformationReader {
 				reader.next();
 				switch (reader.getEventType()) {
 				case XMLStreamConstants.START_ELEMENT:
-					if (CreateCheckListInfomationFile.DESCRIPTION.equals(reader.getLocalName())) {
-						no = reader.getAttributeValue(null, CreateCheckListInfomationFile.NO);
+					if (CreateCheckListInfomationFile.DESCRIPTION.equals(reader
+							.getLocalName())) {
+						no = reader.getAttributeValue(null,
+								CreateCheckListInfomationFile.NO);
 						elms = addElms(reader);
 						map.put(no, elms);
 					}
@@ -270,18 +265,20 @@ public class CheckListInformationXml implements CheckListInformationReader {
 		}
 	}
 
-	private Map<String, String> addElms(XMLStreamReader reader) throws Exception {
+	private Map<String, String> addElms(XMLStreamReader reader)
+			throws Exception {
 		Map<String, String> elms = new HashMap<String, String>();
 		boolean end = false;
 		String elm = null;
 		String data = "";
-		while(reader.hasNext() && end != true) {
+		while (reader.hasNext() && end != true) {
 			switch (reader.getEventType()) {
 			case XMLStreamReader.START_ELEMENT:
 				elm = reader.getLocalName();
 				break;
 			case XMLStreamReader.END_ELEMENT:
-				if(CreateCheckListInfomationFile.DESCRIPTION.equals(reader.getLocalName())) {
+				if (CreateCheckListInfomationFile.DESCRIPTION.equals(reader
+						.getLocalName())) {
 					end = true;
 					continue;
 				}

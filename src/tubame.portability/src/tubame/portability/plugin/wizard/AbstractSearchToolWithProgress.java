@@ -19,7 +19,6 @@
 package tubame.portability.plugin.wizard;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -32,7 +31,6 @@ import tubame.common.util.CmnFileUtil;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.ui.IFileEditorInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -285,7 +283,7 @@ public abstract class AbstractSearchToolWithProgress implements
             }
             // Converted into a relative path an absolute path, to write the
             // results to file jbm
-            line = FileUtil.getRelativePath(root + File.separator, line);
+            line = FileUtil.getRelativePath(root + FileUtil.FILE_SEPARATOR, line);
             isNormal(reader, line);
             if (isTargetFilePath(line)) {
                 continue;

@@ -19,7 +19,6 @@
 package tubame.portability.plugin.wizard;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 
 import javax.xml.stream.XMLInputFactory;
@@ -390,7 +389,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 					switch (resource.getType()) {
 					case IResource.FILE:
 						if("xml".equals(resource.getFileExtension())){
-							String fileName = projectName+File.separator+resource.getProjectRelativePath().toOSString();
+							String fileName = projectName+FileUtil.FILE_SEPARATOR+resource.getProjectRelativePath().toOSString();
 							if(isValidPortabilityKnowhowXml(fileName)) knowhowText.add(fileName);
 						}
 						break;
@@ -406,7 +405,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 			        BufferedInputStream stream = null;
 			        XMLStreamReader reader = null;
 					try {
-						stream = new BufferedInputStream(new FileInputStream(PluginUtil.getWorkspaceRoot() + File.separator + xmlFile));
+						stream = new BufferedInputStream(new FileInputStream(PluginUtil.getWorkspaceRoot() + FileUtil.FILE_SEPARATOR + xmlFile));
 				        reader = factory.createXMLStreamReader(stream);
 				 
 				        for (; reader.hasNext(); reader.next()) {

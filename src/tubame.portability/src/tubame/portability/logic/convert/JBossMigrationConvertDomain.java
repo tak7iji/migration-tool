@@ -165,7 +165,7 @@ public class JBossMigrationConvertDomain extends AbstractConvertDomain {
             convertor.doConvert(targetPath, targetFilePath, pluginDir);
             target.setConvert(true);
             target.setConvertedFile(FileUtil.getRelativePath(containerFullPath
-                    + File.separator, targetFilePath));
+                    + FileUtil.FILE_SEPARATOR, targetFilePath));
             filePathList.add(target.getConvertedFile());
         } catch (RuntimeException e) {
             // XXX

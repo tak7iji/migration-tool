@@ -79,6 +79,8 @@ public class SelectionChangedListener implements ISelectionChangedListener {
 		selectionObject = ((StructuredSelection) event.getSelection())
 				.getFirstElement();
 
+		LOGGER.debug("Project path: " + editor.getProjectPath());
+
 		// Get the Cell that was clicked from mouse click coordinate
 		Point point = editor.getMouseClickPoint();
 		ViewerCell cell = ((org.eclipse.jface.viewers.TreeViewer) event
@@ -95,7 +97,6 @@ public class SelectionChangedListener implements ISelectionChangedListener {
 			// If the guide chapter number is clicked, it displays a guide
 			if (JbmEditorEnum.CHAPTER_NO.getCode() == cell.getColumnIndex()) {
 				try {
-					LOGGER.info("Project path: " + editor.getProjectPath());
 					GuideViewFacade.view(row.getChapterNo(),
 							editor.getProjectPath());
 				} catch (IOException e) {

@@ -18,8 +18,6 @@
  */
 package tubame.portability.plugin.wizard;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.resources.IResource;
@@ -36,8 +34,8 @@ import org.slf4j.LoggerFactory;
 import tubame.portability.exception.JbmException;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
 import tubame.portability.logic.search.SearchToolWithProgress;
+import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -118,7 +116,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
     public JbmSearchWizard(IWorkbenchWindow window, IResource resource) {
         super();
         jbmSearchSelectionPage = new JbmSearchSelectionPage(resource);
-        projectPath = resource.getProject().getLocation().toOSString() + File.separator;
+        projectPath = resource.getProject().getLocation().toOSString() + FileUtil.FILE_SEPARATOR;
         LOGGER.info("Selected Project: "+projectPath);
         super.setWindowTitle(ResourceUtil.DIALOG_SEARCH);
     }

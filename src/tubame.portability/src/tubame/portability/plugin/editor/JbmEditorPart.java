@@ -18,7 +18,6 @@
  */
 package tubame.portability.plugin.editor;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,6 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.WorkbenchException;
 import org.slf4j.Logger;
@@ -45,6 +43,7 @@ import tubame.portability.model.MigrationEditorRow;
 import tubame.portability.plugin.action.JbmRowDelete;
 import tubame.portability.plugin.action.MigrationRowDelete;
 import tubame.portability.plugin.view.WorkStatusView;
+import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -230,7 +229,7 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
         try {
             // For check list view update information,
             // initialize the checklist file information acquisition class
-        	setProjectPath(((IFileEditorInput)input).getFile().getProject().getLocation().toString()+File.separator);
+        	setProjectPath(((IFileEditorInput)input).getFile().getProject().getLocation().toString()+FileUtil.FILE_SEPARATOR);
             CheckListInformationFactory.getCheckListInformationFacade().setProjectPath(getProjectPath());
             CheckListInformationFactory.getCheckListInformationFacade()
                     .initCheckListInformationReader();

@@ -44,8 +44,8 @@ import tubame.portability.model.generated.model.JbossMigrationConvertTool;
 import tubame.portability.model.generated.model.MigrationItem;
 import tubame.portability.model.generated.model.MigrationTarget;
 import tubame.portability.plugin.view.ConvertView;
+import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
-import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -118,7 +118,7 @@ public class JbmConvertWizard extends Wizard implements INewWizard {
     public JbmConvertWizard(IWorkbenchWindow window, IResource resource) {
         super();
         jbmConvertSelectionPage = new JbmConvertSelectionPage(resource);
-        projectPath = resource.getProject().getLocation().toOSString() + File.separator;
+        projectPath = resource.getProject().getLocation().toOSString() + FileUtil.FILE_SEPARATOR;
         super.setWindowTitle(getDialogTitle());
     }
 
