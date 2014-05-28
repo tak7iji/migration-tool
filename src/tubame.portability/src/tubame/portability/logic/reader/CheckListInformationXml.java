@@ -19,16 +19,17 @@
 package tubame.portability.logic.reader;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
 
 import org.xml.sax.SAXException;
@@ -179,55 +180,40 @@ public class CheckListInformationXml implements CheckListInformationReader {
 	}
 
 	/**
-	 * If the document and xpath does not exist, <br/>
+	 * If the document and map does not exist, <br/>
 	 * after generating an instance, <br/>
-	 * get the value of the location in the xpath.<br/>
+	 * get the value of the location in the map.<br/>
 	 * 
 	 * @param location
 	 *            Location
-	 * @return Acquisition value at xpath
+	 * @return Acquisition value at map
 	 * @throws JbmException
-	 *             Xpath acquisition failure
+	 *             map acquisition failure
 	 */
 	private String getText(String no, String mode) throws JbmException {
 		if (map == null) {
 			throw new JbmException("getText" + MessageUtil.ERR_CONVERT_FILE_CLOSE);
 		}
-		Map<String, String> elm = map.get(no);
-		return elm.get(mode).trim();
+		return map.get(no).get(mode).trim();
 	}
 
 	/**
-	 * Instantiation of the document and XPATH.<br/>
+	 * Instantiation of the document and map.<br/>
 	 */
 	public void setInitila() throws ParserConfigurationException, SAXException,
 			IOException {
-		LOGGER.debug(createTargetFilePath());
-		File file = new File(createTargetFilePath());
-		if (!file.exists()) {
+		Path path = Paths.get(this.projectPath, ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH);
+		if (!Files.exists(path)) {
 			LOGGER.warn("setInitila" + MessageUtil.ERR_CONVERT_FILE_CLOSE);
 			return;
 		}
-		parseXML(createTargetFilePath());
+		LOGGER.info("CheckListInformationFile: "+path.toString());
+		parseXML(path.toString());
 	}
 
 	@Override
 	public void setProjectPath(String path) {
 		this.projectPath = path;
-	}
-
-	/**
-	 * Get the checklist information file path.<br/>
-	 * 
-	 * @return Check list information file path
-	 * @throws IOException
-	 *             Self Plugin directory failure
-	 */
-	protected String createTargetFilePath() throws IOException {
-		String path = this.projectPath
-				+ ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
-		LOGGER.debug(MessageUtil.INF_CHECKLIST_INFORMATION_PATH + path);
-		return path;
 	}
 
 	private void parseXML(String fileName) throws FactoryConfigurationError {
@@ -243,7 +229,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
 			while (reader.hasNext()) {
 				reader.next();
 				switch (reader.getEventType()) {
-				case XMLStreamConstants.START_ELEMENT:
+				case XMLStreamReader.START_ELEMENT:
 					if (CreateCheckListInfomationFile.DESCRIPTION.equals(reader
 							.getLocalName())) {
 						no = reader.getAttributeValue(null,

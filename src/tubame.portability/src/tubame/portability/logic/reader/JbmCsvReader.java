@@ -18,11 +18,11 @@
  */
 package tubame.portability.logic.reader;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -90,26 +90,18 @@ public class JbmCsvReader implements JbmReader {
      */
     public List<String> createListForFile(String filePath) throws JbmException {
         LOGGER.debug("[filePath]" + filePath);
-        BufferedReader bufferedReader = null;
-        FileInputStream fileInputStream = null;
-        InputStreamReader inputStreamReader = null;
         try {
-            fileInputStream = new FileInputStream(filePath);
-            inputStreamReader = new InputStreamReader(fileInputStream,
-                    CsvUtil.CHAR_SET);
-            bufferedReader = new BufferedReader(inputStreamReader);
             List<String> rowList = new ArrayList<String>();
             int lineCount = 0;
-            while (true) {
+        	List<String> lines = Files.readAllLines(Paths.get(filePath), Charset.forName(CsvUtil.CHAR_SET));
+        	for(String line : lines) {
                 lineCount++;
-                String line = bufferedReader.readLine();
-                if (line == null) {
-                    break;
-                }
+        		
                 List<String> tokenList = CsvUtil.parseCsv(line);
                 allFormatCheck(lineCount, tokenList);
                 rowList.add(line);
-            }
+        	}
+            
             return rowList;
         } catch (FileNotFoundException e) {
             throw new JbmException(e, LOGGER, ERROR_LEVEL.ERROR, new String[] {
@@ -117,34 +109,6 @@ public class JbmCsvReader implements JbmReader {
         } catch (IOException e) {
             throw new JbmException(e, LOGGER, ERROR_LEVEL.ERROR, new String[] {
                     MessageUtil.ERR_JBM_IO, filePath });
-        } finally {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    JbmException.outputExceptionLog(e, LOGGER,
-                            ERROR_LEVEL.ERROR, new String[] {
-                                    MessageUtil.ERR_JBM_IO, filePath });
-                }
-            }
-            if (inputStreamReader != null) {
-                try {
-                    inputStreamReader.close();
-                } catch (IOException e) {
-                    JbmException.outputExceptionLog(e, LOGGER,
-                            ERROR_LEVEL.ERROR, new String[] {
-                                    MessageUtil.ERR_JBM_IO, filePath });
-                }
-            }
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    JbmException.outputExceptionLog(e, LOGGER,
-                            ERROR_LEVEL.ERROR, new String[] {
-                                    MessageUtil.ERR_JBM_IO, filePath });
-                }
-            }
         }
     }
 
@@ -425,14 +389,8 @@ public class JbmCsvReader implements JbmReader {
             String filePath) throws JbmException {
         LOGGER.debug("[filePath]" + filePath);
 
-        BufferedReader bufferedReader = null;
-        FileInputStream fileInputStream = null;
-        InputStreamReader inputStreamReader = null;
         try {
-            fileInputStream = new FileInputStream(filePath);
-            inputStreamReader = new InputStreamReader(fileInputStream,
-                    CsvUtil.CHAR_SET);
-            bufferedReader = new BufferedReader(inputStreamReader);
+        	List<String> lines = Files.readAllLines(Paths.get(filePath), Charset.forName(CsvUtil.CHAR_SET));
 
             MigrationItem migrationItem = null;
             MigrationTarget migrationTarget = null;
@@ -447,10 +405,9 @@ public class JbmCsvReader implements JbmReader {
             List<MigrationItem> itemList = items.getMigrationItem();
 
             String currentNumber = StringUtil.EMPTY;
-            String line = null;
             List<String> lineList = new ArrayList<String>();
             int count = 1;
-            while ((line = bufferedReader.readLine()) != null) {
+            for(String line : lines){
                 List<String> parseCsv = CsvUtil.parseCsv(line);
                 // Check the number of delimiter
                 checkCsvDelimiterNum(parseCsv, count);
@@ -508,38 +465,6 @@ public class JbmCsvReader implements JbmReader {
         } catch (IOException e) {
             throw new JbmException(e, LOGGER, ERROR_LEVEL.ERROR, new String[] {
                     MessageUtil.ERR_CONVERT_READ, filePath });
-        } finally {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    JbmException.outputExceptionLog(e, LOGGER,
-                            ERROR_LEVEL.ERROR, new String[] {
-                                    MessageUtil.ERR_CONVERT_FILE_CLOSE,
-                                    filePath });
-                }
-            }
-            if (inputStreamReader != null) {
-                try {
-                    inputStreamReader.close();
-                } catch (IOException e) {
-                    JbmException.outputExceptionLog(e, LOGGER,
-                            ERROR_LEVEL.ERROR, new String[] {
-                                    MessageUtil.ERR_CONVERT_FILE_CLOSE,
-                                    filePath });
-                }
-            }
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    JbmException.outputExceptionLog(e, LOGGER,
-                            ERROR_LEVEL.ERROR, new String[] {
-                                    MessageUtil.ERR_CONVERT_FILE_CLOSE,
-                                    filePath });
-                }
-
-            }
         }
 
     }
