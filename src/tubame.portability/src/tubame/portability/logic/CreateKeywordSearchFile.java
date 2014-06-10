@@ -27,17 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import tubame.knowhow.biz.logic.converter.PortabilityKnowhowConverter;
-import tubame.knowhow.biz.model.generated.knowhow.Category;
-import tubame.knowhow.biz.model.generated.knowhow.Chapter;
-import tubame.knowhow.biz.model.generated.knowhow.CheckItem;
-import tubame.knowhow.biz.model.generated.knowhow.ChildChapter;
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
-
+import tubame.portability.model.knowhow.Category;
+import tubame.portability.model.knowhow.Chapter;
+import tubame.portability.model.knowhow.CheckItem;
+import tubame.portability.model.knowhow.ChildChapter;
+import tubame.portability.model.knowhow.KnowhowInfomation;
+import tubame.portability.model.knowhow.SearchInfomation;
 import tubame.portability.exception.JbmException;
 import tubame.portability.util.CsvUtil;
-import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -74,17 +71,16 @@ public class CreateKeywordSearchFile {
      * @throws JbmException
      *             Portable study tool exception
      */
-    public static void xmlToCsv(PortabilityKnowhowConverter convert, String projectPath)
+    public static void xmlToCsv(PortabilityKnowhowParser portabilityKnowhow, String projectPath)
             throws JbmException {
         List<String> csvData = null;
         BufferedWriter bw = null;
 
         // Map generation of each knowhow list
-        convert.createProtabilityKnowhow();
-        chapterList = convert.getChapterList();
-        categoryMap = convert.getCategoryMap();
-        knowhowMap = convert.getKnowhowMap();
-        searchInfoMap = convert.getSearchInfoMap();
+        chapterList = portabilityKnowhow.getChapterList();
+        categoryMap = portabilityKnowhow.getCategoryMap();
+        knowhowMap = portabilityKnowhow.getKnowhowMap();
+        searchInfoMap = portabilityKnowhow.getSearchInfoMap();
 
         try {
 //            String csvOutPath = PluginUtil.getPluginDir()

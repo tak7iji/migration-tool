@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %plugin.name
 Bundle-SymbolicName: tubame.portability;singleton:=true
-Bundle-Version: 1.0.1.qualifier
+Bundle-Version: 1.0.2.test
 Bundle-Activator: tubame.portability.Activator
 Require-Bundle: org.eclipse.core.resources,
  org.eclipse.core.runtime,
@@ -12,8 +12,43 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ClassPath: .,
  lib/tubame-common-1.0.0.jar,
- lib/tubame-knowhow-biz-1.0.0.jar
+ lib/tubame-knowhow-biz-1.0.0.jar,
+ lib/commons-digester3-3.2-with-deps.jar
 Bundle-Vendor: %plugin.provider
+Export-Package: org.apache.commons.digester3;
+  uses:="org.xml.sax.helpers,
+   javax.xml.validation,
+   org.apache.commons.logging,
+   org.xml.sax,
+   javax.xml.parsers",
+ org.apache.commons.digester3.annotations;uses:="org.apache.commons.digester3.binder",
+ org.apache.commons.digester3.annotations.handlers;
+  uses:="org.apache.commons.digester3.binder,
+   org.apache.commons.digester3.annotations.rules,
+   org.apache.commons.digester3.annotations.reflect,
+   org.apache.commons.digester3.annotations",
+ org.apache.commons.digester3.annotations.reflect,
+ org.apache.commons.digester3.annotations.rules;uses:="org.apache.commons.digester3,org.xml.sax",
+ org.apache.commons.digester3.annotations.utils,
+ org.apache.commons.digester3.binder;
+  uses:="javax.xml.validation,
+   org.apache.commons.digester3,
+   org.xml.sax,
+   new org.apache.commons.digester3.binder,
+   javax.xml.parsers,
+   org.apache.commons.digester3.plugins",
+ org.apache.commons.digester3.internal.asm,
+ org.apache.commons.digester3.internal.cglib.core;uses:="org.apache.commons.digester3.internal.asm",
+ org.apache.commons.digester3.internal.cglib.proxy;uses:="org.apache.commons.digester3.internal.cglib.core,org.apache.commons.digester3.internal.cglib.reflect,org.apache.commons.digester3.internal.asm",
+ org.apache.commons.digester3.internal.cglib.reflect;uses:="org.apache.commons.digester3.internal.cglib.core,org.apache.commons.digester3.internal.asm",
+ org.apache.commons.digester3.plugins;uses:="org.apache.commons.logging,org.apache.commons.digester3,org.xml.sax",
+ org.apache.commons.digester3.plugins.strategies;
+  uses:="org.apache.commons.digester3,
+   org.xml.sax,
+   org.apache.commons.digester3.xmlrules,
+   org.apache.commons.digester3.plugins",
+ org.apache.commons.digester3.substitution;uses:="org.apache.commons.digester3,org.xml.sax",
+ org.apache.commons.digester3.xmlrules;uses:="org.apache.commons.digester3.binder,org.apache.commons.digester3,org.xml.sax"

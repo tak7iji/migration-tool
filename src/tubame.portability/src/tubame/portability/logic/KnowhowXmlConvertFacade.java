@@ -18,9 +18,6 @@
  */
 package tubame.portability.logic;
 
-import tubame.knowhow.biz.logic.PortabilityKnowhowFacade;
-import tubame.knowhow.biz.logic.converter.PortabilityKnowhowConverter;
-import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,25 +55,28 @@ public class KnowhowXmlConvertFacade {
      */
     public void convertSearchFiles(String filePath, String projectPath) throws JbmException {
         // xml reading
-        PortabilityKnowhow knowhow;
+//        PortabilityKnowhow knowhow;
         try {
             // Know-how xml conversion
             LOGGER.info(MessageUtil.LOG_READ_KNOWHOW_XML);
-            knowhow = PortabilityKnowhowFacade.readFullPath(filePath);
-            PortabilityKnowhowConverter convert = PortabilityKnowhowFacade
-                    .getPortabilityKnowhowConverter(knowhow);
+//            knowhow = PortabilityKnowhowFacade.readFullPath(filePath);
+//            PortabilityKnowhowConverter convert = PortabilityKnowhowFacade
+//                    .getPortabilityKnowhowConverter(knowhow);
 
-            LOGGER.info(MessageUtil.LOG_CREATE_SEARCH_KEYWORD_CSV);
+            PortabilityKnowhowParser portabilityKnowhow = new PortabilityKnowhowParser();
+            LOGGER.debug("CheckListInformationFile: "+filePath);
+            portabilityKnowhow.parse(filePath);
+            LOGGER.debug("Category map size: "+portabilityKnowhow.getCategoryMap().size());
+
+			LOGGER.info(MessageUtil.LOG_CREATE_SEARCH_KEYWORD_CSV);
             // Search file generation
-            CreateKeywordSearchFile.xmlToCsv(convert, projectPath);
+            CreateKeywordSearchFile.xmlToCsv(portabilityKnowhow, projectPath);
 
             // CheckListInfomation.xml file generation
             LOGGER.info(MessageUtil.LOG_CREATE_CHECKLISTINFO_XML);
-            CreateCheckListInfomationFile.xmlToXml(convert, projectPath);
+            CreateCheckListInfomationFile.xmlToXml(portabilityKnowhow, projectPath);
         } catch (JbmException e) {
             throw e;
-        } catch (tubame.knowhow.biz.exception.JbmException e) {
-            throw new JbmException(e.getMessage(), e);
         }
     }
 }

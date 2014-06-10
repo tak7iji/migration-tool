@@ -79,7 +79,7 @@ public class Activator extends AbstractUIPlugin {
                 ApplicationPropertyUtil.PROPERTIES_PATH_APP_KNOWHOW)
                 .openStream());
         // JAXB initial processing
-        InitializePotability.initializeMarshaller();
+//        InitializePotability.initializeMarshaller();
     }
 
     /*

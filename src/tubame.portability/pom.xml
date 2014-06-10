@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tubame</groupId>
 	<artifactId>tubame.portability</artifactId>
-	<version>1.0.1.qualifier</version>
+	<version>1.0.2.test</version>
 	<packaging>eclipse-plugin</packaging>
 	
 	<properties>
@@ -39,8 +39,14 @@
 		<dependency>
 			<groupId>tubame</groupId>
 			<artifactId>tubame-knowhow-biz</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-digester3</artifactId>
+			<version>3.2</version>
+			<classifier>with-deps</classifier>
 		</dependency>
 	</dependencies>
 </project>
