@@ -122,11 +122,15 @@ public final class KnowhowManagement {
                 + filePath);
         KnowhowManagement.initializeMarshaller();
         if (CmnFileUtil.isFileSize(filePath)) {
+        	LOGGER.info("Read PortabilityKnowhow");
             PortabilityKnowhow portabilityKnowhow = PortabilityKnowhowFacade
                     .readFullPath(filePath);
+        	LOGGER.info("Get converter for PortabilityKnowhow");
             portabilityKnowhowConverter = PortabilityKnowhowFacade
                     .getPortabilityKnowhowConverter(portabilityKnowhow);
+        	LOGGER.info("Create PortabilityKnowhow start");
             portabilityKnowhowConverter.createProtabilityKnowhow();
+        	LOGGER.info("Create PortabilityKnowhow start");
         } else {
             throw new JbmException(
                     MessagePropertiesUtil
@@ -229,7 +233,7 @@ public final class KnowhowManagement {
      * @return Heading Display Data list
      */
     public static List<PortabilityKnowhowListViewOperation> getEntryViewConvetData() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getEntryViewConvetData");
         return convertKnonwhowDataList.getKnowhowListViewOperations();
     }
 
@@ -239,7 +243,7 @@ public final class KnowhowManagement {
      * @return Heading Display Data list
      */
     public static List<EntryOperator> getEntryOperatorConvetData() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getEntryOperatorConvetData");
         if (convertKnonwhowDataList != null) {
             return convertKnonwhowDataList.getEntryOperators();
         }
@@ -251,7 +255,7 @@ public final class KnowhowManagement {
      * 
      */
     public static void initializationConvetData() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("initializationConvetData");
         KnowhowManagement.portabilityKnowhowConverter = null;
         KnowhowManagement.convertKnonwhowDataList = null;
         KnowhowManagement.knowhowDetailTypes.clear();
@@ -264,7 +268,7 @@ public final class KnowhowManagement {
      * @return Know how information list
      */
     public static List<KnowhowDetailType> getKnowhowDetailTypes() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getKnowhowDetailTypes");
         return knowhowDetailTypes;
     }
 
@@ -277,11 +281,14 @@ public final class KnowhowManagement {
      *             If know-how XML file read failure
      */
     public static void refresh() throws JbmException {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("refresh");
         // Reload processing
+        LOGGER.info("unCheckRead start");
         KnowhowManagement.unCheckRead(
                 FileManagement.getPortabilityKnowhowFilePath(), false);
+        LOGGER.info("convertKnowhowXmlFile start");
         KnowhowManagement.convertKnowhowXmlFile();
+        LOGGER.info("convertKnowhowXmlFile end");
     }
 
     /**
@@ -290,7 +297,7 @@ public final class KnowhowManagement {
      * @return EntryToKnowhowXmlConvert
      */
     private static EntryToKnowhowXmlConvert getEntryToKnowhowXmlConvert() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getEntryToKnowhowXmlConvert");
         return entryToKnowhowXmlConvert;
     }
 
@@ -541,7 +548,7 @@ public final class KnowhowManagement {
      * 
      */
     private static void init() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("Init");
         JaxbUtil.init();
         FileManagement
                 .createSearchModuleMap(PluginUtil.getRealPluginDirPath()
@@ -555,7 +562,7 @@ public final class KnowhowManagement {
      * @return knowhowEntryTreeViewer
      */
     public static KnowhowEntryTreeViewer getKnowhowEntryTreeViewer() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getKnowhowEntryTreeViewer");
         return knowhowEntryTreeViewer;
     }
 
@@ -591,7 +598,7 @@ public final class KnowhowManagement {
      * @return know-how editor
      */
     public static MaintenanceKnowhowMultiPageEditor getKnowhowEditor() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getKnowhowEditor");
         return knowhowMultiPageEditor;
     }
 
@@ -601,7 +608,7 @@ public final class KnowhowManagement {
      * @return subjectName
      */
     public static String getSubjectName() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("getSubjectName");
         return subjectName;
     }
 
@@ -631,7 +638,7 @@ public final class KnowhowManagement {
      * 
      */
     public synchronized static void initializeMarshaller() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("initializeMarshaller");
         if (KnowhowManagement.latch == null) {
             // Only for the initialization process, the argument set to 1
             // processing
@@ -641,12 +648,7 @@ public final class KnowhowManagement {
             job.setUser(true);
             job.schedule();
             // Develop and execute a thread
-            new Thread(new Runnable() {
-                /**
-                 * {@inheritDoc}
-                 */
-                @Override
-                public void run() {
+            new Thread(() -> {
                     KnowhowManagement.LOGGER.info(MessagePropertiesUtil
                             .getMessage(MessagePropertiesUtil.LOG_INITIALIZE_MARSHAKKER_START));
                     // Background processing
@@ -656,7 +658,7 @@ public final class KnowhowManagement {
                     KnowhowManagement.LOGGER.info(MessagePropertiesUtil
                             .getMessage(MessagePropertiesUtil.LOG_INITIALIZE_MARSHAKKER_STOP));
                 }
-            }).start();
+            ).start();
         } else if (KnowhowManagement.latch.getCount() != 0) {
             inistalizeAwait();
         }
@@ -668,7 +670,7 @@ public final class KnowhowManagement {
      * 
      */
     public static void inistalizeAwait() {
-        KnowhowManagement.LOGGER.debug(CmnStringUtil.EMPTY);
+        KnowhowManagement.LOGGER.debug("inistalizeAwait");
         try {
             KnowhowManagement.latch.await();
         } catch (InterruptedException e) {

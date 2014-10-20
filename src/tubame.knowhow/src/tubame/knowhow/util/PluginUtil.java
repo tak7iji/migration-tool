@@ -521,6 +521,7 @@ public final class PluginUtil {
             boolean createFile) throws IOException {
         if (!CmnStringUtil.isEmpty(target)) {
             Path path = new Path(target);
+            LOGGER.info(container.getLocationURI().getPath());
             File targetFile = new File(container.getLocationURI().getPath()
                     + CmnFileUtil.FILE_SEPARATOR + path.toOSString());
             if (createFile) {
