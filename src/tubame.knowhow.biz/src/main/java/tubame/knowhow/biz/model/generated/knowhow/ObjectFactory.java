@@ -86,6 +86,62 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EntryCategory }
+     * 
+     */
+    public EntryCategory createEntryCategory() {
+        return new EntryCategory();
+    }
+
+    /**
+     * Create an instance of {@link ChildEntry }
+     * 
+     */
+    public ChildEntry createChildEntry() {
+        return new ChildEntry();
+    }
+
+    /**
+     * Create an instance of {@link LineNumberInfomation }
+     * 
+     */
+    public LineNumberInfomation createLineNumberInfomation() {
+        return new LineNumberInfomation();
+    }
+
+    /**
+     * Create an instance of {@link Category }
+     * 
+     */
+    public Category createCategory() {
+        return new Category();
+    }
+
+    /**
+     * Create an instance of {@link KnowhowInfomation }
+     * 
+     */
+    public KnowhowInfomation createKnowhowInfomation() {
+        return new KnowhowInfomation();
+    }
+
+    /**
+     * Create an instance of {@link CheckItem }
+     * 
+     */
+    public CheckItem createCheckItem() {
+        return new CheckItem();
+    }
+
+    /**
+     * Create an instance of {@link DocBook }
+     * 
+     */
+    public DocBook createDocBook() {
+        return new DocBook();
+    }
+
+    /**
      * Create an instance of {@link SearchInfomation }
      * 
      */
@@ -102,14 +158,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Category }
-     * 
-     */
-    public Category createCategory() {
-        return new Category();
-    }
-
-    /**
      * Create an instance of {@link Appropriate }
      * 
      */
@@ -118,59 +166,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LineNumberInfomation }
-     * 
-     */
-    public LineNumberInfomation createLineNumberInfomation() {
-        return new LineNumberInfomation();
-    }
-
-    /**
-     * Create an instance of {@link ChildEntry }
-     * 
-     */
-    public ChildEntry createChildEntry() {
-        return new ChildEntry();
-    }
-
-    /**
-     * Create an instance of {@link DocBook }
-     * 
-     */
-    public DocBook createDocBook() {
-        return new DocBook();
-    }
-
-    /**
-     * Create an instance of {@link KnowhowInfomation }
-     * 
-     */
-    public KnowhowInfomation createKnowhowInfomation() {
-        return new KnowhowInfomation();
-    }
-
-    /**
-     * Create an instance of {@link EntryCategory }
-     * 
-     */
-    public EntryCategory createEntryCategory() {
-        return new EntryCategory();
-    }
-
-    /**
      * Create an instance of {@link ChildChapter }
      * 
      */
     public ChildChapter createChildChapter() {
         return new ChildChapter();
-    }
-
-    /**
-     * Create an instance of {@link CheckItem }
-     * 
-     */
-    public CheckItem createCheckItem() {
-        return new CheckItem();
     }
 
 }

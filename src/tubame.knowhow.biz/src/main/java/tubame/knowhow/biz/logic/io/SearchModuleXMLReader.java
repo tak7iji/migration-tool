@@ -20,18 +20,25 @@ package tubame.knowhow.biz.logic.io;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.transform.stream.StreamSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import tubame.knowhow.biz.exception.JbmException;
+import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
 import tubame.knowhow.biz.model.generated.python.PortabilitySearchModule;
 import tubame.knowhow.biz.util.JaxbUtil;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -79,11 +86,17 @@ public class SearchModuleXMLReader implements SearchModuleRead {
 
             // Set to PortabilitySearchModule the contents of the search module
             // XML information read
-            searchModule = (PortabilitySearchModule) unmarshaller
-                    .unmarshal(NonDTDCheckEntityResolver.createDocument(
-                            url.getFile(),
-                            ApplicationPropertiesUtil
-                                    .getProperty(ApplicationPropertiesUtil.SEARCHMODULE_ENCODE)));
+//            searchModule = (PortabilitySearchModule) unmarshaller
+//                    .unmarshal(NonDTDCheckEntityResolver.createDocument(
+//                            url.getFile(),
+//                            ApplicationPropertiesUtil
+//                                    .getProperty(ApplicationPropertiesUtil.SEARCHMODULE_ENCODE)));
+            StreamSource streamSource = new StreamSource(
+            		Files.newBufferedReader(Paths.get(url.toURI()), Charset.forName(ApplicationPropertiesUtil
+                            .getProperty(ApplicationPropertiesUtil.SEARCHMODULE_ENCODE))));
+            searchModule = (PortabilitySearchModule) unmarshaller.unmarshal(streamSource);
+            LOGGER.trace(MessagePropertiesUtil
+                    .getMessage(MessagePropertiesUtil.LOG_STOP_PORTABILITY_KNOWHOW_READER));
             LOGGER.trace(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_STOP_SEARCH_MODULE_READER));
         } catch (JAXBException e) {
@@ -103,19 +116,19 @@ public class SearchModuleXMLReader implements SearchModuleRead {
                     MessagePropertiesUtil
                             .getMessage(MessagePropertiesUtil.FAIL_READ_SEARCH_MODULE),
                     e);
-        } catch (ParserConfigurationException e) {
-            throw createJbmException(
-                    filePath,
-                    MessagePropertiesUtil
-                            .getMessage(MessagePropertiesUtil.FAIL_READ_SEARCH_MODULE),
-                    e);
+//        } catch (ParserConfigurationException e) {
+//            throw createJbmException(
+//                    filePath,
+//                    MessagePropertiesUtil
+//                            .getMessage(MessagePropertiesUtil.FAIL_READ_SEARCH_MODULE),
+//                    e);
         } catch (IllegalArgumentException e) {
             throw createJbmException(
                     filePath,
                     MessagePropertiesUtil
                             .getMessage(MessagePropertiesUtil.FAIL_READ_SEARCH_MODULE),
                     e);
-        } catch (SAXException e) {
+        } catch (Exception e) {
             throw createJbmExceptionJaxBInformation(
                     filePath,
                     MessagePropertiesUtil

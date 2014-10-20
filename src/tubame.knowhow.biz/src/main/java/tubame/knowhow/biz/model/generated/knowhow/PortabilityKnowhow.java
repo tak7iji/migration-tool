@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -124,7 +124,7 @@ public class PortabilityKnowhow {
     protected PortabilityKnowhow.SearchInfomationList searchInfomationList;
 
     /**
-     * Gets the value of the portabilityKnowhowTitle property.
+     * portabilityKnowhowTitleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -136,7 +136,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the portabilityKnowhowTitle property.
+     * portabilityKnowhowTitleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -148,7 +148,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the entryViewList property.
+     * entryViewListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -160,7 +160,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the entryViewList property.
+     * entryViewListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -172,7 +172,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the chapterList property.
+     * chapterListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -184,7 +184,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the chapterList property.
+     * chapterListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -196,7 +196,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the categoryList property.
+     * categoryListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -208,7 +208,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the categoryList property.
+     * categoryListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -220,7 +220,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the knowhowList property.
+     * knowhowListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -232,7 +232,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the knowhowList property.
+     * knowhowListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -244,7 +244,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the docBookList property.
+     * docBookListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -256,7 +256,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the docBookList property.
+     * docBookListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -268,7 +268,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the searchInfomationList property.
+     * searchInfomationListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -280,7 +280,7 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Sets the value of the searchInfomationList property.
+     * searchInfomationListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -293,9 +293,9 @@ public class PortabilityKnowhow {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>
@@ -353,9 +353,9 @@ public class PortabilityKnowhow {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>
@@ -413,9 +413,9 @@ public class PortabilityKnowhow {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>
@@ -473,9 +473,9 @@ public class PortabilityKnowhow {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>
@@ -533,9 +533,9 @@ public class PortabilityKnowhow {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>
@@ -593,9 +593,9 @@ public class PortabilityKnowhow {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1389078500022
-Build-Jdk: 1.7.0_45
-Built-By: kwatanabe
+Bnd-LastModified: 1404782426235
+Build-Jdk: 1.8.0
+Built-By: mash
 Bundle-ManifestVersion: 2
 Bundle-Name: tubame-knowhow-biz
 Bundle-SymbolicName: tubame.knowhow-biz

@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for ChildChapter complex type.
+ * <p>ChildChapter complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="ChildChapter">
@@ -46,7 +46,7 @@ public class ChildChapter {
     protected List<ChildChapter> childChapters;
 
     /**
-     * Gets the value of the childCapterNo property.
+     * childCapterNoプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class ChildChapter {
     }
 
     /**
-     * Sets the value of the childCapterNo property.
+     * childCapterNoプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class ChildChapter {
     }
 
     /**
-     * Gets the value of the chapterCategoryRefKey property.
+     * chapterCategoryRefKeyプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class ChildChapter {
     }
 
     /**
-     * Sets the value of the chapterCategoryRefKey property.
+     * chapterCategoryRefKeyプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

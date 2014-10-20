@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Appropriate complex type.
+ * <p>Appropriate complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="Appropriate">
@@ -40,7 +40,7 @@ public class Appropriate {
     protected boolean lineNumberAppropriate;
 
     /**
-     * Gets the value of the appropriateContents property.
+     * appropriateContentsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class Appropriate {
     }
 
     /**
-     * Sets the value of the appropriateContents property.
+     * appropriateContentsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class Appropriate {
     }
 
     /**
-     * Gets the value of the lineNumberAppropriate property.
+     * lineNumberAppropriateプロパティの値を取得します。
      * 
      */
     public boolean isLineNumberAppropriate() {
@@ -72,7 +72,7 @@ public class Appropriate {
     }
 
     /**
-     * Sets the value of the lineNumberAppropriate property.
+     * lineNumberAppropriateプロパティの値を設定します。
      * 
      */
     public void setLineNumberAppropriate(boolean value) {

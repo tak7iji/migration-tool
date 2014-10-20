@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Chapter complex type.
+ * <p>Chapter complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="Chapter">
@@ -46,7 +46,7 @@ public class Chapter {
     protected List<ChildChapter> childChapters;
 
     /**
-     * Gets the value of the chapterNo property.
+     * chapterNoプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -58,7 +58,7 @@ public class Chapter {
     }
 
     /**
-     * Sets the value of the chapterNo property.
+     * chapterNoプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -70,7 +70,7 @@ public class Chapter {
     }
 
     /**
-     * Gets the value of the chapterName property.
+     * chapterNameプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -82,7 +82,7 @@ public class Chapter {
     }
 
     /**
-     * Sets the value of the chapterName property.
+     * chapterNameプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

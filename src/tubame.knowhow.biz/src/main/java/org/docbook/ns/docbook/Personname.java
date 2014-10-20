@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -68,23 +68,23 @@ public class Personname {
     @XmlElementRefs({
         @XmlElementRef(name = "lineage", namespace = "http://docbook.org/ns/docbook", type = Lineage.class, required = false),
         @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "honorific", namespace = "http://docbook.org/ns/docbook", type = Honorific.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "firstname", namespace = "http://docbook.org/ns/docbook", type = Firstname.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
         @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
         @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
+        @XmlElementRef(name = "othername", namespace = "http://docbook.org/ns/docbook", type = Othername.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "honorific", namespace = "http://docbook.org/ns/docbook", type = Honorific.class, required = false),
         @XmlElementRef(name = "surname", namespace = "http://docbook.org/ns/docbook", type = Surname.class, required = false),
-        @XmlElementRef(name = "othername", namespace = "http://docbook.org/ns/docbook", type = Othername.class, required = false)
+        @XmlElementRef(name = "firstname", namespace = "http://docbook.org/ns/docbook", type = Firstname.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -175,24 +175,24 @@ public class Personname {
      * Objects of the following type(s) are allowed in the list
      * {@link Lineage }
      * {@link Alt }
-     * {@link Indexterm }
-     * {@link Inlinemediaobject }
+     * {@link Phrase }
      * {@link Superscript }
+     * {@link Anchor }
+     * {@link Olink }
+     * {@link Othername }
+     * {@link Xref }
+     * {@link Link }
+     * {@link Replaceable }
+     * {@link Remark }
+     * {@link String }
+     * {@link Indexterm }
+     * {@link Subscript }
+     * {@link Inlinemediaobject }
+     * {@link Biblioref }
      * {@link Annotation }
      * {@link Honorific }
-     * {@link Replaceable }
-     * {@link Firstname }
-     * {@link Xref }
-     * {@link Subscript }
-     * {@link Anchor }
-     * {@link String }
-     * {@link Link }
-     * {@link Biblioref }
-     * {@link Remark }
-     * {@link Phrase }
-     * {@link Olink }
      * {@link Surname }
-     * {@link Othername }
+     * {@link Firstname }
      * 
      * 
      */
@@ -204,7 +204,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the role property.
+     * roleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -216,7 +216,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the role property.
+     * roleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -228,7 +228,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the id property.
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -240,7 +240,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the id property.
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -252,7 +252,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the commonVersion property.
+     * commonVersionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -264,7 +264,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the commonVersion property.
+     * commonVersionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -276,7 +276,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the xmlLang property.
+     * xmlLangプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -288,7 +288,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the xmlLang property.
+     * xmlLangプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -300,7 +300,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the base property.
+     * baseプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -312,7 +312,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the base property.
+     * baseプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -324,7 +324,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the remap property.
+     * remapプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -336,7 +336,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the remap property.
+     * remapプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -348,7 +348,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the xreflabel property.
+     * xreflabelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -360,7 +360,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the xreflabel property.
+     * xreflabelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -372,7 +372,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the revisionflag property.
+     * revisionflagプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -384,7 +384,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the revisionflag property.
+     * revisionflagプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -396,7 +396,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the dir property.
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -408,7 +408,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the dir property.
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -420,7 +420,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the arch property.
+     * archプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -432,7 +432,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the arch property.
+     * archプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -444,7 +444,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the audience property.
+     * audienceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -456,7 +456,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the audience property.
+     * audienceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -468,7 +468,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the condition property.
+     * conditionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -480,7 +480,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the condition property.
+     * conditionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -492,7 +492,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the conformance property.
+     * conformanceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -504,7 +504,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the conformance property.
+     * conformanceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -516,7 +516,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the os property.
+     * osプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -528,7 +528,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the os property.
+     * osプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -540,7 +540,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the commonRevision property.
+     * commonRevisionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -552,7 +552,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the commonRevision property.
+     * commonRevisionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -564,7 +564,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the security property.
+     * securityプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -576,7 +576,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the security property.
+     * securityプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -588,7 +588,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the userlevel property.
+     * userlevelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -600,7 +600,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the userlevel property.
+     * userlevelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -612,7 +612,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the vendor property.
+     * vendorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -624,7 +624,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the vendor property.
+     * vendorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -636,7 +636,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the wordsize property.
+     * wordsizeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -648,7 +648,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the wordsize property.
+     * wordsizeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -660,7 +660,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the annotations property.
+     * annotationsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -672,7 +672,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the annotations property.
+     * annotationsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -684,7 +684,7 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the linkend property.
+     * linkendプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -696,7 +696,7 @@ public class Personname {
     }
 
     /**
-     * Sets the value of the linkend property.
+     * linkendプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

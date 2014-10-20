@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -66,8 +66,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://docbook.org/ns/docbook}email"/>
  *         &lt;element ref="{http://docbook.org/ns/docbook}uri"/>
  *       &lt;/choice>
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -84,53 +84,49 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Computeroutput {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "termdef", namespace = "http://docbook.org/ns/docbook", type = Termdef.class, required = false),
         @XmlElementRef(name = "command", namespace = "http://docbook.org/ns/docbook", type = Command.class, required = false),
-        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "property", namespace = "http://docbook.org/ns/docbook", type = Property.class, required = false),
-        @XmlElementRef(name = "prompt", namespace = "http://docbook.org/ns/docbook", type = Prompt.class, required = false),
-        @XmlElementRef(name = "optional", namespace = "http://docbook.org/ns/docbook", type = Optional.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "envar", namespace = "http://docbook.org/ns/docbook", type = Envar.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "code", namespace = "http://docbook.org/ns/docbook", type = Code.class, required = false),
-        @XmlElementRef(name = "systemitem", namespace = "http://docbook.org/ns/docbook", type = Systemitem.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
-        @XmlElementRef(name = "co", namespace = "http://docbook.org/ns/docbook", type = Co.class, required = false),
-        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "constant", namespace = "http://docbook.org/ns/docbook", type = Constant.class, required = false),
-        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
-        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
-        @XmlElementRef(name = "filename", namespace = "http://docbook.org/ns/docbook", type = Filename.class, required = false),
-        @XmlElementRef(name = "literal", namespace = "http://docbook.org/ns/docbook", type = Literal.class, required = false),
-        @XmlElementRef(name = "tag", namespace = "http://docbook.org/ns/docbook", type = Tag.class, required = false),
-        @XmlElementRef(name = "nonterminal", namespace = "http://docbook.org/ns/docbook", type = Nonterminal.class, required = false),
-        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
         @XmlElementRef(name = "token", namespace = "http://docbook.org/ns/docbook", type = Token.class, required = false),
+        @XmlElementRef(name = "literal", namespace = "http://docbook.org/ns/docbook", type = Literal.class, required = false),
+        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
+        @XmlElementRef(name = "systemitem", namespace = "http://docbook.org/ns/docbook", type = Systemitem.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "co", namespace = "http://docbook.org/ns/docbook", type = Co.class, required = false),
+        @XmlElementRef(name = "constant", namespace = "http://docbook.org/ns/docbook", type = Constant.class, required = false),
+        @XmlElementRef(name = "userinput", namespace = "http://docbook.org/ns/docbook", type = Userinput.class, required = false),
+        @XmlElementRef(name = "tag", namespace = "http://docbook.org/ns/docbook", type = Tag.class, required = false),
+        @XmlElementRef(name = "filename", namespace = "http://docbook.org/ns/docbook", type = Filename.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
+        @XmlElementRef(name = "nonterminal", namespace = "http://docbook.org/ns/docbook", type = Nonterminal.class, required = false),
         @XmlElementRef(name = "package", namespace = "http://docbook.org/ns/docbook", type = Package.class, required = false),
+        @XmlElementRef(name = "code", namespace = "http://docbook.org/ns/docbook", type = Code.class, required = false),
+        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
+        @XmlElementRef(name = "termdef", namespace = "http://docbook.org/ns/docbook", type = Termdef.class, required = false),
+        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
+        @XmlElementRef(name = "email", namespace = "http://docbook.org/ns/docbook", type = Email.class, required = false),
+        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
+        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "envar", namespace = "http://docbook.org/ns/docbook", type = Envar.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "symbol", namespace = "http://docbook.org/ns/docbook", type = Symbol.class, required = false),
+        @XmlElementRef(name = "computeroutput", namespace = "http://docbook.org/ns/docbook", type = Computeroutput.class, required = false),
+        @XmlElementRef(name = "optional", namespace = "http://docbook.org/ns/docbook", type = Optional.class, required = false),
+        @XmlElementRef(name = "property", namespace = "http://docbook.org/ns/docbook", type = Property.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
         @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
         @XmlElementRef(name = "markup", namespace = "http://docbook.org/ns/docbook", type = Markup.class, required = false),
-        @XmlElementRef(name = "computeroutput", namespace = "http://docbook.org/ns/docbook", type = Computeroutput.class, required = false),
-        @XmlElementRef(name = "email", namespace = "http://docbook.org/ns/docbook", type = Email.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "userinput", namespace = "http://docbook.org/ns/docbook", type = Userinput.class, required = false),
-        @XmlElementRef(name = "symbol", namespace = "http://docbook.org/ns/docbook", type = Symbol.class, required = false)
+        @XmlElementRef(name = "prompt", namespace = "http://docbook.org/ns/docbook", type = Prompt.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
     protected String role;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -190,6 +186,10 @@ public class Computeroutput {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
 
     /**
      * Gets the value of the content property.
@@ -209,44 +209,44 @@ public class Computeroutput {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Termdef }
      * {@link Command }
-     * {@link Option }
-     * {@link Indexterm }
-     * {@link Property }
-     * {@link Prompt }
-     * {@link Envar }
-     * {@link Inlinemediaobject }
-     * {@link Optional }
-     * {@link Superscript }
-     * {@link Code }
-     * {@link Systemitem }
-     * {@link Replaceable }
-     * {@link Xref }
-     * {@link Co }
-     * {@link Parameter }
-     * {@link Biblioref }
-     * {@link Remark }
-     * {@link Olink }
-     * {@link Constant }
-     * {@link Filename }
-     * {@link Uri }
-     * {@link Tag }
-     * {@link Literal }
-     * {@link Nonterminal }
-     * {@link Alt }
      * {@link Token }
+     * {@link Literal }
+     * {@link Parameter }
+     * {@link Systemitem }
+     * {@link Xref }
+     * {@link Link }
+     * {@link Co }
+     * {@link Constant }
+     * {@link Userinput }
+     * {@link Tag }
+     * {@link Filename }
+     * {@link Inlinemediaobject }
+     * {@link Nonterminal }
      * {@link Package }
+     * {@link Code }
+     * {@link Alt }
+     * {@link Superscript }
+     * {@link Anchor }
+     * {@link Termdef }
+     * {@link Olink }
+     * {@link Email }
+     * {@link Option }
+     * {@link Uri }
+     * {@link Replaceable }
+     * {@link Envar }
+     * {@link Remark }
+     * {@link Symbol }
+     * {@link Computeroutput }
+     * {@link Optional }
+     * {@link Property }
+     * {@link String }
+     * {@link Indexterm }
+     * {@link Subscript }
+     * {@link Biblioref }
      * {@link Annotation }
      * {@link Markup }
-     * {@link Computeroutput }
-     * {@link Email }
-     * {@link Subscript }
-     * {@link Anchor }
-     * {@link String }
-     * {@link Userinput }
-     * {@link Link }
-     * {@link Symbol }
+     * {@link Prompt }
      * 
      * 
      */
@@ -258,7 +258,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the role property.
+     * roleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -270,7 +270,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the role property.
+     * roleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -282,31 +282,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
-    }
-
-    /**
-     * Gets the value of the id property.
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -318,7 +294,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the id property.
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -330,7 +306,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the commonVersion property.
+     * commonVersionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -342,7 +318,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the commonVersion property.
+     * commonVersionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -354,7 +330,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the xmlLang property.
+     * xmlLangプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -366,7 +342,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the xmlLang property.
+     * xmlLangプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -378,7 +354,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the base property.
+     * baseプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -390,7 +366,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the base property.
+     * baseプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -402,7 +378,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the remap property.
+     * remapプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -414,7 +390,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the remap property.
+     * remapプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -426,7 +402,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the xreflabel property.
+     * xreflabelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -438,7 +414,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the xreflabel property.
+     * xreflabelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -450,7 +426,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the revisionflag property.
+     * revisionflagプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -462,7 +438,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the revisionflag property.
+     * revisionflagプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -474,7 +450,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the dir property.
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -486,7 +462,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the dir property.
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -498,7 +474,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the arch property.
+     * archプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -510,7 +486,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the arch property.
+     * archプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -522,7 +498,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the audience property.
+     * audienceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -534,7 +510,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the audience property.
+     * audienceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -546,7 +522,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the condition property.
+     * conditionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -558,7 +534,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the condition property.
+     * conditionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -570,7 +546,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the conformance property.
+     * conformanceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -582,7 +558,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the conformance property.
+     * conformanceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -594,7 +570,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the os property.
+     * osプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -606,7 +582,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the os property.
+     * osプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -618,7 +594,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the commonRevision property.
+     * commonRevisionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -630,7 +606,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the commonRevision property.
+     * commonRevisionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -642,7 +618,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the security property.
+     * securityプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -654,7 +630,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the security property.
+     * securityプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -666,7 +642,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the userlevel property.
+     * userlevelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -678,7 +654,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the userlevel property.
+     * userlevelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -690,7 +666,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the vendor property.
+     * vendorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -702,7 +678,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the vendor property.
+     * vendorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -714,7 +690,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the wordsize property.
+     * wordsizeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -726,7 +702,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the wordsize property.
+     * wordsizeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -738,7 +714,7 @@ public class Computeroutput {
     }
 
     /**
-     * Gets the value of the annotations property.
+     * annotationsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -750,7 +726,7 @@ public class Computeroutput {
     }
 
     /**
-     * Sets the value of the annotations property.
+     * annotationsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -759,6 +735,30 @@ public class Computeroutput {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
+    }
+
+    /**
+     * linkendプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * linkendプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
     }
 
 }

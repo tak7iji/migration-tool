@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for SearchInfomation complex type.
+ * <p>SearchInfomation complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="SearchInfomation">
@@ -60,7 +60,7 @@ public class SearchInfomation {
     protected String searchInfoId;
 
     /**
-     * Gets the value of the fileType property.
+     * fileTypeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -72,7 +72,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the fileType property.
+     * fileTypeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -84,7 +84,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Gets the value of the searchKey1 property.
+     * searchKey1プロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -96,7 +96,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the searchKey1 property.
+     * searchKey1プロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -108,7 +108,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Gets the value of the searchKey2 property.
+     * searchKey2プロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -120,7 +120,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the searchKey2 property.
+     * searchKey2プロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -132,7 +132,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Gets the value of the pythonModule property.
+     * pythonModuleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -144,7 +144,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the pythonModule property.
+     * pythonModuleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -156,7 +156,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Gets the value of the lineNumberInfomation property.
+     * lineNumberInfomationプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -168,7 +168,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the lineNumberInfomation property.
+     * lineNumberInfomationプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -180,7 +180,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Gets the value of the appropriate property.
+     * appropriateプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -192,7 +192,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the appropriate property.
+     * appropriateプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -204,7 +204,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Gets the value of the searchInfoId property.
+     * searchInfoIdプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -216,7 +216,7 @@ public class SearchInfomation {
     }
 
     /**
-     * Sets the value of the searchInfoId property.
+     * searchInfoIdプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

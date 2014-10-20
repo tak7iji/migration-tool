@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -116,61 +116,61 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Caption {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "warning", namespace = "http://docbook.org/ns/docbook", type = Warning.class, required = false),
-        @XmlElementRef(name = "funcsynopsis", namespace = "http://docbook.org/ns/docbook", type = Funcsynopsis.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "formalpara", namespace = "http://docbook.org/ns/docbook", type = Formalpara.class, required = false),
-        @XmlElementRef(name = "qandaset", namespace = "http://docbook.org/ns/docbook", type = Qandaset.class, required = false),
+        @XmlElementRef(name = "epigraph", namespace = "http://docbook.org/ns/docbook", type = Epigraph.class, required = false),
         @XmlElementRef(name = "productionset", namespace = "http://docbook.org/ns/docbook", type = Productionset.class, required = false),
-        @XmlElementRef(name = "msgset", namespace = "http://docbook.org/ns/docbook", type = Msgset.class, required = false),
-        @XmlElementRef(name = "important", namespace = "http://docbook.org/ns/docbook", type = Important.class, required = false),
-        @XmlElementRef(name = "sidebar", namespace = "http://docbook.org/ns/docbook", type = Sidebar.class, required = false),
-        @XmlElementRef(name = "itemizedlist", namespace = "http://docbook.org/ns/docbook", type = Itemizedlist.class, required = false),
-        @XmlElementRef(name = "methodsynopsis", namespace = "http://docbook.org/ns/docbook", type = Methodsynopsis.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "bibliolist", namespace = "http://docbook.org/ns/docbook", type = Bibliolist.class, required = false),
-        @XmlElementRef(name = "cmdsynopsis", namespace = "http://docbook.org/ns/docbook", type = Cmdsynopsis.class, required = false),
-        @XmlElementRef(name = "informaltable", namespace = "http://docbook.org/ns/docbook", type = Informaltable.class, required = false),
-        @XmlElementRef(name = "equation", namespace = "http://docbook.org/ns/docbook", type = Equation.class, required = false),
+        @XmlElementRef(name = "calloutlist", namespace = "http://docbook.org/ns/docbook", type = Calloutlist.class, required = false),
         @XmlElementRef(name = "note", namespace = "http://docbook.org/ns/docbook", type = Note.class, required = false),
         @XmlElementRef(name = "procedure", namespace = "http://docbook.org/ns/docbook", type = Procedure.class, required = false),
-        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
-        @XmlElementRef(name = "classsynopsis", namespace = "http://docbook.org/ns/docbook", type = Classsynopsis.class, required = false),
-        @XmlElementRef(name = "caution", namespace = "http://docbook.org/ns/docbook", type = Caution.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "simplelist", namespace = "http://docbook.org/ns/docbook", type = Simplelist.class, required = false),
-        @XmlElementRef(name = "figure", namespace = "http://docbook.org/ns/docbook", type = Figure.class, required = false),
-        @XmlElementRef(name = "fieldsynopsis", namespace = "http://docbook.org/ns/docbook", type = Fieldsynopsis.class, required = false),
         @XmlElementRef(name = "informalexample", namespace = "http://docbook.org/ns/docbook", type = Informalexample.class, required = false),
-        @XmlElementRef(name = "constructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Constructorsynopsis.class, required = false),
-        @XmlElementRef(name = "glosslist", namespace = "http://docbook.org/ns/docbook", type = Glosslist.class, required = false),
-        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
-        @XmlElementRef(name = "variablelist", namespace = "http://docbook.org/ns/docbook", type = Variablelist.class, required = false),
-        @XmlElementRef(name = "table", namespace = "http://docbook.org/ns/docbook", type = Table.class, required = false),
-        @XmlElementRef(name = "literallayout", namespace = "http://docbook.org/ns/docbook", type = Literallayout.class, required = false),
-        @XmlElementRef(name = "informalfigure", namespace = "http://docbook.org/ns/docbook", type = Informalfigure.class, required = false),
-        @XmlElementRef(name = "task", namespace = "http://docbook.org/ns/docbook", type = Task.class, required = false),
-        @XmlElementRef(name = "example", namespace = "http://docbook.org/ns/docbook", type = Example.class, required = false),
-        @XmlElementRef(name = "screenco", namespace = "http://docbook.org/ns/docbook", type = Screenco.class, required = false),
         @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
-        @XmlElementRef(name = "programlistingco", namespace = "http://docbook.org/ns/docbook", type = Programlistingco.class, required = false),
-        @XmlElementRef(name = "bridgehead", namespace = "http://docbook.org/ns/docbook", type = Bridgehead.class, required = false),
-        @XmlElementRef(name = "para", namespace = "http://docbook.org/ns/docbook", type = Para.class, required = false),
-        @XmlElementRef(name = "informalequation", namespace = "http://docbook.org/ns/docbook", type = Informalequation.class, required = false),
-        @XmlElementRef(name = "segmentedlist", namespace = "http://docbook.org/ns/docbook", type = Segmentedlist.class, required = false),
-        @XmlElementRef(name = "programlisting", namespace = "http://docbook.org/ns/docbook", type = Programlisting.class, required = false),
-        @XmlElementRef(name = "screen", namespace = "http://docbook.org/ns/docbook", type = Screen.class, required = false),
-        @XmlElementRef(name = "calloutlist", namespace = "http://docbook.org/ns/docbook", type = Calloutlist.class, required = false),
-        @XmlElementRef(name = "orderedlist", namespace = "http://docbook.org/ns/docbook", type = Orderedlist.class, required = false),
-        @XmlElementRef(name = "epigraph", namespace = "http://docbook.org/ns/docbook", type = Epigraph.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "constraintdef", namespace = "http://docbook.org/ns/docbook", type = Constraintdef.class, required = false),
-        @XmlElementRef(name = "tip", namespace = "http://docbook.org/ns/docbook", type = Tip.class, required = false),
-        @XmlElementRef(name = "screenshot", namespace = "http://docbook.org/ns/docbook", type = Screenshot.class, required = false),
-        @XmlElementRef(name = "destructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Destructorsynopsis.class, required = false),
+        @XmlElementRef(name = "informalfigure", namespace = "http://docbook.org/ns/docbook", type = Informalfigure.class, required = false),
+        @XmlElementRef(name = "methodsynopsis", namespace = "http://docbook.org/ns/docbook", type = Methodsynopsis.class, required = false),
+        @XmlElementRef(name = "warning", namespace = "http://docbook.org/ns/docbook", type = Warning.class, required = false),
+        @XmlElementRef(name = "fieldsynopsis", namespace = "http://docbook.org/ns/docbook", type = Fieldsynopsis.class, required = false),
+        @XmlElementRef(name = "itemizedlist", namespace = "http://docbook.org/ns/docbook", type = Itemizedlist.class, required = false),
+        @XmlElementRef(name = "screenco", namespace = "http://docbook.org/ns/docbook", type = Screenco.class, required = false),
+        @XmlElementRef(name = "informaltable", namespace = "http://docbook.org/ns/docbook", type = Informaltable.class, required = false),
+        @XmlElementRef(name = "glosslist", namespace = "http://docbook.org/ns/docbook", type = Glosslist.class, required = false),
         @XmlElementRef(name = "blockquote", namespace = "http://docbook.org/ns/docbook", type = Blockquote.class, required = false),
+        @XmlElementRef(name = "task", namespace = "http://docbook.org/ns/docbook", type = Task.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "informalequation", namespace = "http://docbook.org/ns/docbook", type = Informalequation.class, required = false),
+        @XmlElementRef(name = "funcsynopsis", namespace = "http://docbook.org/ns/docbook", type = Funcsynopsis.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "table", namespace = "http://docbook.org/ns/docbook", type = Table.class, required = false),
         @XmlElementRef(name = "simpara", namespace = "http://docbook.org/ns/docbook", type = Simpara.class, required = false),
-        @XmlElementRef(name = "synopsis", namespace = "http://docbook.org/ns/docbook", type = Synopsis.class, required = false)
+        @XmlElementRef(name = "caution", namespace = "http://docbook.org/ns/docbook", type = Caution.class, required = false),
+        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
+        @XmlElementRef(name = "bibliolist", namespace = "http://docbook.org/ns/docbook", type = Bibliolist.class, required = false),
+        @XmlElementRef(name = "programlistingco", namespace = "http://docbook.org/ns/docbook", type = Programlistingco.class, required = false),
+        @XmlElementRef(name = "tip", namespace = "http://docbook.org/ns/docbook", type = Tip.class, required = false),
+        @XmlElementRef(name = "formalpara", namespace = "http://docbook.org/ns/docbook", type = Formalpara.class, required = false),
+        @XmlElementRef(name = "simplelist", namespace = "http://docbook.org/ns/docbook", type = Simplelist.class, required = false),
+        @XmlElementRef(name = "synopsis", namespace = "http://docbook.org/ns/docbook", type = Synopsis.class, required = false),
+        @XmlElementRef(name = "cmdsynopsis", namespace = "http://docbook.org/ns/docbook", type = Cmdsynopsis.class, required = false),
+        @XmlElementRef(name = "important", namespace = "http://docbook.org/ns/docbook", type = Important.class, required = false),
+        @XmlElementRef(name = "constructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Constructorsynopsis.class, required = false),
+        @XmlElementRef(name = "classsynopsis", namespace = "http://docbook.org/ns/docbook", type = Classsynopsis.class, required = false),
+        @XmlElementRef(name = "screenshot", namespace = "http://docbook.org/ns/docbook", type = Screenshot.class, required = false),
+        @XmlElementRef(name = "orderedlist", namespace = "http://docbook.org/ns/docbook", type = Orderedlist.class, required = false),
+        @XmlElementRef(name = "sidebar", namespace = "http://docbook.org/ns/docbook", type = Sidebar.class, required = false),
+        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
+        @XmlElementRef(name = "figure", namespace = "http://docbook.org/ns/docbook", type = Figure.class, required = false),
+        @XmlElementRef(name = "literallayout", namespace = "http://docbook.org/ns/docbook", type = Literallayout.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
+        @XmlElementRef(name = "screen", namespace = "http://docbook.org/ns/docbook", type = Screen.class, required = false),
+        @XmlElementRef(name = "para", namespace = "http://docbook.org/ns/docbook", type = Para.class, required = false),
+        @XmlElementRef(name = "qandaset", namespace = "http://docbook.org/ns/docbook", type = Qandaset.class, required = false),
+        @XmlElementRef(name = "segmentedlist", namespace = "http://docbook.org/ns/docbook", type = Segmentedlist.class, required = false),
+        @XmlElementRef(name = "bridgehead", namespace = "http://docbook.org/ns/docbook", type = Bridgehead.class, required = false),
+        @XmlElementRef(name = "variablelist", namespace = "http://docbook.org/ns/docbook", type = Variablelist.class, required = false),
+        @XmlElementRef(name = "programlisting", namespace = "http://docbook.org/ns/docbook", type = Programlisting.class, required = false),
+        @XmlElementRef(name = "example", namespace = "http://docbook.org/ns/docbook", type = Example.class, required = false),
+        @XmlElementRef(name = "constraintdef", namespace = "http://docbook.org/ns/docbook", type = Constraintdef.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "destructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Destructorsynopsis.class, required = false),
+        @XmlElementRef(name = "msgset", namespace = "http://docbook.org/ns/docbook", type = Msgset.class, required = false),
+        @XmlElementRef(name = "equation", namespace = "http://docbook.org/ns/docbook", type = Equation.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -301,62 +301,62 @@ public class Caption {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Warning }
-     * {@link Funcsynopsis }
-     * {@link Indexterm }
-     * {@link Formalpara }
-     * {@link Qandaset }
+     * {@link Epigraph }
      * {@link Productionset }
-     * {@link Msgset }
-     * {@link Important }
-     * {@link Sidebar }
-     * {@link Itemizedlist }
-     * {@link Methodsynopsis }
-     * {@link Remark }
-     * {@link Bibliolist }
-     * {@link Cmdsynopsis }
-     * {@link Informaltable }
-     * {@link Equation }
+     * {@link Calloutlist }
      * {@link Note }
      * {@link Procedure }
-     * {@link Mediaobject }
-     * {@link Classsynopsis }
-     * {@link Caution }
-     * {@link Anchor }
-     * {@link Simplelist }
-     * {@link Figure }
-     * {@link Fieldsynopsis }
      * {@link Informalexample }
-     * {@link Constructorsynopsis }
-     * {@link Glosslist }
-     * {@link Address }
-     * {@link Variablelist }
-     * {@link Table }
-     * {@link Literallayout }
-     * {@link Informalfigure }
-     * {@link Task }
-     * {@link Example }
-     * {@link Screenco }
      * {@link Revhistory }
-     * {@link Programlistingco }
-     * {@link Bridgehead }
-     * {@link Para }
-     * {@link Informalequation }
-     * {@link Segmentedlist }
-     * {@link Programlisting }
-     * {@link Screen }
-     * {@link Calloutlist }
-     * {@link Orderedlist }
-     * {@link Epigraph }
-     * {@link Annotation }
-     * {@link Constraintdef }
-     * {@link Tip }
-     * {@link Destructorsynopsis }
-     * {@link Screenshot }
+     * {@link Informalfigure }
+     * {@link Methodsynopsis }
+     * {@link Warning }
+     * {@link Fieldsynopsis }
+     * {@link Itemizedlist }
+     * {@link Screenco }
+     * {@link Informaltable }
+     * {@link Glosslist }
      * {@link Blockquote }
+     * {@link Task }
+     * {@link Remark }
+     * {@link Informalequation }
+     * {@link Funcsynopsis }
+     * {@link Indexterm }
+     * {@link Table }
      * {@link Simpara }
-     * {@link String }
+     * {@link Caution }
+     * {@link Address }
+     * {@link Bibliolist }
+     * {@link Programlistingco }
+     * {@link Tip }
+     * {@link Formalpara }
+     * {@link Simplelist }
      * {@link Synopsis }
+     * {@link Cmdsynopsis }
+     * {@link Important }
+     * {@link Constructorsynopsis }
+     * {@link Classsynopsis }
+     * {@link Screenshot }
+     * {@link Orderedlist }
+     * {@link Sidebar }
+     * {@link Mediaobject }
+     * {@link Figure }
+     * {@link Literallayout }
+     * {@link Anchor }
+     * {@link Screen }
+     * {@link Para }
+     * {@link Qandaset }
+     * {@link Segmentedlist }
+     * {@link Bridgehead }
+     * {@link Variablelist }
+     * {@link String }
+     * {@link Programlisting }
+     * {@link Example }
+     * {@link Constraintdef }
+     * {@link Annotation }
+     * {@link Destructorsynopsis }
+     * {@link Msgset }
+     * {@link Equation }
      * 
      * 
      */
@@ -368,7 +368,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the role property.
+     * roleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -380,7 +380,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the role property.
+     * roleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -392,7 +392,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the clazz property.
+     * clazzプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -404,7 +404,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the clazz property.
+     * clazzプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -416,7 +416,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the style property.
+     * styleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -428,7 +428,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the style property.
+     * styleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -440,7 +440,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the title property.
+     * titleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -452,7 +452,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the title property.
+     * titleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -464,7 +464,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the lang property.
+     * langプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -476,7 +476,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the lang property.
+     * langプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -488,7 +488,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onclick property.
+     * onclickプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -500,7 +500,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onclick property.
+     * onclickプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -512,7 +512,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the ondblclick property.
+     * ondblclickプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -524,7 +524,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the ondblclick property.
+     * ondblclickプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -536,7 +536,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onmousedown property.
+     * onmousedownプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -548,7 +548,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onmousedown property.
+     * onmousedownプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -560,7 +560,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onmouseup property.
+     * onmouseupプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -572,7 +572,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onmouseup property.
+     * onmouseupプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -584,7 +584,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onmouseover property.
+     * onmouseoverプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -596,7 +596,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onmouseover property.
+     * onmouseoverプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -608,7 +608,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onmousemove property.
+     * onmousemoveプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -620,7 +620,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onmousemove property.
+     * onmousemoveプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -632,7 +632,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onmouseout property.
+     * onmouseoutプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -644,7 +644,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onmouseout property.
+     * onmouseoutプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -656,7 +656,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onkeypress property.
+     * onkeypressプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -668,7 +668,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onkeypress property.
+     * onkeypressプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -680,7 +680,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onkeydown property.
+     * onkeydownプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -692,7 +692,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onkeydown property.
+     * onkeydownプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -704,7 +704,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the onkeyup property.
+     * onkeyupプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -716,7 +716,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the onkeyup property.
+     * onkeyupプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -728,7 +728,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the id property.
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -740,7 +740,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the id property.
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -752,7 +752,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the commonVersion property.
+     * commonVersionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -764,7 +764,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the commonVersion property.
+     * commonVersionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -776,7 +776,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the xmlLang property.
+     * xmlLangプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -788,7 +788,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the xmlLang property.
+     * xmlLangプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -800,7 +800,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the base property.
+     * baseプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -812,7 +812,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the base property.
+     * baseプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -824,7 +824,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the remap property.
+     * remapプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -836,7 +836,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the remap property.
+     * remapプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -848,7 +848,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the xreflabel property.
+     * xreflabelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -860,7 +860,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the xreflabel property.
+     * xreflabelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -872,7 +872,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the revisionflag property.
+     * revisionflagプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -884,7 +884,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the revisionflag property.
+     * revisionflagプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -896,7 +896,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the dir property.
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -908,7 +908,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the dir property.
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -920,7 +920,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the arch property.
+     * archプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -932,7 +932,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the arch property.
+     * archプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -944,7 +944,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the audience property.
+     * audienceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -956,7 +956,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the audience property.
+     * audienceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -968,7 +968,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the condition property.
+     * conditionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -980,7 +980,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the condition property.
+     * conditionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -992,7 +992,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the conformance property.
+     * conformanceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1004,7 +1004,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the conformance property.
+     * conformanceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1016,7 +1016,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the os property.
+     * osプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1028,7 +1028,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the os property.
+     * osプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1040,7 +1040,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the commonRevision property.
+     * commonRevisionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1052,7 +1052,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the commonRevision property.
+     * commonRevisionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1064,7 +1064,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the security property.
+     * securityプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1076,7 +1076,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the security property.
+     * securityプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1088,7 +1088,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the userlevel property.
+     * userlevelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1100,7 +1100,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the userlevel property.
+     * userlevelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1112,7 +1112,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the vendor property.
+     * vendorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1124,7 +1124,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the vendor property.
+     * vendorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1136,7 +1136,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the wordsize property.
+     * wordsizeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1148,7 +1148,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the wordsize property.
+     * wordsizeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1160,7 +1160,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the annotations property.
+     * annotationsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1172,7 +1172,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the annotations property.
+     * annotationsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1184,7 +1184,7 @@ public class Caption {
     }
 
     /**
-     * Gets the value of the linkend property.
+     * linkendプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1196,7 +1196,7 @@ public class Caption {
     }
 
     /**
-     * Sets the value of the linkend property.
+     * linkendプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

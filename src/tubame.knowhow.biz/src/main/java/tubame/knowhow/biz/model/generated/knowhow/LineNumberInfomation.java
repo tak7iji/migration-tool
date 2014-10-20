@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for LineNumberInfomation complex type.
+ * <p>LineNumberInfomation complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="LineNumberInfomation">
@@ -44,7 +44,7 @@ public class LineNumberInfomation {
     protected String investigation;
 
     /**
-     * Gets the value of the lineNumber property.
+     * lineNumberプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -56,7 +56,7 @@ public class LineNumberInfomation {
     }
 
     /**
-     * Sets the value of the lineNumber property.
+     * lineNumberプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -68,7 +68,7 @@ public class LineNumberInfomation {
     }
 
     /**
-     * Gets the value of the lineNumberContents property.
+     * lineNumberContentsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -80,7 +80,7 @@ public class LineNumberInfomation {
     }
 
     /**
-     * Sets the value of the lineNumberContents property.
+     * lineNumberContentsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -92,7 +92,7 @@ public class LineNumberInfomation {
     }
 
     /**
-     * Gets the value of the investigation property.
+     * investigationプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -104,7 +104,7 @@ public class LineNumberInfomation {
     }
 
     /**
-     * Sets the value of the investigation property.
+     * investigationプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

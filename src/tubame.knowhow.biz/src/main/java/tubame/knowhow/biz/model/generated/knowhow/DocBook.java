@@ -10,9 +10,9 @@ import org.docbook.ns.docbook.Article;
 
 
 /**
- * <p>Java class for DocBook complex type.
+ * <p>DocBook complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="DocBook">
@@ -41,7 +41,7 @@ public class DocBook {
     protected String articleId;
 
     /**
-     * Gets the value of the article property.
+     * articleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -53,7 +53,7 @@ public class DocBook {
     }
 
     /**
-     * Sets the value of the article property.
+     * articleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -65,7 +65,7 @@ public class DocBook {
     }
 
     /**
-     * Gets the value of the articleId property.
+     * articleIdプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -77,7 +77,7 @@ public class DocBook {
     }
 
     /**
-     * Sets the value of the articleId property.
+     * articleIdプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

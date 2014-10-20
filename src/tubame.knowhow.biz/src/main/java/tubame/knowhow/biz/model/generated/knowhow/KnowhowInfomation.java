@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for KnowhowInfomation complex type.
+ * <p>KnowhowInfomation complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="KnowhowInfomation">
@@ -54,7 +54,7 @@ public class KnowhowInfomation {
     protected String knowhowDetailRefKey;
 
     /**
-     * Gets the value of the knowhowNo property.
+     * knowhowNoプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -66,7 +66,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Sets the value of the knowhowNo property.
+     * knowhowNoプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -78,7 +78,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Gets the value of the knowhowName property.
+     * knowhowNameプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -90,7 +90,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Sets the value of the knowhowName property.
+     * knowhowNameプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -131,7 +131,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Gets the value of the knowhowId property.
+     * knowhowIdプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -143,7 +143,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Sets the value of the knowhowId property.
+     * knowhowIdプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -155,7 +155,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Gets the value of the knowhowDetailRefKey property.
+     * knowhowDetailRefKeyプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -167,7 +167,7 @@ public class KnowhowInfomation {
     }
 
     /**
-     * Sets the value of the knowhowDetailRefKey property.
+     * knowhowDetailRefKeyプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

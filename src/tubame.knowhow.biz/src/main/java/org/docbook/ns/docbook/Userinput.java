@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -98,57 +98,57 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Userinput {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "termdef", namespace = "http://docbook.org/ns/docbook", type = Termdef.class, required = false),
         @XmlElementRef(name = "command", namespace = "http://docbook.org/ns/docbook", type = Command.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "prompt", namespace = "http://docbook.org/ns/docbook", type = Prompt.class, required = false),
-        @XmlElementRef(name = "guibutton", namespace = "http://docbook.org/ns/docbook", type = Guibutton.class, required = false),
-        @XmlElementRef(name = "optional", namespace = "http://docbook.org/ns/docbook", type = Optional.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "systemitem", namespace = "http://docbook.org/ns/docbook", type = Systemitem.class, required = false),
-        @XmlElementRef(name = "guisubmenu", namespace = "http://docbook.org/ns/docbook", type = Guisubmenu.class, required = false),
-        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
-        @XmlElementRef(name = "guiicon", namespace = "http://docbook.org/ns/docbook", type = Guiicon.class, required = false),
-        @XmlElementRef(name = "accel", namespace = "http://docbook.org/ns/docbook", type = Accel.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "shortcut", namespace = "http://docbook.org/ns/docbook", type = Shortcut.class, required = false),
-        @XmlElementRef(name = "guimenuitem", namespace = "http://docbook.org/ns/docbook", type = Guimenuitem.class, required = false),
-        @XmlElementRef(name = "tag", namespace = "http://docbook.org/ns/docbook", type = Tag.class, required = false),
-        @XmlElementRef(name = "literal", namespace = "http://docbook.org/ns/docbook", type = Literal.class, required = false),
         @XmlElementRef(name = "token", namespace = "http://docbook.org/ns/docbook", type = Token.class, required = false),
-        @XmlElementRef(name = "computeroutput", namespace = "http://docbook.org/ns/docbook", type = Computeroutput.class, required = false),
-        @XmlElementRef(name = "guilabel", namespace = "http://docbook.org/ns/docbook", type = Guilabel.class, required = false),
-        @XmlElementRef(name = "keycode", namespace = "http://docbook.org/ns/docbook", type = Keycode.class, required = false),
-        @XmlElementRef(name = "email", namespace = "http://docbook.org/ns/docbook", type = Email.class, required = false),
-        @XmlElementRef(name = "menuchoice", namespace = "http://docbook.org/ns/docbook", type = Menuchoice.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "mousebutton", namespace = "http://docbook.org/ns/docbook", type = Mousebutton.class, required = false),
-        @XmlElementRef(name = "userinput", namespace = "http://docbook.org/ns/docbook", type = Userinput.class, required = false),
-        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
-        @XmlElementRef(name = "keycap", namespace = "http://docbook.org/ns/docbook", type = Keycap.class, required = false),
-        @XmlElementRef(name = "property", namespace = "http://docbook.org/ns/docbook", type = Property.class, required = false),
-        @XmlElementRef(name = "envar", namespace = "http://docbook.org/ns/docbook", type = Envar.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "code", namespace = "http://docbook.org/ns/docbook", type = Code.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "keycombo", namespace = "http://docbook.org/ns/docbook", type = Keycombo.class, required = false),
+        @XmlElementRef(name = "literal", namespace = "http://docbook.org/ns/docbook", type = Literal.class, required = false),
+        @XmlElementRef(name = "systemitem", namespace = "http://docbook.org/ns/docbook", type = Systemitem.class, required = false),
         @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
         @XmlElementRef(name = "co", namespace = "http://docbook.org/ns/docbook", type = Co.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
-        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
-        @XmlElementRef(name = "constant", namespace = "http://docbook.org/ns/docbook", type = Constant.class, required = false),
-        @XmlElementRef(name = "guimenu", namespace = "http://docbook.org/ns/docbook", type = Guimenu.class, required = false),
+        @XmlElementRef(name = "userinput", namespace = "http://docbook.org/ns/docbook", type = Userinput.class, required = false),
         @XmlElementRef(name = "filename", namespace = "http://docbook.org/ns/docbook", type = Filename.class, required = false),
-        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
+        @XmlElementRef(name = "keycap", namespace = "http://docbook.org/ns/docbook", type = Keycap.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
         @XmlElementRef(name = "nonterminal", namespace = "http://docbook.org/ns/docbook", type = Nonterminal.class, required = false),
-        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
         @XmlElementRef(name = "package", namespace = "http://docbook.org/ns/docbook", type = Package.class, required = false),
+        @XmlElementRef(name = "guibutton", namespace = "http://docbook.org/ns/docbook", type = Guibutton.class, required = false),
+        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
+        @XmlElementRef(name = "keycombo", namespace = "http://docbook.org/ns/docbook", type = Keycombo.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "envar", namespace = "http://docbook.org/ns/docbook", type = Envar.class, required = false),
+        @XmlElementRef(name = "guiicon", namespace = "http://docbook.org/ns/docbook", type = Guiicon.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "symbol", namespace = "http://docbook.org/ns/docbook", type = Symbol.class, required = false),
+        @XmlElementRef(name = "keysym", namespace = "http://docbook.org/ns/docbook", type = Keysym.class, required = false),
+        @XmlElementRef(name = "computeroutput", namespace = "http://docbook.org/ns/docbook", type = Computeroutput.class, required = false),
+        @XmlElementRef(name = "property", namespace = "http://docbook.org/ns/docbook", type = Property.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "guilabel", namespace = "http://docbook.org/ns/docbook", type = Guilabel.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "mousebutton", namespace = "http://docbook.org/ns/docbook", type = Mousebutton.class, required = false),
+        @XmlElementRef(name = "guisubmenu", namespace = "http://docbook.org/ns/docbook", type = Guisubmenu.class, required = false),
+        @XmlElementRef(name = "keycode", namespace = "http://docbook.org/ns/docbook", type = Keycode.class, required = false),
+        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "constant", namespace = "http://docbook.org/ns/docbook", type = Constant.class, required = false),
+        @XmlElementRef(name = "tag", namespace = "http://docbook.org/ns/docbook", type = Tag.class, required = false),
+        @XmlElementRef(name = "guimenuitem", namespace = "http://docbook.org/ns/docbook", type = Guimenuitem.class, required = false),
+        @XmlElementRef(name = "menuchoice", namespace = "http://docbook.org/ns/docbook", type = Menuchoice.class, required = false),
+        @XmlElementRef(name = "code", namespace = "http://docbook.org/ns/docbook", type = Code.class, required = false),
+        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
+        @XmlElementRef(name = "shortcut", namespace = "http://docbook.org/ns/docbook", type = Shortcut.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
+        @XmlElementRef(name = "termdef", namespace = "http://docbook.org/ns/docbook", type = Termdef.class, required = false),
+        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
+        @XmlElementRef(name = "email", namespace = "http://docbook.org/ns/docbook", type = Email.class, required = false),
+        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
+        @XmlElementRef(name = "guimenu", namespace = "http://docbook.org/ns/docbook", type = Guimenu.class, required = false),
+        @XmlElementRef(name = "optional", namespace = "http://docbook.org/ns/docbook", type = Optional.class, required = false),
+        @XmlElementRef(name = "accel", namespace = "http://docbook.org/ns/docbook", type = Accel.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
         @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
         @XmlElementRef(name = "markup", namespace = "http://docbook.org/ns/docbook", type = Markup.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "keysym", namespace = "http://docbook.org/ns/docbook", type = Keysym.class, required = false),
-        @XmlElementRef(name = "symbol", namespace = "http://docbook.org/ns/docbook", type = Symbol.class, required = false)
+        @XmlElementRef(name = "prompt", namespace = "http://docbook.org/ns/docbook", type = Prompt.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -237,58 +237,58 @@ public class Userinput {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Termdef }
      * {@link Command }
-     * {@link Indexterm }
-     * {@link Prompt }
-     * {@link Guibutton }
-     * {@link Optional }
-     * {@link Superscript }
-     * {@link Systemitem }
-     * {@link Guisubmenu }
-     * {@link Parameter }
-     * {@link Guiicon }
-     * {@link Accel }
-     * {@link Remark }
-     * {@link Shortcut }
-     * {@link Guimenuitem }
-     * {@link Tag }
-     * {@link Literal }
      * {@link Token }
-     * {@link Computeroutput }
-     * {@link Guilabel }
-     * {@link Keycode }
-     * {@link Email }
-     * {@link Menuchoice }
-     * {@link Anchor }
-     * {@link Mousebutton }
-     * {@link Userinput }
-     * {@link Option }
-     * {@link Keycap }
-     * {@link Property }
-     * {@link Envar }
-     * {@link Inlinemediaobject }
-     * {@link Code }
-     * {@link Replaceable }
-     * {@link Keycombo }
+     * {@link Literal }
+     * {@link Systemitem }
      * {@link Xref }
      * {@link Co }
-     * {@link Biblioref }
-     * {@link Olink }
-     * {@link Constant }
-     * {@link Guimenu }
+     * {@link Userinput }
      * {@link Filename }
-     * {@link Uri }
+     * {@link Keycap }
+     * {@link Inlinemediaobject }
      * {@link Nonterminal }
-     * {@link Alt }
      * {@link Package }
+     * {@link Guibutton }
+     * {@link Option }
+     * {@link Keycombo }
+     * {@link Replaceable }
+     * {@link Envar }
+     * {@link Guiicon }
+     * {@link Remark }
+     * {@link Symbol }
+     * {@link Keysym }
+     * {@link Computeroutput }
+     * {@link Property }
+     * {@link Indexterm }
+     * {@link Guilabel }
+     * {@link Biblioref }
+     * {@link Mousebutton }
+     * {@link Guisubmenu }
+     * {@link Keycode }
+     * {@link Parameter }
+     * {@link Link }
+     * {@link Constant }
+     * {@link Tag }
+     * {@link Guimenuitem }
+     * {@link Menuchoice }
+     * {@link Code }
+     * {@link Alt }
+     * {@link Shortcut }
+     * {@link Superscript }
+     * {@link Anchor }
+     * {@link Termdef }
+     * {@link Olink }
+     * {@link Email }
+     * {@link Uri }
+     * {@link Guimenu }
+     * {@link Optional }
+     * {@link String }
+     * {@link Accel }
+     * {@link Subscript }
      * {@link Annotation }
      * {@link Markup }
-     * {@link Subscript }
-     * {@link String }
-     * {@link Link }
-     * {@link Keysym }
-     * {@link Symbol }
+     * {@link Prompt }
      * 
      * 
      */
@@ -300,7 +300,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the role property.
+     * roleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -312,7 +312,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the role property.
+     * roleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -324,7 +324,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the linkend property.
+     * linkendプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -336,7 +336,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the linkend property.
+     * linkendプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -348,7 +348,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the id property.
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -360,7 +360,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the id property.
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -372,7 +372,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the commonVersion property.
+     * commonVersionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -384,7 +384,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the commonVersion property.
+     * commonVersionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -396,7 +396,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the xmlLang property.
+     * xmlLangプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -408,7 +408,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the xmlLang property.
+     * xmlLangプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -420,7 +420,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the base property.
+     * baseプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -432,7 +432,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the base property.
+     * baseプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -444,7 +444,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the remap property.
+     * remapプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -456,7 +456,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the remap property.
+     * remapプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -468,7 +468,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the xreflabel property.
+     * xreflabelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -480,7 +480,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the xreflabel property.
+     * xreflabelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -492,7 +492,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the revisionflag property.
+     * revisionflagプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -504,7 +504,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the revisionflag property.
+     * revisionflagプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -516,7 +516,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the dir property.
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -528,7 +528,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the dir property.
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -540,7 +540,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the arch property.
+     * archプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -552,7 +552,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the arch property.
+     * archプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -564,7 +564,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the audience property.
+     * audienceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -576,7 +576,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the audience property.
+     * audienceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -588,7 +588,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the condition property.
+     * conditionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -600,7 +600,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the condition property.
+     * conditionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -612,7 +612,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the conformance property.
+     * conformanceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -624,7 +624,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the conformance property.
+     * conformanceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -636,7 +636,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the os property.
+     * osプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -648,7 +648,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the os property.
+     * osプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -660,7 +660,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the commonRevision property.
+     * commonRevisionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -672,7 +672,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the commonRevision property.
+     * commonRevisionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -684,7 +684,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the security property.
+     * securityプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -696,7 +696,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the security property.
+     * securityプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -708,7 +708,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the userlevel property.
+     * userlevelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -720,7 +720,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the userlevel property.
+     * userlevelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -732,7 +732,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the vendor property.
+     * vendorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -744,7 +744,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the vendor property.
+     * vendorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -756,7 +756,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the wordsize property.
+     * wordsizeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -768,7 +768,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the wordsize property.
+     * wordsizeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -780,7 +780,7 @@ public class Userinput {
     }
 
     /**
-     * Gets the value of the annotations property.
+     * annotationsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -792,7 +792,7 @@ public class Userinput {
     }
 
     /**
-     * Sets the value of the annotations property.
+     * annotationsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

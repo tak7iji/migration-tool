@@ -20,13 +20,20 @@ package tubame.knowhow.biz.logic.io;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.transform.stream.StreamSource;
 
+import org.docbook.ns.docbook.Article;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
@@ -77,11 +84,15 @@ public class PortabilityKnowhowXMLReader implements PortabilityKnowhowRead {
                                     .getProperty(ApplicationPropertiesUtil.PORTABILITYKNOWHOWSCHEMA_PATH),
                             errMap);
             // Set to PortabilityKnowhow the contents of the know-how XML read
-            portabilityKnowhow = (PortabilityKnowhow) unmarshaller
-                    .unmarshal(NonDTDCheckEntityResolver.createDocument(
-                            url.getFile(),
-                            ApplicationPropertiesUtil
-                                    .getProperty(ApplicationPropertiesUtil.KNOWHOW_ENCODE)));
+//            portabilityKnowhow = (PortabilityKnowhow) unmarshaller
+//                    .unmarshal(NonDTDCheckEntityResolver.createDocument(
+//                            url.getFile(),
+//                            ApplicationPropertiesUtil
+//                                    .getProperty(ApplicationPropertiesUtil.KNOWHOW_ENCODE)));
+            StreamSource streamSource = new StreamSource(
+            		Files.newBufferedReader(Paths.get(url.toURI()), Charset.forName(ApplicationPropertiesUtil
+                            .getProperty(ApplicationPropertiesUtil.KNOWHOW_ENCODE))));
+            portabilityKnowhow = (PortabilityKnowhow) unmarshaller.unmarshal(streamSource);
             LOGGER.trace(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_STOP_PORTABILITY_KNOWHOW_READER));
         } catch (JAXBException e) {
@@ -102,19 +113,19 @@ public class PortabilityKnowhowXMLReader implements PortabilityKnowhowRead {
                     MessagePropertiesUtil
                             .getMessage(MessagePropertiesUtil.ERROR_XML_READ_FAIL_KNOWHOW),
                     e);
-        } catch (ParserConfigurationException e) {
-            throw createJbmException(
-                    filePath,
-                    MessagePropertiesUtil
-                            .getMessage(MessagePropertiesUtil.ERROR_XML_READ_FAIL_KNOWHOW),
-                    e);
+//        } catch (ParserConfigurationException e) {
+//            throw createJbmException(
+//                    filePath,
+//                    MessagePropertiesUtil
+//                            .getMessage(MessagePropertiesUtil.ERROR_XML_READ_FAIL_KNOWHOW),
+//                    e);
         } catch (IllegalArgumentException e) {
             throw createJbmException(
                     filePath,
                     MessagePropertiesUtil
                             .getMessage(MessagePropertiesUtil.ERROR_XML_READ_FAIL_KNOWHOW),
                     e);
-        } catch (SAXException e) {
+        } catch (Exception e) {
             throw createJbmExceptionJaxBInformation(
                     filePath,
                     MessagePropertiesUtil

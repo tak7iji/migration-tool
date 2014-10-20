@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for SearchModule complex type.
+ * <p>SearchModule complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="SearchModule">
@@ -40,7 +40,7 @@ public class SearchModule {
     protected String moduleDescription;
 
     /**
-     * Gets the value of the moduleName property.
+     * moduleNameプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class SearchModule {
     }
 
     /**
-     * Sets the value of the moduleName property.
+     * moduleNameプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class SearchModule {
     }
 
     /**
-     * Gets the value of the moduleDescription property.
+     * moduleDescriptionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class SearchModule {
     }
 
     /**
-     * Sets the value of the moduleDescription property.
+     * moduleDescriptionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for CheckItem complex type.
+ * <p>CheckItem complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="CheckItem">
@@ -75,7 +75,7 @@ public class CheckItem {
     protected boolean searchExistance;
 
     /**
-     * Gets the value of the checkItemNo property.
+     * checkItemNoプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -87,7 +87,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the checkItemNo property.
+     * checkItemNoプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -99,7 +99,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the checkItemName property.
+     * checkItemNameプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -111,7 +111,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the checkItemName property.
+     * checkItemNameプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -123,7 +123,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the searchProcess property.
+     * searchProcessプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -135,7 +135,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the searchProcess property.
+     * searchProcessプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -147,7 +147,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the portabilityFactor property.
+     * portabilityFactorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -159,7 +159,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the portabilityFactor property.
+     * portabilityFactorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -171,7 +171,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the portabilityDegree property.
+     * portabilityDegreeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -183,7 +183,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the portabilityDegree property.
+     * portabilityDegreeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -195,7 +195,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the degreeDetail property.
+     * degreeDetailプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -207,7 +207,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the degreeDetail property.
+     * degreeDetailプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -219,7 +219,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the visualConfirm property.
+     * visualConfirmプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -231,7 +231,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the visualConfirm property.
+     * visualConfirmプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -243,7 +243,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the hearingConfirm property.
+     * hearingConfirmプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -255,7 +255,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the hearingConfirm property.
+     * hearingConfirmプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -267,7 +267,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the checkItemId property.
+     * checkItemIdプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -279,7 +279,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the checkItemId property.
+     * checkItemIdプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -291,7 +291,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the searchRefKey property.
+     * searchRefKeyプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -303,7 +303,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the searchRefKey property.
+     * searchRefKeyプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -315,7 +315,7 @@ public class CheckItem {
     }
 
     /**
-     * Gets the value of the searchExistance property.
+     * searchExistanceプロパティの値を取得します。
      * 
      */
     public boolean isSearchExistance() {
@@ -323,7 +323,7 @@ public class CheckItem {
     }
 
     /**
-     * Sets the value of the searchExistance property.
+     * searchExistanceプロパティの値を設定します。
      * 
      */
     public void setSearchExistance(boolean value) {

@@ -36,6 +36,7 @@ import org.xml.sax.SAXException;
 
 import tubame.knowhow.biz.logic.JaxbValidationEventHandler;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
+import tubame.knowhow.biz.model.generated.python.PortabilitySearchModule;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 
@@ -46,6 +47,7 @@ public final class JaxbUtil {
     /** Logger */
     private static final Logger LOGGER = LoggerFactory
             .getLogger(JaxbUtil.class);
+    private static final Map<String, JAXBContext> contextMap = new HashMap<String, JAXBContext>();
     /** Know-how marshaler */
     private static final Marshaller KNOWHOW_MARSHALLER = getKnowhowMarshaller();
     /** Know-how unmarshaller */
@@ -55,6 +57,21 @@ public final class JaxbUtil {
     /** DocBook unmarshaller */
     private static final Unmarshaller DOCBOOK_UNMARSHALLER = getDocbookUnmarshaller();
 
+    private static final JAXBContext getInstance(Class<?> clazz) {
+    	JAXBContext instance = null;
+    	LOGGER.info("Get JAXBContext start: " + clazz.getName());
+    	try {
+    		instance = contextMap.get(clazz.getName());
+    		if (instance == null) {
+    			instance = JAXBContext.newInstance(clazz);
+    			contextMap.put(clazz.getName(), instance);
+    		}
+		} catch (JAXBException e) {
+		}
+    	LOGGER.info("Get JAXBContext end: " + clazz.getName());
+    	return instance;
+    }
+    
     /**
      * Constructor.<br/>
      * 
@@ -81,7 +98,8 @@ public final class JaxbUtil {
         try {
             LOGGER.trace(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_START_CREATE_DOCBOOK_UNMARSHALLER));
-            JAXBContext jaxbContext = JAXBContext.newInstance(Article.class);
+//            JAXBContext jaxbContext = JAXBContext.newInstance(Article.class);
+            JAXBContext jaxbContext = getInstance(Article.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             unmarshaller.setSchema(JaxbUtil.getSchema(ApplicationPropertiesUtil
                     .getProperty(ApplicationPropertiesUtil.DOCBOOKSCHEMA_PATH),
@@ -107,7 +125,8 @@ public final class JaxbUtil {
         try {
             LOGGER.trace(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_START_CREATE_DOCBOOK_MARSHALLER));
-            JAXBContext jaxbContext = JAXBContext.newInstance(Article.class);
+//          JAXBContext jaxbContext = JAXBContext.newInstance(Article.class);
+            JAXBContext jaxbContext = getInstance(Article.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setSchema(JaxbUtil.getSchema(ApplicationPropertiesUtil
@@ -134,8 +153,9 @@ public final class JaxbUtil {
         try {
             LOGGER.trace(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_START_CREATE_KNOWHOW_UNMARSHALLER));
-            JAXBContext jaxbContext = JAXBContext
-                    .newInstance(PortabilityKnowhow.class);
+//            JAXBContext jaxbContext = JAXBContext
+//                    .newInstance(PortabilityKnowhow.class);
+            JAXBContext jaxbContext = getInstance(PortabilityKnowhow.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             unmarshaller
                     .setSchema(JaxbUtil.getSchema(
@@ -163,8 +183,9 @@ public final class JaxbUtil {
         try {
             LOGGER.trace(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_START_CREATE_KNOWHOW_MARSHALLER));
-            JAXBContext jaxbContext = JAXBContext
-                    .newInstance(PortabilityKnowhow.class);
+//            JAXBContext jaxbContext = JAXBContext
+//                    .newInstance(PortabilityKnowhow.class);
+            JAXBContext jaxbContext = getInstance(PortabilityKnowhow.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller
@@ -238,7 +259,7 @@ public final class JaxbUtil {
             String resourcePath) throws JAXBException, SAXException,
             MalformedURLException {
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(targetClass);
+        JAXBContext jaxbContext = getInstance(targetClass);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         unmarshaller.setSchema(JaxbUtil.getSchema(resourcePath, targetClass));
         return unmarshaller;
@@ -263,7 +284,7 @@ public final class JaxbUtil {
             Class<?> targetClass, String resourcePath) throws JAXBException,
             SAXException, MalformedURLException {
         if (DOCBOOK_UNMARSHALLER == null) {
-            JAXBContext jaxbContext = JAXBContext.newInstance(targetClass);
+            JAXBContext jaxbContext = getInstance(targetClass);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             unmarshaller.setSchema(JaxbUtil
                     .getSchema(resourcePath, targetClass));
@@ -292,7 +313,7 @@ public final class JaxbUtil {
             Class<?> targetClass, String resourcePath) throws JAXBException,
             SAXException, MalformedURLException {
         if (KNOWHOW_UNMARSHALLER == null) {
-            JAXBContext jaxbContext = JAXBContext.newInstance(targetClass);
+            JAXBContext jaxbContext = getInstance(targetClass);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             unmarshaller.setSchema(JaxbUtil
                     .getSchema(resourcePath, targetClass));
@@ -354,7 +375,7 @@ public final class JaxbUtil {
             String resourcePath) throws JAXBException, SAXException,
             MalformedURLException {
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(targetClass);
+        JAXBContext jaxbContext = getInstance(targetClass);
         Marshaller marshaller = jaxbContext.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
@@ -381,7 +402,7 @@ public final class JaxbUtil {
             String resourcePath) throws JAXBException, SAXException,
             MalformedURLException {
         if (DOCBOOK_MARSHALLER == null) {
-            JAXBContext jaxbContext = JAXBContext.newInstance(targetClass);
+            JAXBContext jaxbContext = getInstance(targetClass);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setSchema(JaxbUtil.getSchema(resourcePath, targetClass));
@@ -410,7 +431,7 @@ public final class JaxbUtil {
             String resourcePath) throws JAXBException, SAXException,
             MalformedURLException {
         if (KNOWHOW_MARSHALLER == null) {
-            JAXBContext jaxbContext = JAXBContext.newInstance(targetClass);
+            JAXBContext jaxbContext = getInstance(targetClass);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setSchema(JaxbUtil.getSchema(resourcePath, targetClass));

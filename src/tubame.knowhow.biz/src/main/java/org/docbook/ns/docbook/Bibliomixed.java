@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -114,73 +114,73 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Bibliomixed {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "bibliomisc", namespace = "http://docbook.org/ns/docbook", type = Bibliomisc.class, required = false),
-        @XmlElementRef(name = "wordasword", namespace = "http://docbook.org/ns/docbook", type = Wordasword.class, required = false),
-        @XmlElementRef(name = "productnumber", namespace = "http://docbook.org/ns/docbook", type = Productnumber.class, required = false),
-        @XmlElementRef(name = "title", namespace = "http://docbook.org/ns/docbook", type = Title.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "legalnotice", namespace = "http://docbook.org/ns/docbook", type = Legalnotice.class, required = false),
-        @XmlElementRef(name = "editor", namespace = "http://docbook.org/ns/docbook", type = Editor.class, required = false),
-        @XmlElementRef(name = "cover", namespace = "http://docbook.org/ns/docbook", type = Cover.class, required = false),
-        @XmlElementRef(name = "abstract", namespace = "http://docbook.org/ns/docbook", type = Abstract.class, required = false),
-        @XmlElementRef(name = "seriesvolnums", namespace = "http://docbook.org/ns/docbook", type = Seriesvolnums.class, required = false),
-        @XmlElementRef(name = "publisher", namespace = "http://docbook.org/ns/docbook", type = Publisher.class, required = false),
-        @XmlElementRef(name = "date", namespace = "http://docbook.org/ns/docbook", type = Date.class, required = false),
         @XmlElementRef(name = "biblioset", namespace = "http://docbook.org/ns/docbook", type = Biblioset.class, required = false),
-        @XmlElementRef(name = "bibliorelation", namespace = "http://docbook.org/ns/docbook", type = Bibliorelation.class, required = false),
-        @XmlElementRef(name = "bibliocoverage", namespace = "http://docbook.org/ns/docbook", type = Bibliocoverage.class, required = false),
-        @XmlElementRef(name = "authorinitials", namespace = "http://docbook.org/ns/docbook", type = Authorinitials.class, required = false),
-        @XmlElementRef(name = "publishername", namespace = "http://docbook.org/ns/docbook", type = Publishername.class, required = false),
-        @XmlElementRef(name = "author", namespace = "http://docbook.org/ns/docbook", type = Author.class, required = false),
-        @XmlElementRef(name = "citetitle", namespace = "http://docbook.org/ns/docbook", type = Citetitle.class, required = false),
-        @XmlElementRef(name = "contractnum", namespace = "http://docbook.org/ns/docbook", type = Contractnum.class, required = false),
-        @XmlElementRef(name = "personblurb", namespace = "http://docbook.org/ns/docbook", type = Personblurb.class, required = false),
-        @XmlElementRef(name = "contractsponsor", namespace = "http://docbook.org/ns/docbook", type = Contractsponsor.class, required = false),
-        @XmlElementRef(name = "pagenums", namespace = "http://docbook.org/ns/docbook", type = Pagenums.class, required = false),
-        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
-        @XmlElementRef(name = "glossterm", namespace = "http://docbook.org/ns/docbook", type = Glossterm.class, required = false),
-        @XmlElementRef(name = "productname", namespace = "http://docbook.org/ns/docbook", type = Productname.class, required = false),
-        @XmlElementRef(name = "biblioid", namespace = "http://docbook.org/ns/docbook", type = Biblioid.class, required = false),
-        @XmlElementRef(name = "org", namespace = "http://docbook.org/ns/docbook", type = Org.class, required = false),
-        @XmlElementRef(name = "collab", namespace = "http://docbook.org/ns/docbook", type = Collab.class, required = false),
-        @XmlElementRef(name = "confgroup", namespace = "http://docbook.org/ns/docbook", type = Confgroup.class, required = false),
-        @XmlElementRef(name = "footnote", namespace = "http://docbook.org/ns/docbook", type = Footnote.class, required = false),
-        @XmlElementRef(name = "subjectset", namespace = "http://docbook.org/ns/docbook", type = Subjectset.class, required = false),
-        @XmlElementRef(name = "titleabbrev", namespace = "http://docbook.org/ns/docbook", type = Titleabbrev.class, required = false),
-        @XmlElementRef(name = "firstterm", namespace = "http://docbook.org/ns/docbook", type = Firstterm.class, required = false),
-        @XmlElementRef(name = "bibliomset", namespace = "http://docbook.org/ns/docbook", type = Bibliomset.class, required = false),
-        @XmlElementRef(name = "person", namespace = "http://docbook.org/ns/docbook", type = Person.class, required = false),
-        @XmlElementRef(name = "releaseinfo", namespace = "http://docbook.org/ns/docbook", type = Releaseinfo.class, required = false),
-        @XmlElementRef(name = "subtitle", namespace = "http://docbook.org/ns/docbook", type = Subtitle.class, required = false),
-        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
-        @XmlElementRef(name = "bibliosource", namespace = "http://docbook.org/ns/docbook", type = Bibliosource.class, required = false),
-        @XmlElementRef(name = "citebiblioid", namespace = "http://docbook.org/ns/docbook", type = Citebiblioid.class, required = false),
-        @XmlElementRef(name = "printhistory", namespace = "http://docbook.org/ns/docbook", type = Printhistory.class, required = false),
-        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
-        @XmlElementRef(name = "copyright", namespace = "http://docbook.org/ns/docbook", type = Copyright.class, required = false),
-        @XmlElementRef(name = "orgname", namespace = "http://docbook.org/ns/docbook", type = Orgname.class, required = false),
-        @XmlElementRef(name = "pubdate", namespace = "http://docbook.org/ns/docbook", type = Pubdate.class, required = false),
-        @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
-        @XmlElementRef(name = "citerefentry", namespace = "http://docbook.org/ns/docbook", type = Citerefentry.class, required = false),
-        @XmlElementRef(name = "itermset", namespace = "http://docbook.org/ns/docbook", type = Itermset.class, required = false),
-        @XmlElementRef(name = "abbrev", namespace = "http://docbook.org/ns/docbook", type = Abbrev.class, required = false),
-        @XmlElementRef(name = "quote", namespace = "http://docbook.org/ns/docbook", type = Quote.class, required = false),
-        @XmlElementRef(name = "keywordset", namespace = "http://docbook.org/ns/docbook", type = Keywordset.class, required = false),
-        @XmlElementRef(name = "authorgroup", namespace = "http://docbook.org/ns/docbook", type = Authorgroup.class, required = false),
-        @XmlElementRef(name = "acronym", namespace = "http://docbook.org/ns/docbook", type = Acronym.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "extendedlink", namespace = "http://docbook.org/ns/docbook", type = Extendedlink.class, required = false),
-        @XmlElementRef(name = "emphasis", namespace = "http://docbook.org/ns/docbook", type = Emphasis.class, required = false),
-        @XmlElementRef(name = "artpagenums", namespace = "http://docbook.org/ns/docbook", type = Artpagenums.class, required = false),
-        @XmlElementRef(name = "othercredit", namespace = "http://docbook.org/ns/docbook", type = Othercredit.class, required = false),
-        @XmlElementRef(name = "foreignphrase", namespace = "http://docbook.org/ns/docbook", type = Foreignphrase.class, required = false),
-        @XmlElementRef(name = "volumenum", namespace = "http://docbook.org/ns/docbook", type = Volumenum.class, required = false),
         @XmlElementRef(name = "footnoteref", namespace = "http://docbook.org/ns/docbook", type = Footnoteref.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "coref", namespace = "http://docbook.org/ns/docbook", type = Coref.class, required = false),
-        @XmlElementRef(name = "issuenum", namespace = "http://docbook.org/ns/docbook", type = Issuenum.class, required = false),
+        @XmlElementRef(name = "firstterm", namespace = "http://docbook.org/ns/docbook", type = Firstterm.class, required = false),
+        @XmlElementRef(name = "legalnotice", namespace = "http://docbook.org/ns/docbook", type = Legalnotice.class, required = false),
+        @XmlElementRef(name = "bibliomisc", namespace = "http://docbook.org/ns/docbook", type = Bibliomisc.class, required = false),
+        @XmlElementRef(name = "emphasis", namespace = "http://docbook.org/ns/docbook", type = Emphasis.class, required = false),
+        @XmlElementRef(name = "itermset", namespace = "http://docbook.org/ns/docbook", type = Itermset.class, required = false),
+        @XmlElementRef(name = "wordasword", namespace = "http://docbook.org/ns/docbook", type = Wordasword.class, required = false),
         @XmlElementRef(name = "edition", namespace = "http://docbook.org/ns/docbook", type = Edition.class, required = false),
-        @XmlElementRef(name = "personname", namespace = "http://docbook.org/ns/docbook", type = Personname.class, required = false)
+        @XmlElementRef(name = "editor", namespace = "http://docbook.org/ns/docbook", type = Editor.class, required = false),
+        @XmlElementRef(name = "contractnum", namespace = "http://docbook.org/ns/docbook", type = Contractnum.class, required = false),
+        @XmlElementRef(name = "author", namespace = "http://docbook.org/ns/docbook", type = Author.class, required = false),
+        @XmlElementRef(name = "citerefentry", namespace = "http://docbook.org/ns/docbook", type = Citerefentry.class, required = false),
+        @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
+        @XmlElementRef(name = "bibliosource", namespace = "http://docbook.org/ns/docbook", type = Bibliosource.class, required = false),
+        @XmlElementRef(name = "acronym", namespace = "http://docbook.org/ns/docbook", type = Acronym.class, required = false),
+        @XmlElementRef(name = "volumenum", namespace = "http://docbook.org/ns/docbook", type = Volumenum.class, required = false),
+        @XmlElementRef(name = "citetitle", namespace = "http://docbook.org/ns/docbook", type = Citetitle.class, required = false),
+        @XmlElementRef(name = "citebiblioid", namespace = "http://docbook.org/ns/docbook", type = Citebiblioid.class, required = false),
+        @XmlElementRef(name = "abstract", namespace = "http://docbook.org/ns/docbook", type = Abstract.class, required = false),
+        @XmlElementRef(name = "confgroup", namespace = "http://docbook.org/ns/docbook", type = Confgroup.class, required = false),
+        @XmlElementRef(name = "publisher", namespace = "http://docbook.org/ns/docbook", type = Publisher.class, required = false),
+        @XmlElementRef(name = "othercredit", namespace = "http://docbook.org/ns/docbook", type = Othercredit.class, required = false),
+        @XmlElementRef(name = "titleabbrev", namespace = "http://docbook.org/ns/docbook", type = Titleabbrev.class, required = false),
+        @XmlElementRef(name = "person", namespace = "http://docbook.org/ns/docbook", type = Person.class, required = false),
+        @XmlElementRef(name = "productnumber", namespace = "http://docbook.org/ns/docbook", type = Productnumber.class, required = false),
+        @XmlElementRef(name = "orgname", namespace = "http://docbook.org/ns/docbook", type = Orgname.class, required = false),
+        @XmlElementRef(name = "pagenums", namespace = "http://docbook.org/ns/docbook", type = Pagenums.class, required = false),
+        @XmlElementRef(name = "subjectset", namespace = "http://docbook.org/ns/docbook", type = Subjectset.class, required = false),
+        @XmlElementRef(name = "pubdate", namespace = "http://docbook.org/ns/docbook", type = Pubdate.class, required = false),
+        @XmlElementRef(name = "title", namespace = "http://docbook.org/ns/docbook", type = Title.class, required = false),
+        @XmlElementRef(name = "footnote", namespace = "http://docbook.org/ns/docbook", type = Footnote.class, required = false),
+        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
+        @XmlElementRef(name = "bibliomset", namespace = "http://docbook.org/ns/docbook", type = Bibliomset.class, required = false),
+        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
+        @XmlElementRef(name = "abbrev", namespace = "http://docbook.org/ns/docbook", type = Abbrev.class, required = false),
+        @XmlElementRef(name = "publishername", namespace = "http://docbook.org/ns/docbook", type = Publishername.class, required = false),
+        @XmlElementRef(name = "org", namespace = "http://docbook.org/ns/docbook", type = Org.class, required = false),
+        @XmlElementRef(name = "quote", namespace = "http://docbook.org/ns/docbook", type = Quote.class, required = false),
+        @XmlElementRef(name = "subtitle", namespace = "http://docbook.org/ns/docbook", type = Subtitle.class, required = false),
+        @XmlElementRef(name = "seriesvolnums", namespace = "http://docbook.org/ns/docbook", type = Seriesvolnums.class, required = false),
+        @XmlElementRef(name = "artpagenums", namespace = "http://docbook.org/ns/docbook", type = Artpagenums.class, required = false),
+        @XmlElementRef(name = "glossterm", namespace = "http://docbook.org/ns/docbook", type = Glossterm.class, required = false),
+        @XmlElementRef(name = "copyright", namespace = "http://docbook.org/ns/docbook", type = Copyright.class, required = false),
+        @XmlElementRef(name = "issuenum", namespace = "http://docbook.org/ns/docbook", type = Issuenum.class, required = false),
+        @XmlElementRef(name = "authorgroup", namespace = "http://docbook.org/ns/docbook", type = Authorgroup.class, required = false),
+        @XmlElementRef(name = "printhistory", namespace = "http://docbook.org/ns/docbook", type = Printhistory.class, required = false),
+        @XmlElementRef(name = "coref", namespace = "http://docbook.org/ns/docbook", type = Coref.class, required = false),
+        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
+        @XmlElementRef(name = "bibliocoverage", namespace = "http://docbook.org/ns/docbook", type = Bibliocoverage.class, required = false),
+        @XmlElementRef(name = "extendedlink", namespace = "http://docbook.org/ns/docbook", type = Extendedlink.class, required = false),
+        @XmlElementRef(name = "contractsponsor", namespace = "http://docbook.org/ns/docbook", type = Contractsponsor.class, required = false),
+        @XmlElementRef(name = "personname", namespace = "http://docbook.org/ns/docbook", type = Personname.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "bibliorelation", namespace = "http://docbook.org/ns/docbook", type = Bibliorelation.class, required = false),
+        @XmlElementRef(name = "authorinitials", namespace = "http://docbook.org/ns/docbook", type = Authorinitials.class, required = false),
+        @XmlElementRef(name = "foreignphrase", namespace = "http://docbook.org/ns/docbook", type = Foreignphrase.class, required = false),
+        @XmlElementRef(name = "personblurb", namespace = "http://docbook.org/ns/docbook", type = Personblurb.class, required = false),
+        @XmlElementRef(name = "collab", namespace = "http://docbook.org/ns/docbook", type = Collab.class, required = false),
+        @XmlElementRef(name = "date", namespace = "http://docbook.org/ns/docbook", type = Date.class, required = false),
+        @XmlElementRef(name = "keywordset", namespace = "http://docbook.org/ns/docbook", type = Keywordset.class, required = false),
+        @XmlElementRef(name = "releaseinfo", namespace = "http://docbook.org/ns/docbook", type = Releaseinfo.class, required = false),
+        @XmlElementRef(name = "cover", namespace = "http://docbook.org/ns/docbook", type = Cover.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "productname", namespace = "http://docbook.org/ns/docbook", type = Productname.class, required = false),
+        @XmlElementRef(name = "biblioid", namespace = "http://docbook.org/ns/docbook", type = Biblioid.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -269,74 +269,74 @@ public class Bibliomixed {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Bibliomisc }
-     * {@link Productnumber }
-     * {@link Wordasword }
-     * {@link Title }
-     * {@link Legalnotice }
-     * {@link Superscript }
-     * {@link Editor }
-     * {@link Cover }
-     * {@link Abstract }
-     * {@link Seriesvolnums }
-     * {@link Publisher }
      * {@link Biblioset }
-     * {@link Date }
-     * {@link Bibliorelation }
-     * {@link Bibliocoverage }
-     * {@link Publishername }
-     * {@link Authorinitials }
-     * {@link Author }
+     * {@link Footnoteref }
+     * {@link Firstterm }
+     * {@link Legalnotice }
+     * {@link Bibliomisc }
+     * {@link Emphasis }
+     * {@link Itermset }
+     * {@link Wordasword }
+     * {@link Edition }
+     * {@link Editor }
      * {@link Contractnum }
+     * {@link Author }
+     * {@link Citerefentry }
+     * {@link Revhistory }
+     * {@link Bibliosource }
+     * {@link Acronym }
+     * {@link Volumenum }
      * {@link Citetitle }
-     * {@link Personblurb }
-     * {@link Contractsponsor }
+     * {@link Citebiblioid }
+     * {@link Abstract }
+     * {@link Confgroup }
+     * {@link Publisher }
+     * {@link Othercredit }
+     * {@link Titleabbrev }
+     * {@link Person }
+     * {@link Productnumber }
+     * {@link Orgname }
      * {@link Pagenums }
-     * {@link Mediaobject }
+     * {@link Subjectset }
+     * {@link Pubdate }
+     * {@link Title }
+     * {@link Footnote }
+     * {@link Address }
+     * {@link Bibliomset }
+     * {@link Phrase }
+     * {@link Abbrev }
+     * {@link Publishername }
+     * {@link Org }
+     * {@link Quote }
+     * {@link Subtitle }
+     * {@link Seriesvolnums }
+     * {@link Artpagenums }
      * {@link Glossterm }
+     * {@link Copyright }
+     * {@link Issuenum }
+     * {@link Authorgroup }
+     * {@link Printhistory }
+     * {@link Coref }
+     * {@link Mediaobject }
+     * {@link Bibliocoverage }
+     * {@link Extendedlink }
+     * {@link Contractsponsor }
+     * {@link Personname }
+     * {@link Superscript }
+     * {@link Bibliorelation }
+     * {@link Authorinitials }
+     * {@link Foreignphrase }
+     * {@link Personblurb }
+     * {@link Collab }
+     * {@link Date }
+     * {@link String }
+     * {@link Keywordset }
+     * {@link Releaseinfo }
+     * {@link Cover }
+     * {@link Subscript }
+     * {@link Annotation }
      * {@link Productname }
      * {@link Biblioid }
-     * {@link Footnote }
-     * {@link Confgroup }
-     * {@link Collab }
-     * {@link Org }
-     * {@link Subjectset }
-     * {@link Firstterm }
-     * {@link Titleabbrev }
-     * {@link Bibliomset }
-     * {@link Releaseinfo }
-     * {@link Person }
-     * {@link Bibliosource }
-     * {@link Phrase }
-     * {@link Subtitle }
-     * {@link Citebiblioid }
-     * {@link Printhistory }
-     * {@link Address }
-     * {@link Copyright }
-     * {@link Orgname }
-     * {@link Pubdate }
-     * {@link Revhistory }
-     * {@link Abbrev }
-     * {@link Itermset }
-     * {@link Citerefentry }
-     * {@link Keywordset }
-     * {@link Quote }
-     * {@link Authorgroup }
-     * {@link Acronym }
-     * {@link Annotation }
-     * {@link Emphasis }
-     * {@link Extendedlink }
-     * {@link Artpagenums }
-     * {@link Othercredit }
-     * {@link Foreignphrase }
-     * {@link Volumenum }
-     * {@link Footnoteref }
-     * {@link Subscript }
-     * {@link Coref }
-     * {@link String }
-     * {@link Issuenum }
-     * {@link Edition }
-     * {@link Personname }
      * 
      * 
      */
@@ -348,7 +348,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the role property.
+     * roleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -360,7 +360,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the role property.
+     * roleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -372,7 +372,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the id property.
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -384,7 +384,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the id property.
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -396,7 +396,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the commonVersion property.
+     * commonVersionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -408,7 +408,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the commonVersion property.
+     * commonVersionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -420,7 +420,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the xmlLang property.
+     * xmlLangプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -432,7 +432,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the xmlLang property.
+     * xmlLangプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -444,7 +444,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the base property.
+     * baseプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -456,7 +456,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the base property.
+     * baseプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -468,7 +468,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the remap property.
+     * remapプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -480,7 +480,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the remap property.
+     * remapプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -492,7 +492,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the xreflabel property.
+     * xreflabelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -504,7 +504,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the xreflabel property.
+     * xreflabelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -516,7 +516,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the revisionflag property.
+     * revisionflagプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -528,7 +528,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the revisionflag property.
+     * revisionflagプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -540,7 +540,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the dir property.
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -552,7 +552,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the dir property.
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -564,7 +564,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the arch property.
+     * archプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -576,7 +576,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the arch property.
+     * archプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -588,7 +588,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the audience property.
+     * audienceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -600,7 +600,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the audience property.
+     * audienceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -612,7 +612,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the condition property.
+     * conditionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -624,7 +624,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the condition property.
+     * conditionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -636,7 +636,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the conformance property.
+     * conformanceプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -648,7 +648,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the conformance property.
+     * conformanceプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -660,7 +660,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the os property.
+     * osプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -672,7 +672,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the os property.
+     * osプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -684,7 +684,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the commonRevision property.
+     * commonRevisionプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -696,7 +696,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the commonRevision property.
+     * commonRevisionプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -708,7 +708,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the security property.
+     * securityプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -720,7 +720,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the security property.
+     * securityプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -732,7 +732,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the userlevel property.
+     * userlevelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -744,7 +744,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the userlevel property.
+     * userlevelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -756,7 +756,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the vendor property.
+     * vendorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -768,7 +768,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the vendor property.
+     * vendorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -780,7 +780,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the wordsize property.
+     * wordsizeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -792,7 +792,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the wordsize property.
+     * wordsizeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -804,7 +804,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the annotations property.
+     * annotationsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -816,7 +816,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the annotations property.
+     * annotationsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -828,7 +828,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Gets the value of the linkend property.
+     * linkendプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -840,7 +840,7 @@ public class Bibliomixed {
     }
 
     /**
-     * Sets the value of the linkend property.
+     * linkendプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is

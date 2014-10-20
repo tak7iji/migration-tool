@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Category complex type.
+ * <p>Category complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType name="Category">
@@ -49,7 +49,7 @@ public class Category {
     protected boolean appropriate;
 
     /**
-     * Gets the value of the categoryName property.
+     * categoryNameプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -61,7 +61,7 @@ public class Category {
     }
 
     /**
-     * Sets the value of the categoryName property.
+     * categoryNameプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -102,7 +102,7 @@ public class Category {
     }
 
     /**
-     * Gets the value of the categoryId property.
+     * categoryIdプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -114,7 +114,7 @@ public class Category {
     }
 
     /**
-     * Sets the value of the categoryId property.
+     * categoryIdプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -126,7 +126,7 @@ public class Category {
     }
 
     /**
-     * Gets the value of the appropriate property.
+     * appropriateプロパティの値を取得します。
      * 
      */
     public boolean isAppropriate() {
@@ -134,7 +134,7 @@ public class Category {
     }
 
     /**
-     * Sets the value of the appropriate property.
+     * appropriateプロパティの値を設定します。
      * 
      */
     public void setAppropriate(boolean value) {

@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
@@ -50,7 +50,7 @@ public class PortabilitySearchModule {
     protected PortabilitySearchModule.SearchModuleList searchModuleList;
 
     /**
-     * Gets the value of the searchModuleList property.
+     * searchModuleListプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -62,7 +62,7 @@ public class PortabilitySearchModule {
     }
 
     /**
-     * Sets the value of the searchModuleList property.
+     * searchModuleListプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -75,9 +75,9 @@ public class PortabilitySearchModule {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>anonymous complex typeのJavaクラス。
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
      * 
      * <pre>
      * &lt;complexType>
