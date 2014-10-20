@@ -837,14 +837,7 @@ public class WSearchBizDomain {
      * 
      */
     public void showResults() {
-        Display.getDefault().asyncExec(new Runnable() {
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void run() {
-                // Open the editor
+        Display.getDefault().asyncExec(() -> {
                 try {
                     String filePath = outputDirPath + File.separator
                             + ResourceUtil.RESULT_FILE_NAME;
@@ -865,6 +858,6 @@ public class WSearchBizDomain {
                     Activator.log(e);
                 }
             }
-        });
+        );
     }
 }

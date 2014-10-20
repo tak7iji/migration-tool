@@ -6,16 +6,16 @@
 	<version>1.0.1.qualifier</version>
 	<packaging>eclipse-plugin</packaging>
 	<properties>
-		<tycho-version>0.18.1</tycho-version>
+		<tycho-version>0.21.0</tycho-version>
 	</properties>
 
 	<repositories>
-		<!-- add Juno repository to resolve dependencies -->
-		<repository>
-			<id>Kepler</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler/</url>
-		</repository>
+        <!-- add Luna repository to resolve dependencies -->
+        <repository>
+            <id>Luna</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/releases/luna/</url>
+        </repository>
 	</repositories>
 	<build>
 		<plugins>
