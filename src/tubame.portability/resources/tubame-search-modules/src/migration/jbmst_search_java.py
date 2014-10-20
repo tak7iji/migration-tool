@@ -91,13 +91,25 @@ def search_open_file(pSearchFile,pSearchStr):
     current_line_status = "NONE"
     line_count = 0
     line_count_list = []
+    start_with_atmark = False
     
     # Open the search files
     f = open(pSearchFile, "r")
+    
+    if re.search('^@', pSearchStr):
+        start_with_atmark = True
+    
     for line in f:
         line_count += 1
         # Determine the type of sentence
         line_status = isSingleComment(line)
+        
+        if (start_with_atmark == True):
+            m = re.findall(pSearchStr,line)
+            if m:
+                for hit in m:
+                    line_count_list.append(line_count)
+            continue
 
         # Distributes the processing according to the type of sentence
         if ( current_line_status == MULTI_COMMENT):

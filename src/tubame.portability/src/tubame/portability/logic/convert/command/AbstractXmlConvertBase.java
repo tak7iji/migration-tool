@@ -260,7 +260,7 @@ public abstract class AbstractXmlConvertBase implements Convertor {
      */
     public String getXmlDocumentType(String xmlFileName) {
         // Setting the DOCTYPE
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         if (xmlFileName.equals(JBOSS_XML_FILENAME)) {
             sb.append("" + "<?xml version=\"1.0\"?>");
             sb.append(StringUtil.LINE_SEPARATOR);

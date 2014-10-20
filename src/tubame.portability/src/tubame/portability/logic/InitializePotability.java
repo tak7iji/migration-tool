@@ -64,17 +64,12 @@ public class InitializePotability {
         // Only for the initialization process, the argument set to 1 processing
         latch = new CountDownLatch(1);
         // To develop and execute a thread
-        new Thread(new Runnable() {
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void run() {
+        new Thread(() -> {
                 // Background processing
                 InitializePotability.init();
-                // Countdown initialization process is complete
+                // Count down initialization process is complete
                 InitializePotability.getLatch().countDown();
             }
-        }).start();
+        ).start();
     }
 }

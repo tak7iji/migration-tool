@@ -19,7 +19,16 @@
 package tubame.portability.plugin.editor;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.ToIntBiFunction;
+import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
 
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -32,7 +41,11 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.portability.model.DifficultyEnum;
+import tubame.portability.model.JbmEditorEnum;
 import tubame.portability.model.JbmEditorMigrationRow;
+import tubame.portability.plugin.action.ConfirmItemChangeAction;
+import tubame.portability.util.StringUtil;
 
 /**
  * The ascending or descending order for the column below.<br/>
@@ -44,8 +57,9 @@ import tubame.portability.model.JbmEditorMigrationRow;
  * (porting required))<br/>
  * Bearings situation (unconfirmed> confirmed (on transplant)> Confirmed
  * (porting required))<br/>
+ * @param <U>
  */
-public class JbmEditorSortListener implements SelectionListener {
+public class JbmEditorSortListener<U> implements SelectionListener {
     /**
      * Logger
      */
@@ -122,13 +136,113 @@ public class JbmEditorSortListener implements SelectionListener {
      */
     private void sort(TreeColumn column, Tree tree, TreeItem[] treeItems,
             int numOfColumns, int columnIndex) {
-        boolean isAsc = false;
-        if (sortType == SWT.UP) {
-            isAsc = true;
-        }
+//        boolean isAsc = false;
+//        if (sortType == SWT.UP) {
+//            isAsc = true;
+//        }
         tree.setSortDirection(sortType);
-        Arrays.sort(treeItems, new JbmEditorComparator(isAsc, column.getText(),
-                columnIndex));
+//        Arrays.sort(treeItems, new JbmEditorComparator(isAsc, column.getText(),
+//                columnIndex));
+        Function<TreeItem, Object> keyExtractor = t -> {
+            String keyString = t.getText(columnIndex).trim();
+            Object key = keyString;
+            switch(JbmEditorEnum.get(columnIndex)) {
+            case INDEX_NO:
+                break;
+            case HIT_NUM:
+                key = Integer.valueOf(keyString);
+                break;
+            case DIFFICULTY:
+                key = DifficultyEnum.get(keyString).getSortWeight();
+                break;
+            case VISUAL_CONFIRM_STATSU_ITEM:
+            case HIARING_STATUS:
+                key = ConfirmItemChangeAction.OK.equals(keyString) ? 1 : 0;
+                break;
+            case LINE_NUM:
+                ToIntFunction<String> ti = s -> {
+                    try {
+                        return Integer.valueOf(s);
+                    } catch (NumberFormatException ex) {
+                        return -1;
+                    }
+                };
+                
+                key = Optional.ofNullable(keyString).map(s -> ti.applyAsInt(s)).orElse(-1);
+                break;
+            }
+            return key;
+        };
+        
+        ToIntBiFunction<String, String> numComparator = (v1, v2) -> {
+            // null, blank check
+            boolean isNullOrEmpty1 = Optional.ofNullable(v1).orElse("").equals("");
+            boolean isNullOrEmpty2 = Optional.ofNullable(v2).orElse("").equals("");
+            if (isNullOrEmpty1 | isNullOrEmpty2) {
+                return Boolean.compare(isNullOrEmpty2, isNullOrEmpty1);
+            }
+
+            // Separated by a hyphen-separated
+            String[] temp1 = v1.split(StringUtil.HYPHEN);
+            String[] temp2 = v2.split(StringUtil.HYPHEN);
+
+            // Compare chapter number
+            if (!temp1[0].equals(temp2[0])) {
+                // Chapter number is a mismatch
+                // Comparison by dividing a period separated the chapter number
+                String[] chapNo1 = temp1[0].split("\\.");
+                String[] chapNo2 = temp2[0].split("\\.");
+                int len = chapNo1.length <= chapNo2.length ? chapNo1.length
+                        : chapNo2.length;
+                for (int i = 0; i < len; i++) {
+                    int ret = Integer.compare(Integer.parseInt(chapNo1[i]),
+                            Integer.parseInt(chapNo2[i]));
+                    if (ret != 0) {
+                        return ret;
+                    }
+                }
+                if (chapNo1.length < chapNo2.length) {
+                    // If the chapter number of Target 1 is short, Target 2 is large
+                    return -1;
+                } else if (chapNo1.length > chapNo2.length) {
+                    // If the chapter number of Target 2 is shorter, Target 1 is
+                    // greater
+                    return 1;
+                }
+            } else {
+                // Chapter numbers match
+                // Compare lower No
+                int len = temp1.length <= temp2.length ? temp1.length
+                        : temp2.length;
+                for (int i = 1; i < len; i++) {
+                    int ret = Integer.compare(Integer.parseInt(temp1[i]),
+                            Integer.parseInt(temp2[i]));
+                    if (ret != 0) {
+                        return ret;
+                    }
+                }
+                if (temp1.length < temp2.length) {
+                    // If Target 1 is short, Target 2 is large
+                    return -1;
+                } else if (temp1.length > temp2.length) {
+                    // If Target 2 is a short, Target 1 is greater
+                    return 1;
+                }
+            }
+
+            // Exact match
+            return 0;
+        };
+        
+        Comparator comp2 = Comparator.comparing(keyExtractor, (v1, v2) -> {
+            if(v1 instanceof Integer) {
+                return Integer.compare((Integer)v1, (Integer)v2);
+            }
+            return numComparator.applyAsInt((String)v1, (String)v2);
+        });
+        
+//        Comparator comp = new JbmEditorComparator(column.getText(), columnIndex);
+        Arrays.sort(treeItems, sortType == SWT.UP ? comp2.reversed() : comp2);
 
         TreeViewer treeViewer = editorOperation.getTreeViewer();
         // Reflected in the tree treeItems that are sorted

@@ -427,7 +427,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 					}
 					return result;
 				}
-			}, IResource.DEPTH_INFINITE, false);
+			}, IResource.DEPTH_ONE, false);
 		} catch (CoreException e) {
 		}
 		knowhowText.select(0);

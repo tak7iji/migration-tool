@@ -18,16 +18,25 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Iterator;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.WorkbenchException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -104,6 +113,8 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
     public String getRunComplete() {
         return MessageUtil.INF_SEARCH_COMPLETE;
     }
+    
+    private IProject project;
 
     /**
      * Constructor.<br/>
@@ -116,7 +127,8 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
     public JbmSearchWizard(IWorkbenchWindow window, IResource resource) {
         super();
         jbmSearchSelectionPage = new JbmSearchSelectionPage(resource);
-        projectPath = resource.getProject().getLocation().toOSString() + FileUtil.FILE_SEPARATOR;
+        project = resource.getProject();
+        projectPath = project.getLocation().toOSString() + FileUtil.FILE_SEPARATOR;
         LOGGER.info("Selected Project: "+projectPath);
         super.setWindowTitle(ResourceUtil.DIALOG_SEARCH);
     }
@@ -147,6 +159,8 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
             LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_START,
                     MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
 
+            String outFilePath = PluginUtil.getFileFullPath(jbmSearchSelectionPage
+                    .getOutJbmFileText());
             // Close the file with the same name that is already open
             PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
 
@@ -163,17 +177,24 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
                     PluginUtil.getFileFullPath(jbmSearchSelectionPage
                             .getTargetText()),
                     this.projectPath + ApplicationPropertyUtil.SEARCH_KEYWORD_FILE,
-                    PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                            .getOutJbmFileText()), projectPath);
+                    outFilePath, projectPath);
             ProgressMonitorDialog dialog = new ProgressMonitorDialog(
                     PluginUtil.getActiveWorkbenchShell());
+            LOGGER.info("Dialog run start.");
             dialog.run(true, true, progress);
+            LOGGER.info("Dialog run end.");
             if (progress.isFileOut()) {
                 // Refresh
+            	LOGGER.info("Output File Path: "+outFilePath);
+            	LOGGER.info("Output File Path: "+jbmSearchSelectionPage.getOutJbmFileText());
+//                getIFile(outFilePath);
+                LOGGER.info("Refresh Workspace");
                 PluginUtil.refreshWorkSpace(dialog.getProgressMonitor());
                 // Open Perspective
+                LOGGER.info("Open Search Perspective");
                 PluginUtil.openSeachPerspective();
                 // Open the editor
+                LOGGER.info("Open Editor");
                 PluginUtil.openEditor(
                         jbmSearchSelectionPage.getOutJbmFileText(),
                         PluginUtil.getSearchEditorId());
@@ -206,7 +227,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
             PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()
                     + StringUtil.LINE_SEPARATOR + e.getMessage(), e);
             return false;
-        } catch (WorkbenchException e) {
+        } catch (CoreException e) {
             LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END_P,
                     MessageUtil.LOG_INFO_PROC_NAME_SEARCH,
                     MessageUtil.ERR_SEARCH_PERSPECTIVE_OPEN), e);
@@ -225,7 +246,40 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
         return true;
     }
 
-    /**
+    private void getIFile(String outFilePath) throws IOException, CoreException {
+    	Path path = Paths.get(jbmSearchSelectionPage.getOutJbmFileText());
+    	Iterator<Path> iter = path.iterator();
+    	iter.next();
+    	IResource parent = project;
+    	IFile result;
+    	while(iter.hasNext()) {
+    		String pathElem = iter.next().toString();
+    		if(pathElem.endsWith(".jbm")) {
+    			if(parent instanceof IProject) {
+        			result = ((IProject)parent).getFile(pathElem);
+    			} else {
+    				result = ((IFolder)parent).getFile(pathElem);
+    			}
+    			if(!result.exists()) {
+                    InputStream stream = Files.newInputStream(Paths.get(outFilePath));
+                    result.create(stream, IResource.FORCE, null);
+    			}
+    		} else {
+    			IFolder tmp;
+    			if(parent instanceof IProject) {
+    				tmp = ((IProject)parent).getFolder(pathElem);
+    			} else {
+    				tmp = ((IFolder)parent).getFolder(pathElem);
+    			}
+    			if(!tmp.exists()) {
+    				tmp.create(IResource.NONE, true, null);
+    			}
+    			parent = tmp;
+    		}
+    	}
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override

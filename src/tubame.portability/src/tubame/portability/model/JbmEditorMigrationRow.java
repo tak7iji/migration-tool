@@ -18,6 +18,7 @@
  */
 package tubame.portability.model;
 
+import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -966,7 +967,7 @@ public class JbmEditorMigrationRow implements MigrationEditorRow {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        CharBuffer sb = CharBuffer.allocate(1024);
         sb.append(getNo());
         sb.append(StringUtil.CSV_DELIMITER);
         sb.append(getFileName());

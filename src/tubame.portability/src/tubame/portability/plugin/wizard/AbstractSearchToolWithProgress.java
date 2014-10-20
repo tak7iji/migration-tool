@@ -203,6 +203,7 @@ public abstract class AbstractSearchToolWithProgress implements
                         lineList);
                 isFileOut = true;
             }
+            LOGGER.info("Search Complete!");
         } catch (IOException e) {
             // Read IO failure
             JbmException je = new JbmException(e, LOGGER, ERROR_LEVEL.ERROR,
@@ -288,7 +289,7 @@ public abstract class AbstractSearchToolWithProgress implements
             if (isTargetFilePath(line)) {
                 continue;
             } else if (isLineOfFileName(line)) {
-                StringBuffer addColums = createAddColums(line);
+                StringBuilder addColums = createAddColums(line);
                 lineList.add(line + addColums.toString());
             } else {
                 String message = ResourceUtil.SEARCH_PROGRESS + line;
@@ -305,7 +306,7 @@ public abstract class AbstractSearchToolWithProgress implements
      *            Return value from Python
      * @return Add string
      */
-    protected StringBuffer createAddColums(String line) {
+    protected StringBuilder createAddColums(String line) {
         CheckListInformationFactory
                 .getCheckListInformationFacade().setProjectPath(this.projectPath);
 
@@ -339,7 +340,7 @@ public abstract class AbstractSearchToolWithProgress implements
         // Add the initial value data of the check list for the Python execution
         // result,
         // to set the null at read the CSV
-        StringBuffer addColums = new StringBuffer();
+        StringBuilder addColums = new StringBuilder();
         addColums.append(StringUtil.CSV_DELIMITER);
         addColums.append(factor);
         addColums.append(StringUtil.CSV_DELIMITER);

@@ -286,7 +286,7 @@ public class ConvertWithProgress implements IRunnableWithProgress {
      * @return Relative path
      */
     private String createOutputRelativeFolder(String root, String number) {
-        StringBuffer string = new StringBuffer();
+        StringBuilder string = new StringBuilder();
         // String outputBaseFull = fileSelectionPage.getOutputFolderBase()
         // .getLocation().toOSString();
         // String top = fileSelectionPage.getOutputFolderBase().getProject()

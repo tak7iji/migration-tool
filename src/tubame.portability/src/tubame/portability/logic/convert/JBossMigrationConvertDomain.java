@@ -148,7 +148,7 @@ public class JBossMigrationConvertDomain extends AbstractConvertDomain {
             String targetPath = containerFullPath + FileUtil.FILE_SEPARATOR
                     + target.getTargetFile();
 
-            StringBuffer convertPath = new StringBuffer();
+            StringBuilder convertPath = new StringBuilder();
             convertPath.append(outputFolderRelativePath);
             convertPath.append(FileUtil.FILE_SEPARATOR);
             convertPath.append(target.getTargetFile());

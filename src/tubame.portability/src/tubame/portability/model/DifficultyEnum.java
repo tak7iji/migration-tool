@@ -153,7 +153,7 @@ public enum DifficultyEnum {
      *             Plug-in folder acquisition failure
      */
     private String getPath() throws IOException {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(256);
         sb.append(PluginUtil.getPluginDir());
         sb.append(FileUtil.FILE_SEPARATOR);
         sb.append(DifficultyEnum.ICON_PATH);

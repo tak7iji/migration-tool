@@ -106,7 +106,7 @@ public class ConvertSearchToolWithProgress extends
      * {@inheritDoc}
      */
     @Override
-    protected StringBuffer createAddColums(String line) {
+    protected StringBuilder createAddColums(String line) {
         String factor = ""; // Porting factor
         String detail = ""; // Degree of difficulty
         String lineNum = ""; // Number of lines
@@ -116,7 +116,7 @@ public class ConvertSearchToolWithProgress extends
         // Add the initial value data of the check list for the Python execution
         // result,
         // to set the null at read the CSV
-        StringBuffer addColums = new StringBuffer();
+        StringBuilder addColums = new StringBuilder();
         addColums.append(StringUtil.CSV_DELIMITER);
         addColums.append(factor);
         addColums.append(StringUtil.CSV_DELIMITER);

@@ -19,6 +19,7 @@
 package tubame.portability.plugin.editor;
 
 import java.io.File;
+import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,7 +160,7 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
     @Override
     public void doSave(IProgressMonitor monitor) {
         // Get the path to the file you want to save
-        StringBuilder sb = new StringBuilder();
+        CharBuffer sb = CharBuffer.allocate(1024);
         sb.append(EditorUtil.getWorkSpace(this));
         sb.append(EditorUtil.getEditorOpenFileFullPath(this));
         if (save(sb.toString(), getTreeViewer())) {

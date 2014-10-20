@@ -71,7 +71,7 @@ public class GuideViewFacade {
      * @return HTML guide path
      */
     private static String createUrlPath(String guideFilePath, String guideNo) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(256);
         sb.append("file://"); //$NON-NLS-1$
         sb.append(guideFilePath);
         sb.append("#tubame_"); //$NON-NLS-1$
