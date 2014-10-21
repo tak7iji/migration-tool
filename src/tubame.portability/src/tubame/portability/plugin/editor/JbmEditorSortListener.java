@@ -19,16 +19,14 @@
 package tubame.portability.plugin.editor;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.function.ToIntBiFunction;
 import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -143,7 +141,7 @@ public class JbmEditorSortListener<U> implements SelectionListener {
         tree.setSortDirection(sortType);
 //        Arrays.sort(treeItems, new JbmEditorComparator(isAsc, column.getText(),
 //                columnIndex));
-        Function<TreeItem, Object> keyExtractor = t -> {
+        Function<TreeItem, ?> keyExtractor = t -> {
             String keyString = t.getText(columnIndex).trim();
             Object key = keyString;
             switch(JbmEditorEnum.get(columnIndex)) {
@@ -170,10 +168,24 @@ public class JbmEditorSortListener<U> implements SelectionListener {
                 
                 key = Optional.ofNullable(keyString).map(s -> ti.applyAsInt(s)).orElse(-1);
                 break;
+            default:
+                break;
             }
             return key;
         };
         
+        ToIntBiFunction<Integer, String[][]> arrayComparator = (n, a) -> {
+            int len = Integer.min(a[0].length, a[1].length);
+            OptionalInt ret = IntStream
+                    .range(n, len)
+                    .map(i -> Integer.compare(Integer.parseInt(a[0][i]),
+                            Integer.parseInt(a[1][i]))).filter(r -> r != 0)
+                    .findFirst();
+            if (ret.isPresent())
+                return ret.getAsInt();
+            return Integer.compare(a[0].length, a[1].length);
+        };
+
         ToIntBiFunction<String, String> numComparator = (v1, v2) -> {
             // null, blank check
             boolean isNullOrEmpty1 = Optional.ofNullable(v1).orElse("").equals("");
@@ -190,51 +202,17 @@ public class JbmEditorSortListener<U> implements SelectionListener {
             if (!temp1[0].equals(temp2[0])) {
                 // Chapter number is a mismatch
                 // Comparison by dividing a period separated the chapter number
-                String[] chapNo1 = temp1[0].split("\\.");
-                String[] chapNo2 = temp2[0].split("\\.");
-                int len = chapNo1.length <= chapNo2.length ? chapNo1.length
-                        : chapNo2.length;
-                for (int i = 0; i < len; i++) {
-                    int ret = Integer.compare(Integer.parseInt(chapNo1[i]),
-                            Integer.parseInt(chapNo2[i]));
-                    if (ret != 0) {
-                        return ret;
-                    }
-                }
-                if (chapNo1.length < chapNo2.length) {
-                    // If the chapter number of Target 1 is short, Target 2 is large
-                    return -1;
-                } else if (chapNo1.length > chapNo2.length) {
-                    // If the chapter number of Target 2 is shorter, Target 1 is
-                    // greater
-                    return 1;
-                }
+                String[][] a = {temp1[0].split("\\."), temp2[0].split("\\.")};
+                return arrayComparator.applyAsInt(0, a);
             } else {
                 // Chapter numbers match
                 // Compare lower No
-                int len = temp1.length <= temp2.length ? temp1.length
-                        : temp2.length;
-                for (int i = 1; i < len; i++) {
-                    int ret = Integer.compare(Integer.parseInt(temp1[i]),
-                            Integer.parseInt(temp2[i]));
-                    if (ret != 0) {
-                        return ret;
-                    }
-                }
-                if (temp1.length < temp2.length) {
-                    // If Target 1 is short, Target 2 is large
-                    return -1;
-                } else if (temp1.length > temp2.length) {
-                    // If Target 2 is a short, Target 1 is greater
-                    return 1;
-                }
+                String[][] a = {temp1, temp2};
+                return arrayComparator.applyAsInt(1, a);
             }
-
-            // Exact match
-            return 0;
         };
         
-        Comparator comp2 = Comparator.comparing(keyExtractor, (v1, v2) -> {
+        Comparator<TreeItem> comp2 = Comparator.comparing(keyExtractor, (v1, v2) -> {
             if(v1 instanceof Integer) {
                 return Integer.compare((Integer)v1, (Integer)v2);
             }
@@ -246,7 +224,7 @@ public class JbmEditorSortListener<U> implements SelectionListener {
 
         TreeViewer treeViewer = editorOperation.getTreeViewer();
         // Reflected in the tree treeItems that are sorted
-        for (int count = 1; count < treeItems.length; count++) {
+        IntStream.range(1, treeItems.length).forEach(count->{
             TreeItem item = new TreeItem(tree, SWT.NONE);
             item.setText(getColumnValues(treeItems[count], numOfColumns));
             item.setImage(getColumnImages(treeItems[count], numOfColumns));
@@ -254,7 +232,16 @@ public class JbmEditorSortListener<U> implements SelectionListener {
 
             swapTreeItemChild(treeItems, item, count);
             treeItems[count].dispose();
-        }
+        });
+//        for (int count = 1; count < treeItems.length; count++) {
+//            TreeItem item = new TreeItem(tree, SWT.NONE);
+//            item.setText(getColumnValues(treeItems[count], numOfColumns));
+//            item.setImage(getColumnImages(treeItems[count], numOfColumns));
+//            item.setFont(treeItems[count].getFont());
+//
+//            swapTreeItemChild(treeItems, item, count);
+//            treeItems[count].dispose();
+//        }
         // After being sorted, since the the first level only is displayed,
         // is performed the first level minute loop to re-display
         @SuppressWarnings("unchecked")
