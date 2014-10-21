@@ -23,7 +23,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.ToIntBiFunction;
 import java.util.function.ToIntFunction;
 import java.util.stream.IntStream;
@@ -55,6 +57,7 @@ import tubame.portability.util.StringUtil;
  * (porting required))<br/>
  * Bearings situation (unconfirmed> confirmed (on transplant)> Confirmed
  * (porting required))<br/>
+ * 
  * @param <U>
  */
 public class JbmEditorSortListener<U> implements SelectionListener {
@@ -134,17 +137,18 @@ public class JbmEditorSortListener<U> implements SelectionListener {
      */
     private void sort(TreeColumn column, Tree tree, TreeItem[] treeItems,
             int numOfColumns, int columnIndex) {
-//        boolean isAsc = false;
-//        if (sortType == SWT.UP) {
-//            isAsc = true;
-//        }
+        // boolean isAsc = false;
+        // if (sortType == SWT.UP) {
+        // isAsc = true;
+        // }
         tree.setSortDirection(sortType);
-//        Arrays.sort(treeItems, new JbmEditorComparator(isAsc, column.getText(),
-//                columnIndex));
+        // Arrays.sort(treeItems, new JbmEditorComparator(isAsc,
+        // column.getText(),
+        // columnIndex));
         Function<TreeItem, ?> keyExtractor = t -> {
             String keyString = t.getText(columnIndex).trim();
             Object key = keyString;
-            switch(JbmEditorEnum.get(columnIndex)) {
+            switch (JbmEditorEnum.get(columnIndex)) {
             case INDEX_NO:
                 break;
             case HIT_NUM:
@@ -165,66 +169,62 @@ public class JbmEditorSortListener<U> implements SelectionListener {
                         return -1;
                     }
                 };
-                
-                key = Optional.ofNullable(keyString).map(s -> ti.applyAsInt(s)).orElse(-1);
+
+                key = Optional.ofNullable(keyString).map(s -> ti.applyAsInt(s))
+                        .orElse(-1);
                 break;
             default:
                 break;
             }
             return key;
         };
-        
-        ToIntBiFunction<Integer, String[][]> arrayComparator = (n, a) -> {
-            int len = Integer.min(a[0].length, a[1].length);
+
+        ToIntBiFunction<String[], String[]> arrayComparator = (a1, a2) -> {
             OptionalInt ret = IntStream
-                    .range(n, len)
-                    .map(i -> Integer.compare(Integer.parseInt(a[0][i]),
-                            Integer.parseInt(a[1][i]))).filter(r -> r != 0)
+                    .range(0, Integer.min(a1.length, a2.length))
+                    .map(i -> Integer.compare(Integer.parseInt(a1[i]),
+                            Integer.parseInt(a2[i]))).filter(r -> r != 0)
                     .findFirst();
-            if (ret.isPresent())
-                return ret.getAsInt();
-            return Integer.compare(a[0].length, a[1].length);
+            return (ret.isPresent()) ? ret.getAsInt() : Integer.compare(
+                    a1.length, a2.length);
         };
 
         ToIntBiFunction<String, String> numComparator = (v1, v2) -> {
             // null, blank check
-            boolean isNullOrEmpty1 = Optional.ofNullable(v1).orElse("").equals("");
-            boolean isNullOrEmpty2 = Optional.ofNullable(v2).orElse("").equals("");
+            Predicate<String> tester = v -> Optional.ofNullable(v).orElse("").isEmpty();
+            boolean isNullOrEmpty1 = tester.test(v1);
+            boolean isNullOrEmpty2 = tester.test(v2);
             if (isNullOrEmpty1 | isNullOrEmpty2) {
                 return Boolean.compare(isNullOrEmpty2, isNullOrEmpty1);
             }
 
             // Separated by a hyphen-separated
-            String[] temp1 = v1.split(StringUtil.HYPHEN);
-            String[] temp2 = v2.split(StringUtil.HYPHEN);
+            String[] temp1 = v1.split("-");
+            String[] temp2 = v2.split("-");
 
+            BiFunction<Boolean, String[], String[]> conv = (b, a) -> (b) ? a[0]
+                    .split("\\.") : Arrays.copyOfRange(a, 1, a.length);
+            boolean isEql = !temp1[0].equals(temp2[0]);
             // Compare chapter number
-            if (!temp1[0].equals(temp2[0])) {
-                // Chapter number is a mismatch
-                // Comparison by dividing a period separated the chapter number
-                String[][] a = {temp1[0].split("\\."), temp2[0].split("\\.")};
-                return arrayComparator.applyAsInt(0, a);
-            } else {
-                // Chapter numbers match
-                // Compare lower No
-                String[][] a = {temp1, temp2};
-                return arrayComparator.applyAsInt(1, a);
-            }
+            return arrayComparator.applyAsInt(conv.apply(isEql, temp1),
+                    conv.apply(isEql, temp2));
         };
-        
-        Comparator<TreeItem> comp2 = Comparator.comparing(keyExtractor, (v1, v2) -> {
-            if(v1 instanceof Integer) {
-                return Integer.compare((Integer)v1, (Integer)v2);
-            }
-            return numComparator.applyAsInt((String)v1, (String)v2);
-        });
-        
-//        Comparator comp = new JbmEditorComparator(column.getText(), columnIndex);
+
+        Comparator<TreeItem> comp2 = Comparator.comparing(keyExtractor,
+                (v1, v2) -> {
+                    if (v1 instanceof Integer) {
+                        return Integer.compare((Integer) v1, (Integer) v2);
+                    }
+                    return numComparator.applyAsInt((String) v1, (String) v2);
+                });
+
+        // Comparator comp = new JbmEditorComparator(column.getText(),
+        // columnIndex);
         Arrays.sort(treeItems, sortType == SWT.UP ? comp2.reversed() : comp2);
 
         TreeViewer treeViewer = editorOperation.getTreeViewer();
         // Reflected in the tree treeItems that are sorted
-        IntStream.range(1, treeItems.length).forEach(count->{
+        IntStream.range(1, treeItems.length).forEach(count -> {
             TreeItem item = new TreeItem(tree, SWT.NONE);
             item.setText(getColumnValues(treeItems[count], numOfColumns));
             item.setImage(getColumnImages(treeItems[count], numOfColumns));
@@ -233,15 +233,15 @@ public class JbmEditorSortListener<U> implements SelectionListener {
             swapTreeItemChild(treeItems, item, count);
             treeItems[count].dispose();
         });
-//        for (int count = 1; count < treeItems.length; count++) {
-//            TreeItem item = new TreeItem(tree, SWT.NONE);
-//            item.setText(getColumnValues(treeItems[count], numOfColumns));
-//            item.setImage(getColumnImages(treeItems[count], numOfColumns));
-//            item.setFont(treeItems[count].getFont());
-//
-//            swapTreeItemChild(treeItems, item, count);
-//            treeItems[count].dispose();
-//        }
+        // for (int count = 1; count < treeItems.length; count++) {
+        // TreeItem item = new TreeItem(tree, SWT.NONE);
+        // item.setText(getColumnValues(treeItems[count], numOfColumns));
+        // item.setImage(getColumnImages(treeItems[count], numOfColumns));
+        // item.setFont(treeItems[count].getFont());
+        //
+        // swapTreeItemChild(treeItems, item, count);
+        // treeItems[count].dispose();
+        // }
         // After being sorted, since the the first level only is displayed,
         // is performed the first level minute loop to re-display
         @SuppressWarnings("unchecked")
