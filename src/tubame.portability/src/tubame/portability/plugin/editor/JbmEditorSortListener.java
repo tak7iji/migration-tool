@@ -25,6 +25,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.function.ToIntBiFunction;
 import java.util.function.ToIntFunction;
@@ -113,7 +114,8 @@ public class JbmEditorSortListener<U> implements SelectionListener {
         TreeColumn[] columns = tree.getColumns();
         tree.setSortColumn(column);
         int numOfColumns = columns.length;
-        int columnIndex = findColumnIndex(columns, column, numOfColumns);
+        int columnIndex = IntStream.range(0, numOfColumns)
+                .filter(n -> column.equals(columns[n])).findFirst().getAsInt();
         // Determination of the sort type
         setSortType(column.getText());
         // Sort run
@@ -137,14 +139,7 @@ public class JbmEditorSortListener<U> implements SelectionListener {
      */
     private void sort(TreeColumn column, Tree tree, TreeItem[] treeItems,
             int numOfColumns, int columnIndex) {
-        // boolean isAsc = false;
-        // if (sortType == SWT.UP) {
-        // isAsc = true;
-        // }
         tree.setSortDirection(sortType);
-        // Arrays.sort(treeItems, new JbmEditorComparator(isAsc,
-        // column.getText(),
-        // columnIndex));
         Function<TreeItem, ?> keyExtractor = t -> {
             String keyString = t.getText(columnIndex).trim();
             Object key = keyString;
@@ -162,16 +157,13 @@ public class JbmEditorSortListener<U> implements SelectionListener {
                 key = ConfirmItemChangeAction.OK.equals(keyString) ? 1 : 0;
                 break;
             case LINE_NUM:
-                ToIntFunction<String> ti = s -> {
+                key = Optional.ofNullable(keyString).map(s -> {
                     try {
                         return Integer.valueOf(s);
                     } catch (NumberFormatException ex) {
                         return -1;
                     }
-                };
-
-                key = Optional.ofNullable(keyString).map(s -> ti.applyAsInt(s))
-                        .orElse(-1);
+                }).orElse(-1);
                 break;
             default:
                 break;
@@ -191,7 +183,8 @@ public class JbmEditorSortListener<U> implements SelectionListener {
 
         ToIntBiFunction<String, String> numComparator = (v1, v2) -> {
             // null, blank check
-            Predicate<String> tester = v -> Optional.ofNullable(v).orElse("").isEmpty();
+            Predicate<String> tester = v -> Optional.ofNullable(v).orElse("")
+                    .isEmpty();
             boolean isNullOrEmpty1 = tester.test(v1);
             boolean isNullOrEmpty2 = tester.test(v2);
             if (isNullOrEmpty1 | isNullOrEmpty2) {
@@ -218,8 +211,6 @@ public class JbmEditorSortListener<U> implements SelectionListener {
                     return numComparator.applyAsInt((String) v1, (String) v2);
                 });
 
-        // Comparator comp = new JbmEditorComparator(column.getText(),
-        // columnIndex);
         Arrays.sort(treeItems, sortType == SWT.UP ? comp2.reversed() : comp2);
 
         TreeViewer treeViewer = editorOperation.getTreeViewer();
@@ -233,23 +224,12 @@ public class JbmEditorSortListener<U> implements SelectionListener {
             swapTreeItemChild(treeItems, item, count);
             treeItems[count].dispose();
         });
-        // for (int count = 1; count < treeItems.length; count++) {
-        // TreeItem item = new TreeItem(tree, SWT.NONE);
-        // item.setText(getColumnValues(treeItems[count], numOfColumns));
-        // item.setImage(getColumnImages(treeItems[count], numOfColumns));
-        // item.setFont(treeItems[count].getFont());
-        //
-        // swapTreeItemChild(treeItems, item, count);
-        // treeItems[count].dispose();
-        // }
         // After being sorted, since the the first level only is displayed,
         // is performed the first level minute loop to re-display
         @SuppressWarnings("unchecked")
         List<JbmEditorMigrationRow> topList = (List<JbmEditorMigrationRow>) editorOperation
                 .getTreeViewer().getInput();
-        for (JbmEditorMigrationRow row : topList) {
-            treeViewer.refresh(row);
-        }
+        topList.forEach(e -> treeViewer.refresh(e));
     }
 
     /**
@@ -279,11 +259,7 @@ public class JbmEditorSortListener<U> implements SelectionListener {
      * @return One row of data
      */
     private String[] getColumnValues(TreeItem treeItem, int numOfColumns) {
-        String[] values = new String[numOfColumns];
-        for (int count = 0; count < numOfColumns; count++) {
-            values[count] = treeItem.getText(count);
-        }
-        return values;
+        return getColumnData(treeItem, numOfColumns, treeItem::getText);
     }
 
     /**
@@ -296,12 +272,14 @@ public class JbmEditorSortListener<U> implements SelectionListener {
      * @return One row of data
      */
     private Image[] getColumnImages(TreeItem treeItem, int numOfColumns) {
-        Image[] values = new Image[numOfColumns];
-        for (int i = 0; i < numOfColumns; i++) {
-            values[i] = treeItem.getImage(i);
-        }
+        return getColumnData(treeItem, numOfColumns, treeItem::getImage);
 
-        return values;
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T, R> T getColumnData(TreeItem treeItem, int numOfColumns,
+            IntFunction<R> func) {
+        return (T) IntStream.range(0, numOfColumns).mapToObj(func).toArray();
     }
 
     /**
@@ -315,43 +293,17 @@ public class JbmEditorSortListener<U> implements SelectionListener {
     private void setSortType(String clickTargetName) {
         if (clickTargetName.equals(previousValue)) {
             // If the same
-            if (sortType == -1) {
-                // Descending order if it is the first click
+            switch(sortType) {
+            case -1:
+            case SWT.DOWN:
                 sortType = SWT.UP;
-            } else {
-                if (sortType == SWT.DOWN) {
-                    sortType = SWT.UP;
-                } else {
-                    sortType = SWT.DOWN;
-                }
+            default:
+                sortType = SWT.DOWN;
             }
         } else {
             // The descending order if not the same as the previous column
             sortType = SWT.UP;
         }
         previousValue = clickTargetName;
-    }
-
-    /**
-     * Get the Index column number from the name of the column column.<br/>
-     * 
-     * @param columns
-     *            All columns
-     * @param column
-     *            Target column
-     * @param numOfColumns
-     *            Whole number of columns
-     * @return Index number
-     */
-    private int findColumnIndex(TreeColumn[] columns, TreeColumn column,
-            int numOfColumns) {
-        int index = 0;
-        for (int count = 0; count < numOfColumns; count++) {
-            if (column.equals(columns[count])) {
-                index = count;
-                break;
-            }
-        }
-        return index;
     }
 }
