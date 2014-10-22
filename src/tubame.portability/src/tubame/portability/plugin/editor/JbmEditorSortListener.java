@@ -23,12 +23,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
-import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.function.ToIntBiFunction;
-import java.util.function.ToIntFunction;
+import java.util.function.UnaryOperator;
 import java.util.stream.IntStream;
 
 import org.eclipse.jface.viewers.TreeViewer;
@@ -46,7 +44,6 @@ import tubame.portability.model.DifficultyEnum;
 import tubame.portability.model.JbmEditorEnum;
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.action.ConfirmItemChangeAction;
-import tubame.portability.util.StringUtil;
 
 /**
  * The ascending or descending order for the column below.<br/>
@@ -157,13 +154,7 @@ public class JbmEditorSortListener<U> implements SelectionListener {
                 key = ConfirmItemChangeAction.OK.equals(keyString) ? 1 : 0;
                 break;
             case LINE_NUM:
-                key = Optional.ofNullable(keyString).map(s -> {
-                    try {
-                        return Integer.valueOf(s);
-                    } catch (NumberFormatException ex) {
-                        return -1;
-                    }
-                }).orElse(-1);
+                key = Optional.ofNullable(keyString).map(Integer::valueOf).orElse(-1);
                 break;
             default:
                 break;
@@ -195,12 +186,11 @@ public class JbmEditorSortListener<U> implements SelectionListener {
             String[] temp1 = v1.split("-");
             String[] temp2 = v2.split("-");
 
-            BiFunction<Boolean, String[], String[]> conv = (b, a) -> (b) ? a[0]
+            UnaryOperator<String[]> conv = a -> (!temp1[0].equals(temp2[0])) ? a[0]
                     .split("\\.") : Arrays.copyOfRange(a, 1, a.length);
-            boolean isEql = !temp1[0].equals(temp2[0]);
             // Compare chapter number
-            return arrayComparator.applyAsInt(conv.apply(isEql, temp1),
-                    conv.apply(isEql, temp2));
+            return arrayComparator.applyAsInt(conv.apply(temp1),
+                    conv.apply(temp2));
         };
 
         Comparator<TreeItem> comp2 = Comparator.comparing(keyExtractor,
@@ -215,15 +205,18 @@ public class JbmEditorSortListener<U> implements SelectionListener {
 
         TreeViewer treeViewer = editorOperation.getTreeViewer();
         // Reflected in the tree treeItems that are sorted
-        IntStream.range(1, treeItems.length).forEach(count -> {
-            TreeItem item = new TreeItem(tree, SWT.NONE);
-            item.setText(getColumnValues(treeItems[count], numOfColumns));
-            item.setImage(getColumnImages(treeItems[count], numOfColumns));
-            item.setFont(treeItems[count].getFont());
+        Arrays.stream(treeItems).forEach(
+                t -> {
+                    TreeItem item = new TreeItem(tree, SWT.NONE);
+                    item.setText(IntStream.range(0, numOfColumns)
+                            .mapToObj(t::getText).toArray(String[]::new));
+                    item.setImage(IntStream.range(0, numOfColumns)
+                            .mapToObj(t::getImage).toArray(Image[]::new));
+                    item.setFont(t.getFont());
 
-            swapTreeItemChild(treeItems, item, count);
-            treeItems[count].dispose();
-        });
+                    swapTreeItemChild(t, item);
+                    t.dispose();
+                });
         // After being sorted, since the the first level only is displayed,
         // is performed the first level minute loop to re-display
         @SuppressWarnings("unchecked")
@@ -242,44 +235,10 @@ public class JbmEditorSortListener<U> implements SelectionListener {
      * @param count
      *            Counter value
      */
-    private void swapTreeItemChild(TreeItem[] treeItems,
-            TreeItem treeItemParent, int count) {
-        treeItemParent.setData(treeItems[count].getData());
+    private void swapTreeItemChild(TreeItem treeItem, TreeItem treeItemParent) {
+        treeItemParent.setData(treeItem.getData());
         new TreeItem(treeItemParent, SWT.NONE);
         return;
-    }
-
-    /**
-     * Get a column value display information in the tree.<br/>
-     * 
-     * @param treeItem
-     *            Tree items
-     * @param numOfColumns
-     *            Column total number
-     * @return One row of data
-     */
-    private String[] getColumnValues(TreeItem treeItem, int numOfColumns) {
-        return getColumnData(treeItem, numOfColumns, treeItem::getText);
-    }
-
-    /**
-     * Get the column display image information of the tree.<br/>
-     * 
-     * @param treeItem
-     *            Tree items
-     * @param numOfColumns
-     *            Column total number
-     * @return One row of data
-     */
-    private Image[] getColumnImages(TreeItem treeItem, int numOfColumns) {
-        return getColumnData(treeItem, numOfColumns, treeItem::getImage);
-
-    }
-
-    @SuppressWarnings("unchecked")
-    private <T, R> T getColumnData(TreeItem treeItem, int numOfColumns,
-            IntFunction<R> func) {
-        return (T) IntStream.range(0, numOfColumns).mapToObj(func).toArray();
     }
 
     /**
@@ -293,12 +252,15 @@ public class JbmEditorSortListener<U> implements SelectionListener {
     private void setSortType(String clickTargetName) {
         if (clickTargetName.equals(previousValue)) {
             // If the same
-            switch(sortType) {
-            case -1:
-            case SWT.DOWN:
+            if (sortType == -1) {
+                // Descending order if it is the first click
                 sortType = SWT.UP;
-            default:
-                sortType = SWT.DOWN;
+            } else {
+                if (sortType == SWT.DOWN) {
+                    sortType = SWT.UP;
+                } else {
+                    sortType = SWT.DOWN;
+                }
             }
         } else {
             // The descending order if not the same as the previous column
